@@ -382,7 +382,7 @@ header {
 }
 
 body {
-  padding-top: 80px; /* tùy chiều cao menu */
+  padding-top: 70px; /* tùy chiều cao menu */
   margin: 0;
 }
 /* Artwork section */
@@ -526,3 +526,4 @@ a.art-card {
     justify-content: flex-end; /* đẩy nút sang phải */
     margin-top: 10px; /* khoảng cách với các card */
 }
+
