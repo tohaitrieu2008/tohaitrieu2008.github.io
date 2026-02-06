@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Giới thiệu bản thân</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Times New Roman", serif;
+}
+
+/* MENU */
+.menu{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:black;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    z-index:1000;
+}
+.menu .logo{
+    color:pink;
+    font-size:20px;
+    font-weight:bold;
+}
+.menu ul{
+    list-style:none;
+    display:flex;
+}
+.menu ul li{
+    margin-left:25px;
+}
+.menu ul li a{
+    color:pink;
+    text-decoration:none;
+}
+.menu ul li a:hover{
+    text-decoration:underline;
+}
+
+/* BANNER */
+.banner{
+    height:100vh;
+    background:url("z7504408653833_e4b1592e09cd928d7dc009984cde7054 - Copy.jpg") no-repeat center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.banner-content{
+    background:rgba(0,128,0,0.7);
+    padding:40px;
+    border-radius:10px;
+    text-align:center;
+    animation:fadeIn 2s;
+}
+.banner-content h1{
+    font-size:60px;
+    color:white;
+    text-shadow:0 0 10px white,0 0 30px pink;
+}
+.banner-content p{
+    font-size:20px;
+    color:white;
+}
+
+/* SECTION */
+.section{
+    padding:80px 10%;
+    text-align:center;
+}
+.section h2{
+    font-size:36px;
+    margin-bottom:30px;
+}
+.dark{
+    background:#111;
+    color:pink;
+}
+
+/* ABOUT */
+.about-content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+}
+.about-content img{
+    width:220px;
+    border-radius:50%;
+    transition:0.5s;
+}
+.about-content img:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 30px pink;
+}
+.about-content .text{
+    max-width:500px;
+    text-align:left;
+    font-size:18px;
+}
+
+/* SKILLS */
+.skills{
+    list-style:none;
+    font-size:20px;
+}
+.skills li{
+    margin:15px 0;
+}
+
+/* MEMORY */
+.memory-text{
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:40px;
+}
+.memory-gallery{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+.memory-gallery img{
+    width:260px;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:0.5s;
+}
+.memory-gallery img:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 30px pink;
+}
+
+/* FOOTER */
+.footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* HOA RƠI */
+.flowers{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:999;
+}
+.flowers span{
+    position:absolute;
+    top:-10%;
+    font-size:25px;
+    animation:fall linear infinite;
+}
+.flowers span:nth-child(1){left:10%;animation-duration:8s;}
+.flowers span:nth-child(2){left:25%;animation-duration:10s;}
+.flowers span:nth-child(3){left:40%;animation-duration:7s;}
+.flowers span:nth-child(4){left:55%;animation-duration:11s;}
+.flowers span:nth-child(5){left:70%;animation-duration:9s;}
+.flowers span:nth-child(6){left:85%;animation-duration:12s;}
+
+@keyframes fall{
+    from{transform:translateY(0) rotate(0deg);}
+    to{transform:translateY(120vh) rotate(360deg);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="We Don't Talk Anymore.mp3" type="audio/mp3">
+</audio>
+
+<div class="flowers">
+    <span>🌸</span><span>🌺</span><span>🌸</span>
+    <span>🌼</span><span>🌸</span><span>🌺</span>
+</div>
+
+<div class="menu">
+    <div class="logo">MY PROFILE</div>
+    <ul>
+        <li><a href="#home">Trang chủ</a></li>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#skills">Ước mơ</a></li>
+        <li><a href="#memory">Kỷ niệm</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+    </ul>
+</div>
+
+<div class="banner" id="home">
+    <div class="banner-content">
+        <h1>Welcome to My World</h1>
+        <p>Những điều bạn chưa biết về mình</p>
+    </div>
+</div>
+
+<div class="section" id="about">
+    <h2>Giới thiệu bản thân</h2>
+    <div class="about-content">
+        <img src="z7493976599601_27351898978f6069cb0d01c4ea1ab95c.jpg">
+        <div class="text">
+            <p><b>Họ và tên:</b> Thanh Nhã</p>
+            <p><b>Lớp:</b> 12</p>
+            <p><b>Sở thích:</b> Nghe nhạc, xem phim, du lịch</p>
+            <p>"Hãy quay về phía mặt trời và bạn sẽ không thấy bóng tối."</p>
+        </div>
+    </div>
+</div>
+
+<div class="section dark" id="skills">
+    <h2>Ước mơ</h2>
+    <ul class="skills">
+        <li>Có công việc ổn định và thu nhập tốt</li>
+        <li>Đi du lịch nhiều nơi</li>
+        <li>Nấu ăn ngon trong tương lai</li>
+    </ul>
+</div>
+
+<div class="section" id="memory">
+    <h2>Kỷ niệm đáng nhớ</h2>
+    <p class="memory-text">Những năm tháng học sinh là quãng thời gian đẹp nhất.</p>
+    <div class="memory-gallery">
+        <img src="z6614352192759_f6c31a1f2a5324fb2aa2f6df2cb7da59.jpg">
+        <img src="z6613520320081_83045fe535bae7a8ec888625a857df88.jpg">
+        <img src="z7505190123870_bcca98c3fb24c5bbfb8a379bc0459ee5.jpg">
+    </div>
+</div>
+
+<div class="section" id="contact">
+    <h2>Liên hệ</h2>
+    <p>Email: thanhnhatryhard@gmail.com</p>
+    <p>Facebook: Thanh Nhã</p>
+</div>
+
+<div class="footer">
+© 2026 – Thanh Nhã 
+</div>
+
+</body>
+</html>

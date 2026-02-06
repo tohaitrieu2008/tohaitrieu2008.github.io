@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang Cá Nhân Ngân</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family: Arial;
+background: linear-gradient(120deg,#ffd1dc,#c2e9fb);
+}
+
+/* MENU */
+nav{
+position:fixed;
+width:100%;
+background:#ff8fb1;
+padding:15px;
+text-align:center;
+z-index:999;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HEADER */
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(120deg,#ff9a9e,#fad0c4);
+color:white;
+text-align:center;
+}
+
+header img{
+width:300px;
+height:300px;
+object-fit:cover;
+border-radius:15px; /* vuông bo góc nhẹ */
+border:5px solid white;
+image-rendering: -webkit-optimize-contrast;
+}
+
+
+section{
+padding:80px 20px;
+text-align:center;
+}
+
+h2{
+color:#ff6f9f;
+margin-bottom:25px;
+}
+
+/* CARD */
+.card{
+max-width:700px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 15px rgba(0,0,0,0.1);
+line-height:1.6;
+}
+
+/* CHIA SẺ BẢN THÂN */
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+max-width:800px;
+margin:auto;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+border-radius:15px;
+}
+
+/* MẠNG XÃ HỘI */
+.social a{
+display:block;
+margin:10px auto;
+width:250px;
+padding:15px;
+background:white;
+border-radius:30px;
+text-decoration:none;
+color:#ff6f9f;
+font-weight:bold;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.social a:hover{
+background:#ff8fb1;
+color:white;
+}
+
+/* CONTACT */
+input,textarea{
+width:90%;
+padding:12px;
+margin:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:#ff8fb1;
+color:white;
+border-radius:25px;
+cursor:pointer;
+}
+
+footer{
+background:#ff8fb1;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">Giới thiệu</a>
+<a href="#me">Bản thân</a>
+<a href="#gallery">Ảnh</a>
+<a href="#social">Mạng xã hội</a>
+<a href="#contact">Liên hệ</a>
+</nav>
+
+<header id="home">
+<img src="z7494656401471_d865a0e31bfa865174057e6228683591.jpg" alt="">
+<h1>Hoàng Ngân </h1>
+</header>
+
+<!-- GIỚI THIỆU -->
+<section id="about">
+<h2>Giới thiệu</h2>
+<div class="card">
+Xin chào, mình tên là Phạm Hoàng Ngân là học sinh lớp 12A1 tại trường THPT số 2 Phù Cát 
+</div>
+</section>
+
+<!-- CHIA SẺ BẢN THÂN -->
+<section id="me">
+<h2>Chia sẻ về mình</h2>
+
+<div class="info">
+
+<div class="box">
+🎂 Ngày sinh  
+<br> 21/05/2008
+</div>
+
+<div class="box">
+🎀 Sở thích  
+<br> Nghe nhạc, chụp ảnh, nấu ăn, nước ép ổi và đặc biệt là mình thích hát hêhe.
+</div>
+
+<div class="box">
+🌈 Tính cách  
+<br> Vui vẻ, hòa đồng, tích cực và đôi lúc mình hơi cọc cằn.
+</div>
+
+<div class="box">
+💭 Ước mơ  
+<br> Làm công việc mình yêu thích và kiếm được thật nhiều tiền.
+</div>
+
+</div>
+</section>
+
+
+<!-- MẠNG XÃ HỘI -->
+<section id="social">
+<h2>Mạng xã hội mình sử dụng</h2>
+
+<div class="social">
+
+<a href="#">📘 Facebook</a>
+<a href="#">📸 Instagram</a>
+<a href="#">🎵 TikTok</a>
+<a href="#">💬 Zalo</a>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Liên hệ</h2>
+<input placeholder="Phạm Hoàng Ngân">
+<br>
+<input placeholder="phamhoangngan210508@gmail.com">
+<br>
+<textarea rows="4" placeholder="Tin nhắn"></textarea>
+<br>
+<button onclick="alert('Cảm ơn bạn 💌')">Gửi</button>
+</section>
+
+<footer>
+© 2026 - Trang cá nhân của Ngân
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+body { background-color: #ffe6f0;
+    font-family: Arial;}
+
+.gioithieu {width: 600px;
+    background-color: #ffe6f5;
+    padding: 10px;
+     border: 2px solid #ff99cc;
+    display: flex;
+    align-items: center;}
+    .hobby, .friend {
+    display: flex;
+    align-items: center;
+    background-color: #ffe6f0;
+    padding: 10px;
+    border: 2px solid #ff99cc;
+    margin-bottom: 15px;}
+
+.hobby img, .friend img { width: 190px; 
+                         height: 150px;;}
+.music { display: block;
+    margin-top: 5px;}
+audio { display: block;}
+body {
+font-family: Arial;
+    font-size: 18px;
+    line-height: 1.6;
+    background-color: #ffeef5;}
+
+h1 {font-family: Verdana;
+    color: #ff4d88;
+    text-align: center;
+    letter-spacing: 2px;}
+
+h2 {font-family: Verdana;
+    color: #ff6699;
+    margin-top: 30px;}
+
+p {color: #000000;
+    margin-top: 10px;}
+
+
