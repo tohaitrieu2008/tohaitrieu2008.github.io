@@ -1,0 +1,286 @@
+/* ================= RESET & VARIABLES ================= */
+:root {
+    --pink: #ff9acb;
+    --pink-dark: #ff6fae;
+    --text: #2b2b2b;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.75);
+    --blur: blur(18px);
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: url("img/backgroud.png") center/cover fixed no-repeat;
+    line-height: 1.7;
+}
+
+/* ================= GENERAL ================= */
+.chua {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+.tieu-de-phan {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+    color: #f42ab4;
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ================= NAV ================= */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: var(--blur);
+    z-index: 1000;
+}
+
+.dieu-huong-noi {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.lien-ket-dieu-huong {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+}
+
+.lien-ket-dieu-huong a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ================= HERO ================= */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.noi-dung-anh-hung {
+    background: var(--glass);
+    backdrop-filter: var(--blur);
+    padding: 4rem 3rem;
+    border-radius: 35px;
+    box-shadow: var(--shadow);
+}
+
+.tieu-de-anh-hung {
+    font-family: 'Satisfy', cursive;
+    font-size: 4.3rem;
+    color: var(--pink-dark);
+}
+
+.phu-de-anh-hung {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.mang-xa-hoi-anh-hung {
+    margin: 1.8rem 0;
+}
+
+.mang-xa-hoi-anh-hung a {
+    font-size: 1.9rem;
+    margin: 0 12px;
+    color: var(--pink);
+    transition: 0.3s;
+}
+
+.mang-xa-hoi-anh-hung a:hover {
+    transform: scale(1.25);
+}
+
+/* Button */
+.nut {
+    display: inline-block;
+    padding: 12px 34px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nut-chinh {
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+    color: white;
+}
+
+.nut-vien {
+    border: 2px solid var(--pink-dark);
+    color: var(--pink-dark);
+}
+
+.nut:hover {
+    transform: translateY(-4px);
+}
+
+/* ================= ABOUT ================= */
+#about .chua {
+    background: var(--glass);
+    backdrop-filter: var(--blur);
+    border-radius: 35px;
+    padding: 4rem;
+    box-shadow: var(--shadow);
+}
+
+.luoi-gioi-thieu {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.anh-gioi-thieu img {
+    width: 100%;
+    border-radius: 30px;
+}
+
+/* ================= SKILLS ================= */
+#skills .chua {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: var(--blur);
+    border-radius: 35px;
+    padding: 4rem;
+}
+
+.luoi-ky-nang {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.the-ky-nang {
+    background: white;
+    border-radius: 28px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: 0.35s;
+}
+
+.the-ky-nang:hover {
+    transform: translateY(-12px);
+}
+
+.bieu-tuong-ky-nang {
+    font-size: 2.3rem;
+    color: var(--pink-dark);
+    margin-bottom: 1rem;
+}
+
+.tien-do {
+    background: #f3d1e4;
+    height: 8px;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.thanh-tien-do {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink), var(--pink-dark));
+    border-radius: 10px;
+}
+
+/* ================= STRENGTHS ================= */
+.the-manh .chua {
+    background: var(--glass);
+    backdrop-filter: var(--blur);
+    border-radius: 35px;
+    padding: 4rem;
+}
+
+.danh-sach-the-manh {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 25px;
+    display: flex;
+    gap: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.muc-the-manh {
+    color: var(--pink-dark);
+    font-weight: 700;
+}
+
+/* ================= ACTIVITIES ================= */
+#activities .chua {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: var(--blur);
+    border-radius: 35px;
+    padding: 4rem;
+}
+
+.luoi-hoat-dong {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.the-hoat-dong {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: 0.35s;
+}
+
+.the-hoat-dong:hover {
+    transform: translateY(-10px);
+}
+
+.anh-hoat-dong img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.thong-tin-hoat-dong {
+    padding: 1.6rem;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    color: white;
+    padding: 3rem 1rem;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .tieu-de-anh-hung {
+        font-size: 3rem;
+    }
+
+    .luoi-gioi-thieu {
+        grid-template-columns: 1fr;
+    }
+}

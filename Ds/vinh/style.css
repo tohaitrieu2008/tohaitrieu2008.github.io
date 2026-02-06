@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #000000dd;
+}
+
+/* MENU */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fbf9f9;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    background: white;
+    width: 80%;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.image-box {
+    background: #f3d7e8;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.avatar {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* INFO */
+.info {
+    margin-left: 50px;
+}
+
+.info h3 {
+    color: #666;
+}
+
+.info h1 {
+    font-size: 40px;
+    color: #4b3c72;
+}
+
+.job {
+    margin: 10px 0 20px;
+    color: #777;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid #6c63ff;
+    color: #6c63ff;
+    margin-right: 10px;
+}
+
+.btn.primary {
+    background: #6c63ff;
+    color: white;
+}
+
+.social span {
+    font-size: 20px;
+    margin-right: 10px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.text {
+    width: 60%;
+}
+
+.avatar img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}

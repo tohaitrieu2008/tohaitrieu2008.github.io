@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>HaiTrieu</title>
+    <meta name="theme-color" content="#2a1730">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="haitrieu.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="bg-anim">
+        <span style="left:5%;animation-duration:20s"></span>
+        <span style="left:15%;animation-duration:25s"></span>
+        <span style="left:30%;animation-duration:22s"></span>
+        <span style="left:50%;animation-duration:28s"></span>
+        <span style="left:70%;animation-duration:24s"></span>
+        <span style="left:85%;animation-duration:30s"></span>
+        <span style="left:95%;animation-duration:18s"></span>
+    </div>
+
+    <header>
+        <div class="header-logo">HaiTrieu</div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#profile">Profile</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main class="page">
+        <section class="hero-section" id="home">
+            <div class="hero-content">
+                <h1>Hi, I am 
+                    <span class="type-wrap">
+                        <span class="word w1"> HaiTrieu </span>
+                        <span class="word w2"> Maron </span>
+                    </span>
+                </h1>
+                <p class="subtitle">
+                    Tôi đang học tập và khám phá cách xây dựng những trải nghiệm web sáng tạo, 
+                    với niềm yêu thích dành cho thiết kế 3D hiện đại và giao diện đẹp mắt.
+                </p>
+                <div>
+                    <a href="#profile" class="cta-btn">Xem Profile</a>
+                    <a href="#contact" class="cta-btn secondary">Liên Hệ</a>
+                </div>
+            </div>
+            <div class="hero-3d">
+                <div class="computer-3d" id="computer3d">
+                    <div class="monitor">
+                        <div class="screen-code">
+                            const passion = true;<br>
+                            while (alive) {<br>
+                            &nbsp;&nbsp;code();<br>
+                            &nbsp;&nbsp;eat();<br>
+                            &nbsp;&nbsp;sleep();<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-card html">
+                    <span>🎨</span> UI/UX Design
+                </div>
+                <div class="tech-card css">
+                    <span>⚡</span> Convenience
+                </div>
+                <div class="tech-card js">
+                    <span>💻</span> 3D Web
+                </div>
+            </div>
+            <section class="chuot">
+                <div class="mouse-scroll">
+                    <div class="mouse">
+                        <div class="mouse-wheel"></div>
+                    </div>
+                    <div class="scroll-hint">Scroll</div>
+                </div>
+            </section>
+        </section>
+        <section class="profile-section" id="profile">
+            <div class="card" id="tilt-card">
+                <div class="inner-glow">
+                    <span style="left:-60px;top:10%;animation-delay:0s"></span>
+                    <span style="left:30%;top:-100px;animation-delay:3s"></span>
+                    <span style="right:-100px;top:35%;animation-delay:6s"></span>
+                    <span style="left:15%;bottom:-120px;animation-delay:9s"></span>
+                </div>
+                <div class="left">
+                    <div class="watermark typing">HaiTrieu</div>
+                    <h1 class="scroll-reveal text-animation">
+                        HaiTrieu 
+                        <span class="title-accent">About me</span>
+                    </h1>
+                    <p class="subtitle scroll-reveal">
+                        <strong style="color:var(--accent1)">Ngày sinh:</strong> 04/10/2008<br>
+                        <strong style="color:var(--accent1)">Quê quán:</strong> Tỉnh Bình Định<br>
+                        <strong style="color:var(--accent1)">Học tập:</strong> 12A1 - Trường THPT số 2 Phù Cát<br>
+                        <strong style="color:var(--accent1)">Sở thích:</strong> Du lịch, thiết kế, thể thao<br>
+                        <strong style="color:var(--accent1)">Ước mơ:</strong> Trở thành một người bình thường trong vô số những con người bình thường.
+                    </p>
+                    <div class="social-links scroll-reveal">
+                        <a href="https://www.facebook.com/profile.php?id=61581380381544" target="_blank">
+                            <img src="../../Me/fb.webp" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/trieutohai" target="_blank">
+                            <img src="../../Me/ig.webp" alt="Instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@maronhhhzzz" target="_blank">
+                            <img src="../../Me/tiktok.jpg" alt="TikTok">
+                        </a>
+                        <a href="https://zalo.me/0399384245" target="_blank">
+                            <img src="../../Me/Zalo.webp" alt="Zalo">
+                        </a>
+                    </div>
+                </div>
+                <div class="visual scroll-reveal">
+                    <div class="ring"></div>
+                    <img class="character" src="../../Nen/bg.png" alt="HaiTrieu">
+                </div>
+            </div>
+        </section>
+        <section class="skills-section" id="skills">
+            <h2 class="section-title scroll-reveal">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-image">
+                        <img src="../../Me/Webdevelopment.jpg">
+                    </div>
+                    <div class="skill-content">
+                        <h3>Web Development</h3>
+                        <p>HTML5, CSS3, JavaScript, Node.js - Xây dựng website hiện đại.</p>
+                    </div>
+                </div>
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-image">
+                        <img src="../../Me/UIUX.jpg">
+                    </div>
+                    <div class="skill-content">
+                        <h3>UI/UX Design</h3>
+                        <p>Thiết kế giao diện đẹp mắt, trải nghiệm người dùng mượt mà.</p>
+                    </div>
+                </div>
+                <div class="skill-card scroll-reveal">
+                    <div class="skill-image">
+                        <img src="../../Me/videoediting.jpg">
+                    </div>
+                    <div class="skill-content">
+                        <h3>Video Editing</h3>
+                        <p>Chỉnh sửa video sáng tạo, kể chuyện qua hình ảnh động.</p>
+                    </div>
+                </div>
+        </section>
+        <section class="contact-section" id="contact">
+            <div class="contact-form-wrap">
+                <h2 class="contact-title">Liên hệ</h2>
+                <p class="contact-subtitle">Gửi tin nhắn cho mình nếu cần thiết 💜</p>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Họ & tên</label>
+                            <input type="text" placeholder="Tên của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="you@gmail.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom:20px;">
+                        <label>Chủ đề</label>
+                        <input type="text" placeholder="Chủ đề liên hệ">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom:20px;">
+                        <label>Lời nhắn</label>
+                        <textarea placeholder="Nội dung tin nhắn..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Gửi tin nhắn</button>
+                </form>
+            </div>
+        </section>
+        <footer style="text-align:center;padding:40px 20px;color:rgba(255,255,255,0.5);font-size:0.9rem;border-top:1px solid rgba(255,255,255,0.1);margin-top:40px;">
+            <p>© 2026 HaiTrieu. Thanks for watching 💜</p>
+        </footer>
+    </main>
+    <div class="cursor-ring-only"></div>
+    <script src="haitrieu.js"></script>
+</body>
+</html>

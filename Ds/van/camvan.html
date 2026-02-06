@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân </title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+       :root {  --blue: #130bb1;
+    --blue-dark: #150a5f;
+      --bg: #fff5f9;
+    --text: #2d1b24;
+    --gray: #85697f;
+    --white: #ffffff;;
+    --shadow: 0 12px 40px #79d0ff47;
+    --transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);}
+[data-theme="dark"] {  --bg: #127c88;
+    --text: #f9e0ed;
+    --gray: #c89bb3;
+    --white: #2e1b2a;}
+* {margin: 0;padding: 0; box-sizing: border-box;}
+body {font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    transition: var(--transition);}
+
+html {scroll-behavior: smooth;}
+.container {width: min(92%, 1240px);
+    margin: 0 auto;
+    padding: 0 1rem;}
+nav {position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 1.3rem 0;
+    backdrop-filter: blur(12px);
+    transition: var(--transition);}
+nav.scrolled {
+    background: #63b7d3b5;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);}
+[data-theme="dark"] nav.scrolled {background: #100439d9;}
+.nav-inner {display: flex;
+    justify-content: space-between;
+    align-items: center;}
+.logo {font-family: 'Satisfy', cursive;
+    font-size: 2.4rem;
+    color: var(--blue);
+    text-decoration: none;}
+.nav-links {display: flex;
+    gap: 2.2rem;
+    list-style: none;}
+.nav-links a {color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;}
+.nav-links a::after { content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background: var(--blue);
+    transition: width 0.4s ease;}
+.nav-links a:hover::after,
+.nav-links a.active::after {width: 100%;}
+.theme-btn { background: #0d032b39;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: var(--transition);}
+
+.theme-btn:hover {transform: scale(1.1);
+    background: #0f065740;}
+        #hero {min-height: 100vh;
+            display: flex;             
+            align-items: center;      
+            justify-content: center;  
+            padding: 0 10%;           
+            gap: 50px;                
+            position: relative;
+            margin-top: 50px;}
+        .hero-content { flex: 1;
+            text-align: left;}
+        .hero-content h3 { font-size: 1.5rem; font-weight: 600; color: var(--text); }
+        .hero-content h1 {font-size: 3.5rem; font-weight: 800; margin: 10px 0;
+            color: var(--blue); line-height: 1.2;}
+        .hero-content p { font-size: 1.1rem; margin-bottom: 2rem; color: var(--gray); }
+        .hero-image {flex: 1;
+            display: flex; justify-content: center;}
+        .hero-image img {width: 350px; height: 350px;
+            object-fit: cover;
+            border-radius: 50%;       
+            border: 10px solid white;
+            box-shadow: 0 10px 30px #0b47841a;}
+        @media (max-width: 768px) {#hero { flex-direction: column-reverse; text-align: center; padding-top: 100px; }
+            .hero-content { text-align: center; }
+            .hero-image img { width: 250px; height: 250px; margin-bottom: 30px; }}
+
+.btn {display: inline-block;
+    padding: 0.95rem 2.4rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);}
+.btn-primary { background: var(--blue);
+    color: white;}
+
+.btn-outline {border: 2px solid var(--blue);
+    color: var(--blue);}
+.btn:hover {transform: translateY(-6px);
+    box-shadow: var(--shadow);}
+section {padding: 10rem 0;}
+.section-title { font-family: 'Playfair Display', serif;
+    font-size: 3.4rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;}
+.section-title::after { content: '';
+    width: 90px;
+    height: 4px;
+    background: var(--blue);
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;}
+.about-grid { display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 5rem;
+    align-items: center;}
+.about-img {border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);}
+.about-img:hover {transform: translateY(-12px);}
+.about-img img { width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.7s ease;}
+.about-img:hover img {transform: scale(1.08);}
+.skills-grid {display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.2rem;}
+.skill-card { background: var(--white);
+    padding: 2.4rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px #12058a1f;
+    transition: var(--transition);
+    border: 1px solid #0d467226;}
+[data-theme="dark"] .skill-card {background: #05265c99;
+    border-color: rgba(10, 5, 105, 0.25);}
+.skill-card:hover { transform: translateY(-14px);
+    box-shadow: var(--shadow);}
+.skill-icon { font-size: 3rem;
+    color: var(--blue);
+    margin-bottom: 1.2rem;}
+.progress-bar {height: 8px;
+    background: linear-gradient(90deg, var(--blue), #0e39a5);
+    width: 0;
+    transition: width 1.6s ease-out;
+    border-radius: 4px;}
+.progress {height: 8px;
+    background: #25047f26;
+    border-radius: 4px;
+    margin-top: 1rem;
+    overflow: hidden;}
+.activities-grid {display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2.5rem;}
+.activity-card { background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px #06636814;
+    transition: var(--transition);}
+[data-theme="dark"] .activity-card {
+    background: rgba(10, 104, 128, 0.6);}
+.activity-card:hover {transform: translateY(-16px);
+    box-shadow: var(--shadow);}
+.activity-img {height: 220px;
+    overflow: hidden;}
+.activity-img img {width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;}
+.activity-card:hover .activity-img img {transform: scale(1.1);}
+.activity-info {padding: 1.8rem;}
+.tag {background: #0b626d26;
+    color: var(--blue);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;}
+.contact-grid {display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;}
+.contact-form {display: flex;
+    flex-direction: column;
+    gap: 1.4rem;}
+input,textarea { padding: 1.1rem 1.5rem;
+    border: 1px solid #11779c4d;
+    border-radius: 14px;
+    background: var(--white);
+    font-family: inherit;
+    transition: var(--transition);}
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: #0a7c7db3;
+    color: var(--text);
+    border-color: rgba(17, 22, 170, 0.4);}
+input:focus,
+textarea:focus { outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(11, 49, 136, 0.2);}
+textarea {min-height: 150px;}
+footer {background: linear-gradient(135deg, #09398a 0%, #3499be 100%);
+    color: white;
+    padding: 5rem 0 3rem;
+    text-align: center;}
+.socials {display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;}
+.socials a {color: white;
+    font-size: 2rem;
+    transition: var(--transition);}
+.socials a:hover {transform: translateY(-8px);}
+@media (max-width: 1024px) {.about-grid, .contact-grid { grid-template-columns: 1fr;}}
+@media (max-width: 768px) {.nav-links {display: none;}
+.hero-title {font-size: 4.5rem;}}
+    </style>
+    <body data-theme="light">
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">Cẩm Vân</a>
+             <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#Myfavourite">My favourite</a></li>
+                <li><a href="##activities">Memories</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+   <section id="hero">
+        <div class="hero-content">
+            <h3>Xin chào, mình là</h3>
+            <h1>Huỳnh Cẩm Vân</h1>
+            <h3>Học sinh lớp <span style="color:var(--blue)">12A1</span></h3>
+            <p>Cảm ơn bạn đã quan tâm đến góc nhỏ của mình, nơi lưu giữ kỉ niệm tuổi học trò của mình cùng những người bạn.</p>
+            <a href="#about" class="btn btn-primary">More about me</a>
+        </div>
+        <div class="hero-image">
+            <img src="z7484219220562_36f4031ed26f3879e0db9c12627053ca.jpg" alt="Avatar">
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Hello mọi người, mình là Cẩm Vân</h2>
+            <div class="about-grid">
+                <div class="about-img" data-aos="fade-right">
+                    <img src="z7484219232258_550dbb852c90a9abf53757de54c62380.jpg" alt="Cẩm Vân">
+                </div>
+                <div data-aos="fade-left">
+                    <p style="font-size:1.18rem; margin-bottom:1.8rem;">
+                        Xin chào! Mình là <strong>Huỳnh Cẩm Vân</strong>, hiện đang học lớp 12A1 trường THPT số 2 Phù Cát
+                    </p>
+                    <p style="font-size:1.16rem; margin-bottom:1.8rem;">
+                       "Giữa dòng chảy vô tận của thời gian, mình đang nâng niu từng phút giây mong manh và quý giá nhất của tuổi 17 dưới mái trường THPT số 2 Phù Cát.
+                       Có những ngày tháng rực rỡ đến mức, chỉ cần khẽ chạm vào cũng đủ khiến trái tim rung lên những nhịp đập bồi hồi – đó chính là thanh xuân bên tập thể 12A1. Nơi đây không đơn thuần là một lớp học, mà là 'thánh đường' của những giấc mơ trong trẻo, là nơi cất giữ những nụ cười rạng rỡ và cả những giọt nước mắt hồn nhiên của tuổi học trò. Từng khoảnh khắc trôi qua tại đây tựa như những giọt mật ngọt ngào thấm đẫm vào tâm hồn, dệt nên một miền ký ức vĩnh cửu mà dù đi hết cuộc đời, mình cũng chẳng thể nào tìm lại được lần thứ hai."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section id="Myfavourite" style="background:#12a4cc42;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My favourite</h2>
+            <div class="Myfavourite-grid">
+                <div class="Myfavourite-card" data-aos="fade-up">
+                    <div class="Myfavourite-icon"><i class="fas fa-book-reader"></i></div>
+                    <h3>Đọc sách</h3>
+                    <p>Những quyển sách chữa lành của Nguyễn Nhật Ánh</p>
+                    <p>Tâm lí học</p>
+                    <div class="progress"><div class="progress-bar" style="width:65%"></div></div>
+                </div>
+                <div class="Myfavourite-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="Myfavourite-icon"><i class="fas fa-volleyball"></i></div>
+                    <h3>Chơi thể thao</h3>
+                    <p>Mình thích những môn thể thao linh hoạt vận động nhiều và có khả năng chơi bóng chuyền</p>
+                    <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+                </div>
+                <div class="Myfavourite-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="Myfavourite-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Tìm hiểu nhiều thứ mới</h3>
+                    <p>Mình thích tìm kiếm nhiều điều mới từ  thế giới xung quanh</p>
+                    <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section id="activities">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Memories</h2>
+          <div class="activities-grid">
+                <div class="activity-card" data-aos="fade-up">
+                    <div class="activity-img">
+                        <img src="z7498301582597_7e0a914d20c994aea6dcff549a3d40dd.jpg" alt="bc">
+                    </div>
+                 <div class="activity-info">
+                        <h3>Mùa giải bóng chuyền nữ 2025</h3>
+                        <p>Đây là một mùa giải rất đặc biệt với tụi mình, chúng tớ đã cùng nhau tập luyện từ những ngày nắng đến những ngày mưa. Kết quả là đội chúng tớ về nhì, đây là một kết quả ngoài mong đợi của tụi mình. Bức ảnh này không hoàn hảo nhưng chất chứa trong nó là kí ức đẹp ngày hôm đó</p>
+                    </div>
+                </div>
+             <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="activity-img">
+                        <img src="z7498407162111_cfe661b5b52a3426ff347ed9188c260b.jpg" alt="best">
+                    </div>
+                  <div class="activity-info">
+                        <h3>Bạn cùng bàn</h3>
+                        <p>Đây là con bé ngồi cùng bạn với mình, mình mới xác nhận nó trở thành bạn thân của mình rồi. Tụi mình biết đến sự tồn tại của nhau vào năm mới bước vào lớp 10, mình bắt chuyện với con nhỏ này trước tại mình thấy nó hiền nên chắc dễ ăn hiếp,ai ngờ giờ bã là người ăn hiếp tui .Không hiểu sao hai con người hai tính cách hoàn toàn khác nhau cãi nhau giận hờn đủ thứ vẫn dính nhau hoài, tại mỗi lần mình giận toàn con nhỏ này xuống nước xin lỗi mình cứng đầu lắm nên nhiều lúc cũng thương dữ lắm.</p>
+                    </div>
+                </div>
+               <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="activity-img">
+                        <img src="z7498411438520_4e1a3d06e2416fe11a7abb0d88ae2199.jpg" alt="Friends">
+                    </div>
+                     <div class="activity-info">
+                        <h3>Anh em siêu nhân</h3>
+                        <p>Còn đây là mấy đứa bạn trời đánh của mình,còn hai đứa nữa mà tụi nó đói bụng nên về ăn cơm trước rồi, tụi này lì với nhây dữ lắm. Tụi mình chơi với nhau lâu dữ lắm rồi mà đâu đứa nào hiểu đứa nào đâu.Nhìn vậy chứ tụi mình thương nhau dữ lắm. Thật sự nếu không có mấy đứa này chắc năm cấp 3 của mình trống trải lắm, sau ra trường mà mỗi đứa 1 phương chắc nhớ dữ lắm.</p>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background:#094b790a;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Liên hệ với Cẩm Vân</h2>
+            <div class="contact-grid">
+                <div data-aos="fade-right">
+                    <form class="contact-form">
+                        <input type="text" placeholder="Tên bạn là..." required />
+                        <input type="text" placeholder="Email / Facebook" required />
+                        <textarea placeholder="Muốn nói gì với mình thì viết ở đây" required></textarea>
+                        <button type="submit" class="btn btn-primary">Gửi tin nhắn</button>
+                    </form>
+                </div>
+                <div data-aos="fade-left">
+                    <h3>Liên hệ tại</h3>
+                    <p style="margin-top:1rem;"><i class="fab fa-instagram" style="color:#9ddbff;"></i> _h.van18_</p>
+                    <p><i class="fab fa-tiktok" style="color:#9dd9fc;"></i> @cvanz_1802</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+            <div class="socials">
+                <a href="https://www.instagram.com/_h.van18_?igsh=MWdydHg0eDQ4ZXJjbQ%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@cvanz_1802?_r=1&_t=ZS-93c5Tx4hW9Q"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/share/1ANCSxWUf9/?mibextid=LQQJ4d"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p style="margin-top:1.5rem;">© 2026 Trang cá nhân của Cẩm Vân</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({duration: 1000,once: true,offset: 100});window.addEventListener('scroll', () => { const nav = document.getElementById('navbar'); if (window.scrollY > 50) {nav.classList.add('scrolled'); } else {nav.classList.remove('scrolled');}});
+    </script>
+</body>
+</html>
