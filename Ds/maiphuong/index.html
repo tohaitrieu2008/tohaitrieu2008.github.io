@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang cá nhân</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        html, body {
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url("images/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* phủ nền mờ cho section */
+        section {
+            background-color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* ===== HIỆU ỨNG CUỘN ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 120px 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* AVATAR */
+        .avatar {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* CARD */
+        .card {
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        /* MẠNG XÃ HỘI */
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 16px;
+        }
+
+        .social-name {
+            min-width: 90px;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .social-item i {
+            font-size: 17px;
+            color: #9aa0a6;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-item a {
+            color: #9aa0a6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-item:hover i.fa-facebook {
+            color: #4267B2;
+            transform: scale(1.2);
+        }
+
+        .social-item:hover i.fa-instagram {
+            color: #C13584;
+            transform: scale(1.2);
+        }
+
+        footer {
+            background-color: rgba(13, 110, 253, 0.9);
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">My Profile</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#gioithieu">Giới thiệu</a></li>
+                <li class="nav-item"><a class="nav-link" href="#thongtin">Thông tin</a></li>
+                <li class="nav-item"><a class="nav-link" href="#lienhe">Liên hệ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#mxh">Mạng xã hội</a></li>
+                <li class="nav-item"><a class="nav-link" href="#chiase">Chia sẻ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kin-niem">Kỉ niệm</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tam-tinh">Tâm tình</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero reveal" id="gioithieu">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1>Xin chào, mình là Mai Phương</h1>
+                <p class="my-4">
+                    Một người trẻ đang học tập, trải nghiệm và cố gắng hoàn thiện bản thân mỗi ngày.
+                </p>
+                <button class="btn btn-primary btn-lg" onclick="alert('Chào bạn 👋 Cảm ơn đã ghé thăm!')">
+                    Gửi lời chào 👋
+                </button>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <img src="images/avatar.jpg" alt="Ảnh cá nhân" class="img-fluid avatar">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="thongtin" class="py-5 reveal">
+    <div class="container">
+        <h2 class="section-title text-center">Thông tin cá nhân</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">👤 <strong>Họ tên:</strong> Phan Mai Phương</li>
+                    <li class="list-group-item">🎂 <strong>Năm sinh:</strong> 2008</li>
+                    <li class="list-group-item">🏫 <strong>Trường:</strong> THPT Số 2 Phù Cát</li>
+                    <li class="list-group-item">💖 <strong>Sở thích:</strong> Chụp ảnh, nghe nhạc, du lịch</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="lienhe" class="py-5 reveal">
+    <div class="container">
+        <h2 class="section-title text-center">Thông tin liên hệ</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">📧 <strong>Email:</strong> m*************2@gmail.com</li>
+                    <li class="list-group-item">📞 <strong>Số điện thoại:</strong> 0375xxxx341</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="mxh" class="py-5 reveal">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Trang mạng xã hội</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="social-item">
+                    <span class="social-name">Facebook</span>
+                    <i class="fab fa-facebook"></i>
+                    <a href="https://www.facebook.com/share/176d1oH2my/" target="_blank">Mai Phương</a>
+                </div>
+                <div class="social-item">
+                    <span class="social-name">Instagram</span>
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/mei.fhuowq/" target="_blank">mei.fhuowq</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="chiase" class="py-5 reveal">
+    <div class="container">
+        <h2 class="section-title text-center">Chia sẻ về bản thân</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4">
+                    <p>Mình là một người sống khá giản dị, luôn trân trọng những điều nhỏ bé xung quanh.
+                        Mình thích lưu giữ kỷ niệm qua những bức ảnh, những chuyến đi và những khoảnh khắc bên bạn bè.
+                        Với mình, mỗi ngày trôi qua đều là một cơ hội để học hỏi và trưởng thành hơn.
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- KỈ NIỆM CẤP 3 -->
+<section id="kin-niem" class="py-5 reveal">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Kỉ niệm cấp 3</h2>
+
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 mb-4">
+                <img src="images/kin-niem-cap-3.jpg"
+                     class="img-fluid rounded shadow"
+                     alt="Kỉ niệm cấp 3">
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <p>
+                        Những năm tháng cấp 3 là quãng thời gian đẹp đẽ và đáng nhớ nhất
+                        trong tuổi học trò của mình.
+                    </p>
+                    <p>
+                        Ở đó có bạn bè, có những buổi cười đùa vô tư, những khoảnh khắc
+                        cùng nhau chụp ảnh, lưu giữ thanh xuân theo cách rất riêng.
+                    </p>
+                    <p class="mb-0">
+                        Dù sau này mỗi người một hướng đi, nhưng kỉ niệm ấy
+                        sẽ luôn là phần ký ức không thể nào quên 💙
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="tam-tinh" class="py-5 reveal">
+    <div class="container text-center">
+        <h2 class="section-title">Đôi lời tâm tình</h2>
+        <p class="fs-5">“Cảm ơn vì đã ghé thăm trang nhỏ này. Chúc bạn luôn bình yên.”</p>
+    </div>
+</section>
+
+<footer class="text-white text-center p-3">
+    © 2026 – Trang cá nhân
+</footer>
+
+<script>
+    function revealOnScroll() {
+        document.querySelectorAll('.reveal').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                el.classList.add('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

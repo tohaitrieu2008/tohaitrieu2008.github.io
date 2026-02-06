@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trần Quyết Thắng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">
+                    <span class="logo-icon">&lt;/&gt;</span>
+                    <span class="logo-text">Wing</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active" data-lang="nav-home">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link" data-lang="nav-about">Giới thiệu</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span data-lang="hero-greeting">Xin chào, tôi là</span> <span class="highlight" id="typed-name"></span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="typing-text">Học sinh</span>
+                    <span class="subtitle-divider">•</span>
+                    <span data-lang="hero-subtitle">Lớp 12A1</span>
+                </p>
+                <p class="hero-description" data-lang="hero-description">
+                    Cố gắng mỗi ngày để trở thành phiên bản tốt hơn của chính mình.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/qz_tthn08/" target="_blank" aria-label="GitHub"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@wn_qtthn" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/wnqthhn" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <img src="1.jpg" alt="Trần Quyết Thắng" id="hero-avatar">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-lang="about-title">Giới thiệu về tôi</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-img-wrapper">
+                        <img src="2.jpg" alt="Trần Quyết Thắng" id="about-avatar">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 data-lang="about-heading">Tiểu sử</h3>
+                    <p data-lang="about-text-1">
+                        Tôi là học sinh lớp 12A1 trường THPT số 2 Phù Cát. 
+                        Sinh ra và lớn lên tại Bình Định.
+                        Sở thích: thể thao, đi chơi, nghe nhạc, xem phim,...
+                    </p>
+                    <p data-lang="about-text-2">
+                        Tôi không chọn con đường dễ mà chọn con đường giúp tôi mạnh hơn.
+                        Với tôi giá trị bản thân không nằm ở những lời nói mà nằm ở hành động và kết quả.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4 data-lang="info-education">Học vấn</h4>
+                                <p data-lang="info-education-detail">Lớp 12</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4 data-lang="info-location">Địa điểm</h4>
+                                <p data-lang="info-location-detail">Việt Nam</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <h4 data-lang="info-status">Trạng thái</h4>
+                                <p data-lang="info-status-detail">Học tập</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>Thiết kế bởi Trần Quyết Thắng</p>
+                <p>Made with <i class="fas fa-heart"></i> and <i class="fas fa-coffee"></i></p>
+            </div>
+        </div>
+    </footer>
+    <script src="1.js"></script>
+ 
+</body>
+</html>

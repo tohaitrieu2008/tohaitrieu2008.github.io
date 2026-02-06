@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Cá Nhân | Linh Chi</title>
+    
+    
+
+    <style>
+       
+        :root {
+            --accent-color: #A68A64;    
+            --bg-body: #F9F7F2;       
+            --text-main: #3E3B39;      
+            --text-light: #8C847E;    
+            --border-color: #E2DDD5;  
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+       
+        nav {
+            border-top: 4px solid var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+            padding: 15px 0;
+            background: var(--white);
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin: 0 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        
+        header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -1px;
+            display: block;
+        }
+
+        /
+        .banner-container {
+            max-width: 1100px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        }
+
+        
+        .main-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+            padding: 0 20px;
+        }
+
+        .left-content {
+            flex: 2;
+        }
+
+        .right-sidebar {
+            flex: 1;
+            border-left: 1px solid var(--border-color);
+            padding-left: 40px;
+        }
+
+        .post-entry {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        .date {
+            font-size: 11px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        /* --- 5. SIDEBAR --- */
+        .widget {
+            margin-bottom: 50px;
+        }
+
+        .widget-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            margin-bottom: 25px;
+            color: var(--text-main);
+        }
+
+        .about-me-img {
+            width: 100%;
+            border-radius: 2px;
+            margin-bottom: 20px;
+            
+            filter: sepia(20%); 
+        }
+
+       
+        .video-wrapper {
+            aspect-ratio: 16/9;
+            width: 100%;
+            background: #eee;
+            margin-top: 30px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .img-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.4s ease;
+        }
+        
+        .img-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        
+        footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 100px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 850px) {
+            .main-wrapper { flex-direction: column; }
+            .right-sidebar { border-left: none; padding-left: 0; }
+            .banner-img { height: 350px; }
+            header { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Hình ảnh</a>
+        <a href="#">Video</a>
+        <a href="#">Liên hệ</a>
+    </nav>
+
+    <header>
+        <a href="#" class="logo">ABOUT ME AND MY LIFE</a>
+        <p style="font-size: 13px; color: var(--text-light); margin-top: 15px; letter-spacing: 1px;">
+    </header>
+
+    <div class="banner-container">
+        <img src="https://i.pinimg.com/1200x/8d/4b/74/8d4b7448ca3160d7019fde140cb3bd50.jpg" class="banner-img" alt="Banner">
+    </div>
+
+    <div class="main-wrapper">
+        
+        <div class="left-content">
+            <article class="post-entry">
+                <span class="date">Sat 05 Tháng 2, 2026</span>
+                <h2>Chào mừng bạn đến với không gian nhỏ của mình</h2>
+                <p>Đây là nơi mình chia sẻ về bản thân mình.Mình tên là Ánh Tuyết,mình một học sinh cấp 3.Mình thích cuộc sống và trân trọng những khoảnh khắc trong cuộc đời dù là những khó khăn.Mình tin rằng hạnh phúc và khó khăn đều là những bước đệm quý giá trong cuộc sống.</p>
+                <p>Mình yêu mến mọi thứ xung quanh mình.</p>
+                
+                <div class="img-grid">
+                    <img src="https://i.pinimg.com/1200x/75/9a/af/759aaf56e4d0c96338ce448514b438d4.jpg" alt="Work">
+                    <img src="https://i.pinimg.com/1200x/12/fe/bc/12febc3c5e7338c86baf941469860e34.jpg" alt="Interior">
+                </div>
+            </article>
+
+            <article class="post-entry">
+                <span class="date">Video mới xem gần đây</span>
+                <h2>Video xem gần đây</h2>
+                <div class="video-wrapper">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DK23U3sJrYg" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </article>
+        </div>
+
+        <div class="right-sidebar">
+            <div class="widget">
+                <span class="widget-title">Về mình</span>
+                <img src="images/z7508134818865_50c4e85a82c869c6f9ede3de9d6d2121.jpg" class="about-me-img" alt="Me">
+                <p style="font-size: 14px; color: var(--text-main); font-style: italic;">Mình là <strong>Ánh Tuyết</strong>, hiện là học sinh lớp 12. Mình yêu thích sự bình yên và tĩnh lặng.Mình yêu thích văn chương.Mình thích đọc tiểu thuyết.</p>
+            </div>
+
+            <div class="widget">
+                <span class="widget-title">Kết nối với mình</span>
+                <div style="font-size: 13px; line-height: 2;">
+                    <span style="color: var(--accent-color)">IG:</span> tyt.ng.luv<br>
+                    <span style="color: var(--accent-color)">FB:</span> fb.com/nguyenthianhtuyet<br>
+                    <span style="color: var(--accent-color)">Mail:</span> nguyenthianhtuyet@gmail.com
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy;  Ánh Tuyết.</p>
+        <p style="font-family: 'Lora', serif; font-style: italic; margin-top: 15px; color: var(--accent-color); font-size: 15px;">"I love myself and my life."</p>
+    </footer>
+
+</body>
+</html>

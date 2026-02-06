@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang web giới thiệu cá nhân</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef1f6;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 50px 20px 40px;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid white;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+            background: white;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .avatar:hover img {
+            transform: scale(1.1);
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* ================= LAYOUT ================= */
+        .container {
+            max-width: 1200px;
+            margin: 35px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        /* ================= CARD ================= */
+        .card {
+            border-radius: 18px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+        }
+
+        .card img.icon {
+            width: 52px;
+            height: 52px;
+            position: absolute;
+            top: -26px;
+            right: 20px;
+            background: white;
+            border-radius: 50%;
+            padding: 6px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            margin-top: 10px;
+            color: #1e3c72;
+        }
+
+        /* ================= MÀU ================= */
+        .blue { background: #e3f2fd; }
+        .green { background: #e8f5e9; }
+        .orange { background: #fff3e0; }
+        .purple { background: #f3e5f5; }
+        .pink { background: #fce4ec; }
+        .gray { background: #f5f5f5; }
+
+        ul {
+            padding-left: 18px;
+        }
+
+        aside .card {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #1e3c72;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .avatar {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="avatar">
+        <img src="avatar.jpg" alt="Ảnh đại diện">
+    </div>
+    <h1>Đinh Thị Yến Nhi</h1>
+    <p>Một vài nét về con người, cuộc sống và những điều tôi trân trọng</p>
+</header>
+
+<div class="container">
+
+    <!-- CỘT TRÁI -->
+    <main>
+        <div class="card blue">
+            <img class="icon" src="gioithieuchung.jpg">
+            <h2>Giới thiệu chung</h2>
+            <p>
+                Tôi là Đinh Thị Yến Nhi, học sinh THPT đang trong quá trình trưởng thành
+                và hoàn thiện bản thân. Cuộc sống với tôi là hành trình khám phá
+                chính mình và nuôi dưỡng những giá trị tích cực.
+            </p>
+        </div>
+
+        <div class="card green">
+            <img class="icon" src="tinhcachvaquandiemsong.jpg">
+            <h2>Tính cách và quan điểm sống</h2>
+            <p>
+                Tôi sống chân thành, giàu cảm xúc và luôn suy nghĩ tích cực.
+                Tôi tin rằng sự tử tế và nỗ lực mỗi ngày sẽ tạo nên giá trị bền vững.
+            </p>
+        </div>
+
+        <div class="card orange">
+            <img class="icon" src="sothich.jpg">
+            <h2>Sở thích và thói quen</h2>
+            <ul>
+                <li>Nghe nhạc để cân bằng cảm xúc</li>
+                <li>Đọc sách truyền cảm hứng</li>
+                <li>Dành thời gian cho gia đình, bạn bè</li>
+                <li>Tham gia hoạt động tập thể</li>
+            </ul>
+        </div>
+
+        <div class="card purple">
+            <img class="icon" src="hoctap.jpg">
+            <h2>Học tập và cuộc sống hằng ngày</h2>
+            <p>
+                Tôi luôn cố gắng hoàn thành tốt việc học, đồng thời rèn luyện kỹ năng
+                quản lý thời gian để cân bằng giữa học tập và nghỉ ngơi.
+            </p>
+        </div>
+
+        <div class="card pink">
+            <img class="icon" src="uocmo.jpg">
+            <h2>Ước mơ và định hướng tương lai</h2>
+            <p>
+                Tôi mong muốn trở thành người có ích cho gia đình và xã hội,
+                sống đúng với giá trị bản thân và không ngừng hoàn thiện mình.
+            </p>
+        </div>
+    </main>
+
+    <!-- CỘT PHẢI -->
+    <aside>
+        <div class="card gray">
+            <img class="icon" src="thongtincanhan.jpg">
+            <h2>Thông tin cá nhân</h2>
+            <p>Họ và tên: Đinh Thị Yến Nhi</p>
+            <p>Nơi ở: Gia Lai (Bình Định cũ)</p>
+            <p>Ngày sinh: 31/03/2008</p>
+            <p>Lớp: 12A1</p>
+            <p>Trường: THPT số 2 Phù Cát</p>
+        </div>
+
+        <div class="card green">
+            <img class="icon" src="chamngonyeuthich.jpg">
+            <h2>Châm ngôn yêu thích</h2>
+            <p>“Sống chậm lại để hiểu mình, sống tốt hơn để yêu đời.”</p>
+        </div>
+
+        <div class="card orange">
+            <img class="icon" src="thongtinlienlac.jpg">
+            <h2>Thông tin liên lạc</h2>
+            <p>📘 Facebook: 
+                <a href="https://www.facebook.com/yeen.nhi.613777" target="_blank">
+                    https://www.facebook.com/yeen.nhi.613777
+                </a>
+            </p>
+            <p>📧 Email: 
+                <a href="mailto:dtyennhi3103@gmail.com">
+                    dtyennhi3103@gmail.com
+                </a>
+            </p>
+        </div>
+    </aside>
+
+</div>
+
+<footer>
+    © 2026 | Trang web giới thiệu cá nhân
+</footer>
+
+</body>
+</html>
