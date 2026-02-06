@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Hồ Văn Kiên</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Animated background particles */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .header {
+            position: relative;
+            height: 350px;
+            background: 
+                        url('https://bosch-hanoi.com.vn/wp-content/uploads/2025/04/top-101-hinh-nen-phong-canh-anime-dep-nhat-3723-25.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+        }
+
+        .profile-pic-container {
+            position: absolute;
+            top: 60px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid white;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 0 3px rgba(26, 188, 156, 0.3);
+            z-index: 10;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic-container:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .header h1 {
+            font-size: 42px;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 
+                0 2px 10px rgba(0,0,0,0.5),
+                0 0 20px rgba(0,0,0,0.3);
+            z-index: 10;
+            animation: fadeInDown 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            margin-top: 8px;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Area */
+        .content {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Section Title */
+        .section-title {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(26, 188, 156, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-title:hover {
+            transform: translateX(5px);
+box-shadow: 0 6px 20px rgba(26, 188, 156, 0.4);
+        }
+
+        .section-title .icon {
+            margin-right: 12px;
+            font-size: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Content Blocks */
+        .content-block {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .content-block p {
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Job/Education Entry */
+        .job-entry {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #1abc9c;
+            padding-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .job-entry:hover {
+            border-color: #e74c3c;
+        }
+
+        .job-title-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+            text-indent: 1.5em;
+        }
+
+        .job-title-text p::first-letter {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #1abc9c;
+        }
+
+        /* Custom List */
+        .custom-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .custom-list li {
+            position: relative;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            color: #555;
+            transition: transform 0.3s ease;
+        }
+
+        .custom-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .custom-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1abc9c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Skill Bars */
+        .skill-bar-container {
+            margin-top: 15px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .bar-wrapper {
+width: 100%;
+            height: 12px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, #1abc9c, #16a085);
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .level-5 { width: 80%; }
+        .level-4 { width: 65%; }
+        .level-3 { width: 50%; }
+
+        /* Interest Items */
+        .interest-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            color: #1abc9c;
+            transform: translateX(5px);
+        }
+
+        .interest-item::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .interest-item:hover::before {
+            transform: scale(1.3) rotate(360deg);
+        }
+
+        /* TikTok Button */
+        .tiktok-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(26, 188, 156, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tiktok-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .tiktok-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .tiktok-btn:hover {
+transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(26, 188, 156, 0.4);
+        }
+
+        .tiktok-btn i {
+            font-size: 18px;
+            z-index: 1;
+        }
+
+        .tiktok-btn span {
+            z-index: 1;
+        }
+
+        /* Contact Links */
+        #lien-he a {
+            text-decoration: none;
+            color: #1abc9c;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        #lien-he a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1abc9c;
+            transition: width 0.3s ease;
+        }
+
+        #lien-he a:hover::after {
+            width: 100%;
+        }
+
+        #lien-he a:hover {
+            color: #16a085;
+        }
+
+        #lien-he p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .cv-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            body {
+                padding: 0;
+            }
+        }
+
+        /* Scroll Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation" id="particles"></div>
+
+    <div class="cv-container">
+        <div class="header">
+            <div class="profile-pic-container">
+                <img src="https://www.galeriemichael.com/wp-content/uploads/2024/03/anh-kaito-kid_4.jpeg" alt="Hồ Văn Kiên">
+            </div>
+            <h1>HỒ VĂN KIÊN</h1>
+            <div class="header-subtitle"><i>✨Thuận thì là Phàm/Nghịch thì thành Tiên </i>✨</div>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <!-- Left Column -->
+                <div class="col-left">
+                    <div class="content-block animate-on-scroll">
+                        <div class="section-title">
+<span class="icon">📝</span> 
+                            GIỚI THIỆU BẢN THÂN
+                        </div>
+                        <p>Tôi là một người khá cầu toàn, nói thẳng ra thì có chút "OCD"=)). Tuy vậy, tôi không hẳn là người hướng nội. Dù đôi lúc thích sự yên tĩnh, tôi vẫn luôn vui vẻ, hoạt bát và thường mang lại tiếng cười cho những người xung quanh.</p>
+                    </div>
+
+                    <div class="content-block animate-on-scroll">
+                        <div class="section-title">
+                            <span class="icon">💬</span> 
+                            MỘT CHÚT TÂM SỰ XÍU XÌU XIU
+                        </div>
+                        <div class="job-entry">
+                            <div class="job-title-text">
+                                <p>Ước mơ của tôi là được trở thành một người lính, khoác lên mình màu áo bộ đội, cống hiến hết sức mình cho Đảng và Nhà nước. Thế nhưng, con đường để chạm tới ước mơ ấy đối với tôi lại quá gian nan. Tôi chỉ thực sự biết và tìm hiểu về môi trường quân đội khi đã bước vào lớp 11 – có lẽ là quá muộn. Trước đó, tôi chưa biết cách giữ gìn và rèn luyện bản thân.</p>
+                                
+                                <p>Khoảng thời gian từ lớp 9 lên lớp 10 là một bước chuyển lớn, nhưng tôi vẫn mang theo tư tưởng ham chơi của những năm cấp hai. Lớp 10 vì thế mà sa sút dần, tôi dành quá nhiều thời gian cho điện thoại, đến mức bị cận thị, sức khỏe cũng ngày một giảm sút. Khi nhận ra thì mọi thứ dường như đã không còn kịp nữa, ước mơ khoác áo lính đành phải gác lại.</p>
+                                
+                                <p>Việc biết đến môi trường quân đội quá muộn khiến tôi không kịp kiểm soát sức khỏe, không kịp rèn luyện thể lực cũng như giữ gìn đôi mắt của mình. Sự nuối tiếc là điều không thể tránh khỏi. Cuối cùng, tôi rẽ sang con đường kinh tế. Có người hỏi vì sao tôi không chọn kỹ thuật hay công nghệ, nhưng bản thân tôi tiếp cận với công nghệ khá chậm so với thời đại, nên không đủ tự tin để theo đuổi. Mọi thứ dường như đẩy tôi về phía các ngành kinh tế một cách tất yếu.</p>
+                                
+                                <p>Quả thật, trong lòng vẫn còn đó những tiếc nuối, nhưng tôi hiểu rằng những gì xảy ra hôm nay đều bắt nguồn từ sự lựa chọn của chính mình trong quá khứ. Có lẽ tôi không đủ duyên với môi trường quân đội. Dẫu vậy, ước mơ ấy vẫn luôn nằm sâu trong tim – như một lời hẹn dang dở, xin gửi lại cho một kiếp khác💚.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-right">
+                    <div class="content-block animate-on-scroll">
+                        <div class="section-title">
+<span class="icon">☯️</span> 
+                            TIÊN NGHỊCH
+                        </div>
+                        <a href="https://vt.tiktok.com/ZSaG9BevU/" target="_blank" class="tiktok-btn">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Bộ phim mình yêu thích nè👇</span>
+                        </a>
+                    </div>
+
+                    <div class="content-block animate-on-scroll">
+                        <div class="section-title">
+                            <span class="icon">⚡</span> 
+                            TÍNH CÁCH
+                        </div>
+                        <ul class="custom-list">
+                            <li>Hoà đồng</li>
+                            <li>Hoạt bát</li>
+                            <li>Vui vẻ nhưng chọc tới là hay cọc😀</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block animate-on-scroll">
+                        <div class="section-title">
+                            <span class="icon"><i class="fa-solid fa-brain"></i></span> 
+                            KỸ NĂNG MỀM
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-item">
+                                <span class="skill-name">Quản lý thời gian</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar level-5"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Giải quyết vấn đề</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar level-3"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Làm việc nhóm</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar level-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block animate-on-scroll">
+                        <div class="section-title">
+                            <span class="icon"><i class="fa-solid fa-star" style="color:#f1c40f;"></i></span>
+                            SỞ THÍCH
+                        </div>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li class="interest-item">Bóng chuyền</li>
+                            <li class="interest-item">Nghe nhạc</li>
+                            <li class="interest-item">Xem phim</li>
+                            <li class="interest-item">"Tha Hoá"=))</li>
+</ul>
+                    </div>
+
+                    <div class="content-block animate-on-scroll">
+                        <div class="section-title">
+                            <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                            THÔNG TIN LIÊN HỆ
+                        </div>
+                        <section id="lien-he">
+                            <p>
+                                <i class="fa-brands fa-facebook" style="color:#1877f2; font-size: 18px;"></i>
+                                <strong>Facebook:</strong> 
+                                <a href="https://www.facebook.com/share/1EXBLD478Y/" target="_blank">Hồ Văn Kiên</a>
+                            </p>
+                            <p>
+                                <i class="fa-brands fa-tiktok" style="color:#000000; font-size: 18px;"></i>
+                                <strong>TikTok:</strong>
+                                <a href="https://www.tiktok.com/@hovankien_2008" target="_blank">@hovankien_2008</a>
+                            </p>
+                            <p>
+                                <i class="fa-solid fa-envelope" style="color:#ea4335; font-size: 18px;"></i>
+                                <strong>Email:</strong> 
+                                <a href="mailto:hovankien2662008@gmail.com">hovankien2662008@gmail.com</a>
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 60 + 20;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Scroll animation
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+}
+
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.bar');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            handleScrollAnimation();
+            animateSkillBars();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

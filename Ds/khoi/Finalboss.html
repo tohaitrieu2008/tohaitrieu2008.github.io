@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Trương Khôi | Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --accent-color: #00bcd4; 
+            --accent-glow: rgba(0, 188, 212, 0.6);
+            --text-color: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --bg-dark: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            overflow-x: hidden;
+            cursor: none; 
+        }
+
+        #wallpaper-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                              url('https://i.pinimg.com/1200x/89/95/61/899561a11244a5bc9939beadd03349a7.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        #cursor {
+            width: 22px; height: 22px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.1s ease-out;
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        /* Hiệu ứng cursor khi hover vào clickable items */
+        .grid-item:hover ~ #cursor,
+        .back-btn:hover ~ #cursor,
+        .social-link:hover ~ #cursor {
+            transform: scale(2);
+            background: rgba(0, 188, 212, 0.2);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            transition: 0.5s ease;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 40px;
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-img {
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+            box-shadow: 0 0 30px var(--accent-glow);
+            animation: float 3s ease-in-out infinite, rotateGlow 8s linear infinite;
+            transition: 0.5s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 60px var(--accent-color);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotateGlow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            background: linear-gradient(to right, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0;
+            animation: textGlow 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        @keyframes textGlow {
+            from { 
+                filter: drop-shadow(0 0 5px var(--accent-color));
+            }
+            to { 
+                filter: drop-shadow(0 0 20px var(--accent-color));
+            }
+        }
+
+        /* Hiệu ứng chữ nhấp nháy cho slogan */
+        .slogan {
+            color: var(--accent-color);
+            letter-spacing: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: pulseText 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .grid-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            padding: 60px 20px;
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        /* Delay animation cho từng ô */
+        .grid-item:nth-child(1) { animation-delay: 0.1s; }
+        .grid-item:nth-child(2) { animation-delay: 0.2s; }
+        .grid-item:nth-child(3) { animation-delay: 0.3s; }
+        .grid-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hiệu ứng sóng khi hover */
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            opacity: 0;
+        }
+
+        .grid-item:hover::before {
+            width: 500px;
+            height: 500px;
+            opacity: 0.3;
+        }
+
+        .grid-item:hover {
+            border-color: var(--accent-color);
+            background: rgba(0, 188, 212, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 188, 212, 0.4);
+        }
+
+        .grid-item i {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: block;
+            transform: translateZ(50px);
+            animation: iconBounce 2s ease-in-out infinite;
+            transition: 0.3s;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateZ(50px) translateY(0); }
+            50% { transform: translateZ(50px) translateY(-10px); }
+        }
+
+        .grid-item:hover i {
+            transform: translateZ(80px) scale(1.2) rotate(360deg);
+            color: #fff;
+        }
+
+        .grid-item h3 {
+            transform: translateZ(30px);
+            margin: 0;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .grid-item:hover h3 {
+            transform: translateZ(50px) scale(1.1);
+            color: var(--accent-color);
+        }
+
+        /* Các trang nội dung */
+        .content-page {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+            display: none; 
+            padding: 40px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 1300px; 
+            min-height: 70vh;
+            margin: 5vh auto;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            padding: 60px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        /* Hiệu ứng sáng chạy quanh viền */
+        .page-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                var(--accent-color), 
+                transparent, 
+                var(--accent-color), 
+                transparent, 
+                var(--accent-color));
+            border-radius: 50px;
+            opacity: 0;
+            animation: borderGlow 3s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes borderGlow {
+            0% { 
+                opacity: 0.3;
+                background-position: 0% 50%;
+            }
+            50% { 
+                opacity: 0.6;
+                background-position: 100% 50%;
+            }
+            100% { 
+                opacity: 0.3;
+                background-position: 0% 50%;
+            }
+        }
+
+        /* HIỆU ỨNG CHUYỂN CẢNH CHO MỖI Ô */
+        
+        /* Ô 1: Zoom In + Fade */
+        #page1 .page-wrapper {
+            animation: zoomInFade 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes zoomInFade {
+            from { 
+                opacity: 0; 
+                transform: scale(0.3) rotate(-5deg);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* Ô 2: Slide From Right + Rotate */
+        #page2 .page-wrapper {
+            animation: slideRotateRight 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        @keyframes slideRotateRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(150%) rotate(90deg);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+
+        /* Ô 3: Flip Vertical + Scale */
+        #page3 .page-wrapper {
+            animation: flipVerticalScale 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            transform-style: preserve-3d;
+        }
+        @keyframes flipVerticalScale {
+            from { 
+                opacity: 0; 
+                transform: perspective(1000px) rotateX(-90deg) scale(0.5);
+            }
+            to { 
+                opacity: 1; 
+                transform: perspective(1000px) rotateX(0deg) scale(1);
+            }
+        }
+
+        /* Ô 4: Bounce Elastic + Slide Up */
+        #page4 .page-wrapper {
+            animation: bounceElastic 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        @keyframes bounceElastic {
+            0% { 
+                opacity: 0; 
+                transform: translateY(100%) scale(0.5);
+            }
+            50% { 
+                transform: translateY(-30px) scale(1.1);
+            }
+            70% { 
+                transform: translateY(10px) scale(0.95);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Hiệu ứng đóng cho tất cả các trang */
+        .content-page.closing .page-wrapper {
+            animation: fadeOutScale 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+        }
+        @keyframes fadeOutScale {
+            from { 
+                opacity: 1; 
+                transform: scale(1) rotate(0deg);
+            }
+            to { 
+                opacity: 0; 
+                transform: scale(0.8) rotate(-5deg);
+            }
+        }
+
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-top: 20px;
+        }
+
+        .text-side { 
+            flex: 1;
+            animation: slideInLeft 0.8s ease-out 0.3s backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-side { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center;
+            animation: slideInRight 0.8s ease-out 0.3s backwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-side img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 40px;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 30px var(--accent-glow);
+            transition: 0.5s;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .image-side img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 60px var(--accent-color);
+        }
+
+        .back-btn {
+            background: var(--accent-color);
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hiệu ứng sóng cho button */
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .back-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .back-btn:hover {
+            background: #fff;
+            color: var(--accent-color);
+            transform: translateX(-10px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.5);
+        }
+
+        .back-btn i {
+            transition: 0.3s;
+        }
+
+        .back-btn:hover i {
+            transform: translateX(-5px);
+        }
+
+        .page-wrapper h2 {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            animation: typeWriter 1s steps(20) 0.5s backwards;
+        }
+
+        @keyframes typeWriter {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+
+        /* Hiệu ứng gạch dưới động cho h2 */
+        .page-wrapper h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+            animation: underlineExpand 1s ease-out 1s forwards;
+        }
+
+        @keyframes underlineExpand {
+            to {
+                width: 100%;
+            }
+        }
+
+        .page-wrapper p { 
+            font-size: 1.4rem;
+            line-height: 1.8; 
+            border-left: 6px solid var(--accent-color);
+            padding-left: 30px;
+            text-align: justify;
+            color: #ffffff;
+            position: relative;
+            animation: fadeInText 1.5s ease-out 0.8s backwards;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* Hiệu ứng nhấp nháy cho border-left */
+        .page-wrapper p::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--accent-color);
+            animation: borderPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        #connect-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--card-border);
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .social-link { 
+            color: #fff; 
+            font-size: 2.2rem; 
+            margin: 0 20px; 
+            transition: all 0.3s; 
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Hiệu ứng vòng tròn khi hover social links */
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .social-link:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .social-link:hover { 
+            color: var(--accent-color); 
+            transform: scale(1.3) rotate(360deg); 
+        }
+
+        /* Hiệu ứng từng icon xuất hiện */
+        .social-link:nth-child(1) { animation: popIn 0.5s ease-out 0.7s backwards; }
+        .social-link:nth-child(2) { animation: popIn 0.5s ease-out 0.9s backwards; }
+        .social-link:nth-child(3) { animation: popIn 0.5s ease-out 1.1s backwards; }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0) rotate(-180deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .flex-container { flex-direction: column-reverse; text-align: center; }
+            .image-side img { max-width: 100%; }
+            .page-wrapper p { border-left: none; padding-left: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .page-wrapper { padding: 30px; }
+            .page-wrapper h2 { font-size: 2rem; }
+            body { cursor: auto; }
+            #cursor { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wallpaper-bg"></div>
+    <div id="cursor"></div>
+    <div id="particles-js"></div>
+
+    <div class="container" id="home-view">
+        <header>
+            <img src="https://i.pinimg.com/736x/4b/b5/f4/4bb5f4e446b977a384fc4ffdf4a0e391.jpg" alt="Avatar" class="profile-img">
+            <h1>Hồ Trương Khôi</h1>
+            <p class="slogan">Học tập - Kiên trì - Ước mơ</p>
+        </header>
+
+        <div class="grid-container">
+            <div class="grid-item" onclick="openFullPage('page1')">
+                <i class="fas fa-info-circle"></i>
+                <h3>Thông tin cơ bản</h3>
+            </div>
+            <div class="grid-item" onclick="openFullPage('page2')">
+                <i class="fas fa-user-check"></i>
+                <h3>Đặc điểm bản thân</h3>
+            </div>
+            <div class="grid-item" onclick="openFullPage('page3')">
+                <i class="fas fa-heart"></i>
+                <h3>Sở thích đam mê</h3>
+            </div>
+            <div class="grid-item" onclick="openFullPage('page4')">
+                <i class="fas fa-bullseye"></i>
+                <h3>Mục tiêu tương lai</h3>
+            </div>
+        </div>
+
+        <section id="connect-box">
+            <div class="social-links">
+                <a href="https://www.facebook.com/khoi.truong.502844" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/truongkhoi146/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@nyte.jzaker" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </section>
+    </div>
+
+    <div id="page1" class="content-page">
+        <div class="page-wrapper">
+            <button class="back-btn" onclick="closeFullPage('page1')"><i class="fas fa-arrow-left"></i> Quay lại</button>
+            <div class="flex-container">
+                <div class="text-side">
+                    <h2>Thông tin cơ bản</h2>
+                    <p>Mình tên là Hồ Trương Khôi, học tại trường THPT số 2 Phù Cát, hiện đang ở Cát Tài/Gia Lai. Mình đang không ngừng nỗ lực học tập để chuẩn bị cho những bước đi tiếp theo trong tương lai.</p>
+                </div>
+                <div class="image-side">
+                    <img src="https://i.pinimg.com/1200x/d4/1a/5f/d41a5f3625e2daaaa34e846ffe83dd36.jpg" alt="Hồ Trương Khôi">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page2" class="content-page">
+        <div class="page-wrapper">
+            <button class="back-btn" onclick="closeFullPage('page2')"><i class="fas fa-arrow-left"></i> Quay lại</button>
+            <div class="flex-container">
+                <div class="text-side">
+                    <h2>Đặc điểm bản thân</h2>
+                    <p>Về tính cách, mình là người hoạt bát, chăm chỉ và có tinh thần trách nhiệm. Mình luôn cố gắng lắng nghe, tiếp thu kiến thức và kiên trì khắc phục khó khăn.</p>
+                </div>
+                <div class="image-side">
+                    <img src="https://i.pinimg.com/736x/c0/0a/47/c00a471d9e1602011d39976811eb906a.jpg" alt="Đặc điểm bản thân">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page3" class="content-page">
+        <div class="page-wrapper">
+            <button class="back-btn" onclick="closeFullPage('page3')"><i class="fas fa-arrow-left"></i> Quay lại</button>
+            <div class="flex-container">
+                <div class="text-side">
+                    <h2>Sở thích đam mê</h2>
+                    <p>Ngoài thời gian học tập, mình có sở thích nghe nhạc để thư giãn. Mình cũng rất yêu thích việc học tập và tìm hiểu những kiến thức mới giúp phát triển tư duy sáng tạo.</p>
+                </div>
+                <div class="image-side">
+                    <img src="https://i.pinimg.com/1200x/8d/e1/71/8de17131b89b19897d974531884d851c.jpg" alt="Sở thích đam mê">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page4" class="content-page">
+        <div class="page-wrapper">
+            <button class="back-btn" onclick="closeFullPage('page4')"><i class="fas fa-arrow-left"></i> Quay lại</button>
+            <div class="flex-container">
+                <div class="text-side">
+                    <h2>Mục tiêu tương lai</h2>
+                    <p>Trong tương lai, mình mong muốn trở thành kỹ sư. Mục tiêu quan trọng nhất trước mắt là đỗ nguyện vọng 1 vào ngành học mình yêu thích.</p>
+                </div>
+                <div class="image-side">
+                    <img src="https://i.pinimg.com/736x/74/e9/e5/74e9e5e262f9d4baf516ba462c3baac2.jpg" alt="Mục tiêu tương lai">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    
+    <script>
+        // Khởi tạo Particles
+        particlesJS("particles-js", { 
+            "particles": { 
+                "number": { "value": 80 }, 
+                "color": { "value": "#00bcd4" }, 
+                "opacity": { "value": 0.4 }, 
+                "size": { "value": 3 }, 
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#00bcd4", 
+                    "opacity": 0.2, 
+                    "width": 1 
+                }, 
+                "move": { 
+                    "enable": true, 
+                    "speed": 1.5 
+                } 
+            } 
+        });
+
+        // Hiệu ứng Cursor custom
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Khởi tạo hiệu ứng Tilt cho các ô vuông
+        VanillaTilt.init(document.querySelectorAll(".grid-item"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3,
+            perspective: 1000,
+            scale: 1.05
+        });
+
+        // Hàm mở trang với hiệu ứng
+        function openFullPage(id) {
+            const page = document.getElementById(id);
+            page.classList.remove('closing');
+            page.style.display = "block";
+            document.getElementById('home-view').style.opacity = "0";
+            document.getElementById('home-view').style.transform = "scale(0.9)";
+            document.body.style.overflow = "hidden";
+        }
+
+        // Hàm đóng trang với hiệu ứng
+        function closeFullPage(id) {
+            const page = document.getElementById(id);
+            page.classList.add('closing');
+            
+            setTimeout(() => {
+                page.style.display = "none";
+                page.classList.remove('closing');
+                document.getElementById('home-view').style.opacity = "1";
+                document.getElementById('home-view').style.transform = "scale(1)";
+                document.body.style.overflow = "auto";
+            }, 500);
+        }
+
+        // Đóng trang khi nhấn ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openPages = document.querySelectorAll('.content-page');
+                openPages.forEach(page => {
+                    if (page.style.display === 'block') {
+                        closeFullPage(page.id);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
