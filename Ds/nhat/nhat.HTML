@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanh Nhật | Trang cá nhân</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  background:linear-gradient(180deg,#ffe6ee,#ffffff);
+  color:#444;
+}
+
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 30px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.06);
+  z-index:100;
+}
+
+header h1{
+  color:#ff7aa2;
+  font-size:22px;
+}
+
+nav a{
+  margin-left:18px;
+  text-decoration:none;
+  color:#555;
+  font-weight:500;
+}
+
+
+section{
+  display:none;
+  min-height:100vh;
+  padding:110px 8%;
+}
+
+section:target{
+  display:block;
+}
+
+#home{
+  display:block;
+}
+
+
+.home{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+
+.slider{
+  width:100%;
+  height:420px;
+  border-radius:25px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 15px 30px rgba(0,0,0,0.18);
+}
+
+.slider img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  opacity:0;
+  animation:slide 20s infinite;
+}
+
+.slider img:nth-child(1){animation-delay:0s;}
+.slider img:nth-child(2){animation-delay:4s;}
+.slider img:nth-child(3){animation-delay:8s;}
+.slider img:nth-child(4){animation-delay:12s;}
+.slider img:nth-child(5){animation-delay:16s;}
+
+@keyframes slide{
+  0%{opacity:0;}
+  10%{opacity:1;}
+  30%{opacity:1;}
+  40%{opacity:0;}
+  100%{opacity:0;}
+}
+
+.home-text h2{
+  font-size:36px;
+  color:#ff7aa2;
+  margin-bottom:18px;
+}
+
+.home-text p{
+  font-size:18px;
+  line-height:1.8;
+}
+
+
+.profile{
+  text-align:center;
+}
+
+.avatar{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  border:6px solid #ffc0cb;
+  box-shadow:0 10px 25px rgba(255,182,193,0.6);
+  margin-bottom:20px;
+}
+
+.profile p{
+  font-size:18px;
+  margin:8px 0;
+}
+
+
+.hobby{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:22px;
+  box-shadow:0 10px 22px rgba(0,0,0,0.1);
+}
+
+.card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+.card h3{
+  color:#ff7aa2;
+  margin:14px 0;
+}
+
+
+.memory{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+.memory img{
+  width:220px;
+  height:150px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+video{
+  width:100%;
+  margin-top:30px;
+  border-radius:20px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+
+.chat{
+  max-width:420px;
+  margin:auto;
+  background:#fff;
+  padding:28px;
+  border-radius:24px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+.chat input,.chat textarea{
+  width:100%;
+  margin-bottom:14px;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #ccc;
+}
+
+.chat button{
+  width:100%;
+  padding:12px;
+  border:none;
+  background:#ff7aa2;
+  color:white;
+  border-radius:20px;
+}
+
+
+audio{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  width:200px;
+}
+</style>
+</head>
+
+<body>
+
+
+<audio autoplay loop controls>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+  <h1>Thanh Nhật ♡</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#intro">Giới thiệu</a>
+    <a href="#hobby">Sở thích</a>
+    <a href="#memory">Kỷ niệm</a>
+    <a href="#chat">Chat</a>
+  </nav>
+</header>
+
+
+<section id="home">
+  <div class="home">
+    <div class="slider">
+      <img src="home1.jpg">
+      <img src="home2.jpg">
+      <img src="home3.jpg">
+      <img src="home4.jpg">
+      <img src="home5.jpg">
+    </div>
+    <div class="home-text">
+      <h2>Welcome 🌸</h2>
+      <p>
+        Một góc nhỏ của thanh xuân,<br>
+        nơi lưu giữ những khoảnh khắc<br>
+        dịu dàng và đáng nhớ 💗
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="intro">
+  <div class="profile">
+    <img src="avatar.jpg" class="avatar">
+    <p><b>Họ tên:</b> Lưu Thị Thanh Nhật</p>
+    <p><b>Ngày sinh:</b> 22/04/2008</p>
+    <p>🎓 🎓 Học sinh lớp 12 – đang sống trọn vẹn những năm tháng cuối của tuổi học trò 🌷</p>
+  </div>
+</section>
+
+
+<section id="hobby">
+  <h2 style="color:#ff7aa2;text-align:center;margin-bottom:30px">Sở thích</h2>
+  <div class="hobby">
+    <div class="card">
+      <img src="film1.jpg">
+      <h3>Xem phim 🎬</h3>
+      <p>Giúp mình thư giãn và quên đi áp lực học tập.</p>
+    </div>
+    <div class="card">
+      <img src="cook1.jpg">
+      <h3>Nấu ăn 🍳</h3>
+      <p>Mỗi món ăn là một chút yêu thương.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="memory">
+  <h2 style="color:#ff7aa2;text-align:center;margin-bottom:30px">Kỷ niệm</h2>
+  <div class="memory">
+    <img src="kn1.jpg">
+    <img src="kn2.jpg">
+    <img src="kn3.jpg">
+  </div>
+  <video src="memory.mp4" controls></video>
+</section>
+
+
+<section id="chat">
+  <div class="chat">
+    <h2 style="color:#ff7aa2;text-align:center">Nhắn cho mình 💌</h2>
+    <input placeholder="Tên bạn">
+    <textarea rows="4" placeholder="Lời nhắn..."></textarea>
+    <button>Gửi</button>
+  </div>
+</section>
+
+</body>
+</html>
+
