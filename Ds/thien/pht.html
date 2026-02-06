@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>My Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    /* Thiết lập trạng thái ban đầu cho nội dung trang */
+.page {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+}
+
+/* Hiệu ứng khi trang đang biến mất (chuyển đi) */
+.page.is-leaving {
+    opacity: 0;
+    transform: scale(0.95); /* Co lại nhẹ */
+    filter: blur(10px);    /* Làm mờ */
+}
+
+/* Hiệu ứng màn che kiểu Overlap (tùy chọn) */
+.page-cover {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #3f3f7c, #273063);
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.page-cover.active {
+    opacity: 1;
+}
+
+.page-cover.active{
+    transform:translateY(0);
+}
+
+.page-cover.hide{
+    transform:translateY(-100%);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    background:#dadadf;
+    font-family: serif;
+    color:#573636;
+}
+
+/* layout */
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:30px;
+}
+
+/* LEFT */
+.left{
+    background:#273063;
+    border-radius:20px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.avatar{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:4px solid #caa472;
+    margin-bottom:20px;
+    object-fit:cover;
+}
+
+.name{
+    font-size:22px;
+    letter-spacing:2px;
+    color:#f2c48d;
+    margin-bottom:8px;
+}
+
+.role{
+    font-size:15px;
+    color:#b5b5c3;
+}
+
+/* RIGHT */
+.right{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.header{
+    background:#3f3f7c;
+    border-radius:20px;
+    padding:22px;
+    text-align:center;
+    font-size:26px;
+    letter-spacing:4px;
+    color:#7aa2ff;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.box{
+    background:#5e5e97;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+    transition:0.3s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.5);
+}
+
+.box a{
+    color:#7dd3fc;
+    text-decoration:none;
+    letter-spacing:1px;
+    font-size:18px;
+}
+
+.box a:hover{
+    text-decoration:underline;
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+    <script>
+function goBack(e){
+    e.preventDefault();
+    document.querySelector('.page').classList.add('fade-out');
+    setTimeout(()=>{
+        window.location.href = "pht.html";
+    },400);
+}
+</script>
+
+    <div class="page">  
+    <div class="page-cover" id="pageCover"></div>
+    <div class="page">
+
+
+<div class="container">
+
+    <div class="left">
+        <img src="ava.jpg" class="avatar">
+        <div class="name">PHAN HỮU THIỆN</div>
+        <div class="role">Student</div>
+    </div>
+
+    <div class="right">
+        <div class="header">MY PROFILE</div>
+
+        <div class="box">
+            <a href="ttcn.html">Thông tin cá nhân</a>
+        </div>
+
+        <div class="box">
+            <a href="kn.html">Kỹ năng</a>
+        </div>
+
+        <div class="box">
+            <a href="ttlh.html">Thông tin liên hệ</a>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    const page = document.querySelector(".page");
+    const cover = document.getElementById("pageCover");
+    const links = document.querySelectorAll(".box a");
+
+    // Khi vừa vào trang: Tạo hiệu ứng hiện hình (Fade In)
+    // Ta set trạng thái ẩn trước khi load xong
+    page.style.opacity = "0";
+    page.style.transform = "scale(1.1)";
+    page.style.filter = "blur(10px)";
+
+    setTimeout => {
+        page.style.opacity = "1";
+        page.style.transform = "scale(1)";
+        page.style.filter = "blur(0px)";
+    }, 100);
+
+    // Xử lý khi click vào các mục chuyển trang
+    links.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const url = this.href;
+
+            // Kích hoạt hiệu ứng rời đi
+            page.classList.add("is-leaving");
+            if(cover) cover.classList.add("active");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 600);
+        });
+});
+</body>
+</html>

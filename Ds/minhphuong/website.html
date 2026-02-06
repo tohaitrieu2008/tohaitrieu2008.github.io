@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sổ Thanh Xuân - Minh Phương</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Pattaya&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+:root {
+    --green-moss-deep: #2d3b2e;
+    --green-moss-mid: #4a674f; 
+    --green-glass: rgba(74, 103, 79, 0.2);
+    --washi-pink-big: #ffb3c1;
+    --washi-blue-big: #a2d2ff;
+    --text-color: #1a2a1d;
+}
+
+body {
+    margin: 0;
+    /* Nền loang từ xanh rêu đậm sang xanh sương mù */
+    background: linear-gradient(135deg, #2d3b2e 0%, #4a674f 30%, #8da090 70%, #c5d3c6 100%);
+    background-attachment: fixed;
+    font-family: 'Comfortaa', cursive;
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ĐĨA NHẠC XOAY */
+.music-disk-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+.music-disk {
+    width: 100px;
+    height: 100px;
+    background: #111;
+    border-radius: 50%;
+    border: 5px solid #222;
+    position: relative;
+    animation: spin 12s linear infinite;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.music-disk::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px; height: 30px;
+    background: var(--green-moss-mid);
+    border-radius: 50%;
+    border: 2px solid white;
+    z-index: 2;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* HOA ANH ĐÀO */
+.cherry-blossom {
+    position: fixed;
+    top: -10px;
+    z-index: 999;
+    pointer-events: none;
+    animation: fall linear forwards;
+    color: #fff0f3;
+    text-shadow: 0 0 3px #ffb7c5;
+}
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(105vh) rotate(360deg) translateX(30px); opacity: 0; }
+}
+
+/* THANH BẢNG CHỌN TO - HIỆU ỨNG KÍNH LOANG XANH */
+.nav-container {
+    position: sticky;
+    top: 20px;
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+.nav {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(141, 160, 144, 0.4) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 22px 55px; /* To hơn */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px; /* Chữ to rõ */
+    transition: 0.3s;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+.nav a:hover { transform: scale(1.2); color: #ffee93; }
+
+/* STICKER */
+.side-sticker {
+    position: fixed;
+    font-size: 55px;
+    z-index: -1;
+    opacity: 0.6;
+    animation: fastSwing 1.5s ease-in-out infinite alternate;
+}
+@keyframes fastSwing {
+    0% { transform: rotate(-15deg) scale(1); }
+    100% { transform: rotate(15deg) scale(1.2); }
+}
+
+/* KHUNG NỘI DUNG - PHỐI SẮC XANH & GRAFFITE */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+.section {
+    margin: 110px 0;
+    padding: 75px 55px 55px 55px;
+    border-radius: 65px;
+    position: relative;
+    /* Hiệu ứng Graffite bóng sâu */
+    box-shadow: 25px 25px 60px rgba(0, 0, 0, 0.3), -10px -10px 30px rgba(255,255,255,0.1);
+    animation: gentleSway 3.5s ease-in-out infinite alternate;
+    font-size: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+@keyframes gentleSway {
+    0% { transform: rotate(-0.8deg) translateY(0px); }
+    100% { transform: rotate(0.8deg) translateY(-15px); }
+}
+
+/* PHỐI SẮC ĐỘ XANH KHÁC NHAU CHO TỪNG KHUNG */
+#cover { 
+    background: linear-gradient(135deg, rgba(247, 249, 247, 0.9) 0%, rgba(219, 231, 221, 0.9) 100%); 
+    border: 4px solid #ffffff; 
+}
+#gt { 
+    background: linear-gradient(135deg, rgba(237, 243, 239, 0.8) 0%, rgba(184, 201, 186, 0.8) 100%); 
+    border: 3px dashed rgba(255,255,255,0.7); 
+    backdrop-filter: blur(10px);
+}
+#st { 
+    background: linear-gradient(135deg, #d5e4d9 0%, #a7bca9 100%); 
+    border: 5px double #ffffff; 
+    box-shadow: 15px 15px 40px rgba(45, 59, 46, 0.4);
+}
+#tt { 
+    background: rgba(255, 255, 255, 0.25); /* Kính trong suốt */
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.5); 
+    color: #fff;
+}
+#tt b { color: #ffee93; }
+
+#um { 
+    background: linear-gradient(135deg, #eaf1eb 0%, #82a088 100%); 
+    border: 4px dotted #ffffff; 
+}
+#nhan { 
+    background: linear-gradient(135deg, #ffffff 0%, #dae5db 100%); 
+    border: 8px double rgba(255,255,255,0.8); 
+}
+#lh { 
+    background: linear-gradient(135deg, #4a674f 0%, #2d3b2e 100%); 
+    border: 3px solid rgba(255,255,255,0.3);
+    color: #fff;
+}
+#lh b { color: #ffee93; }
+
+/* WASHI TAPE */
+.washi-top {
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1.5deg);
+    height: 55px;
+    width: 200px;
+    z-index: 10;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.2);
+}
+.washi-pink-big { background: var(--washi-pink-big); border-left: 4px dashed #ff8fa3; border-right: 4px dashed #ff8fa3; }
+.washi-blue-big { background: var(--washi-blue-big); border-left: 4px dashed #90e0ef; border-right: 4px dashed #90e0ef; }
+
+/* POLAROID */
+.photo-frame {
+    width: 280px;
+    background: white;
+    margin: 0 auto 35px;
+    padding: 15px 15px 75px 15px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+    transform: rotate(-3deg);
+    position: relative;
+    border-radius: 4px;
+}
+.cover-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+.photo-frame::after {
+    content: "My Youth";
+    position: absolute;
+    bottom: 18px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Dancing Script';
+    font-size: 28px;
+    color: var(--green-moss-deep);
+}
+
+.title {
+    font-family: 'Pattaya', sans-serif;
+    font-size: 48px;
+    color: var(--green-moss-deep);
+    text-align: center;
+    margin-bottom: 35px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+b { color: var(--green-moss-deep); font-weight: 700; }
+
+</style>
+</head>
+
+<body>
+
+<div class="music-disk-container">
+    <div class="music-disk"></div>
+</div>
+
+<div id="leaf-container"></div>
+
+<div class="side-sticker" style="top: 10%; left: 3vw;">💮</div>
+<div class="side-sticker" style="top: 35%; left: 4vw; animation-delay: 0.3s;">💮</div>
+<div class="side-sticker" style="top: 60%; left: 2.5vw; animation-delay: 0.6s;">💮</div>
+<div class="side-sticker" style="top: 85%; left: 4.5vw; animation-delay: 0.9s;">💮</div>
+
+<div class="side-sticker" style="top: 15%; right: 3vw; animation-delay: 0.2s;">💮</div>
+<div class="side-sticker" style="top: 40%; right: 4.5vw; animation-delay: 0.5s;">💮</div>
+<div class="side-sticker" style="top: 65%; right: 3vw; animation-delay: 0.8s;">💮</div>
+<div class="side-sticker" style="top: 88%; right: 5vw; animation-delay: 1.1s;">💮</div>
+
+<div class="nav-container">
+    <div class="nav">
+      <a href="#cover">🏠 Bìa</a>
+      <a href="#gt">🌱 Giới thiệu</a>
+      <a href="#st">🎧 Sở thích</a>
+      <a href="#tt">💙 Trân trọng</a>
+      <a href="#um">✨ Ước mơ</a>
+      <a href="#nhan">📮 Nhắn nhủ</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="section" id="cover">
+        <div class="washi-top washi-pink-big"></div>
+        <h2 class="title">Trang Sổ Thanh Xuân</h2>
+        <div class="photo-frame">
+            <img class="cover-img" src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=500&q=80" alt="Ảnh Minh Phương">
+        </div>
+        <p style="text-align: center; font-family: 'Dancing Script'; font-size: 34px;">“Hãy lớn lên thật dịu dàng, như mầm cây biết hướng về ánh sáng.”</p>
+    </div>
+
+    <div class="section" id="gt">
+        <div class="washi-top washi-blue-big"></div>
+        <h2 class="title"> 🌱 Giới thiệu</h2>
+        <p>Mình là <b>Nguyễn Minh Phương</b>, hiện là học sinh lớp 12.</p>
+        <p>Mình thích những điều nhỏ bé và tích cực trong cuộc sống. Mỗi ngày đến trường đều là một trải nghiệm mới đầy màu sắc rực rỡ.</p>
+    </div>
+
+    <div class="section" id="st">
+        <div class="washi-top washi-pink-big"></div>
+        <h2 class="title"> 🎶Sở thích</h2>
+        <p>🎧 Mình thích nghe nhạc, đọc sách vào những chiều nắng nhẹ.</p>
+        <p>📝 Thói quen nhỏ của mình là ghi lại những suy nghĩ linh tinh vào cuốn sổ này.</p>
+    </div>
+
+    <div class="section" id="tt">
+        <div class="washi-top washi-blue-big"></div>
+        <h2 class="title"> 🌻 Trân trọng</h2>
+        <p>Điều mình trân trọng nhất chính là <b>tình bạn</b> và những người thầy cô tâm huyết đã đồng hành cùng mình suốt năm cuối cấp.</p>
+    </div>
+
+    <div class="section" id="um">
+        <div class="washi-top washi-pink-big"></div>
+        <h2 class="title"> 🍁 Ước mơ</h2>
+        <p>🌈 Đỗ vào ngành học yêu thích.</p>
+        <p>🌟 Trở thành phiên bản tốt hơn của chính mình mỗi ngày.</p>
+        <p style="text-align: center; font-weight: bold; margin-top: 20px;">
+            <i>"Chỉ cần nỗ lực, cả vũ trụ sẽ giúp bạn."</i>
+        </p>
+    </div>
+
+    <div class="section" id="nhan">
+        <div class="washi-top washi-blue-big"></div>
+        <h2 class="title"> 💌 Nhắn nhủ</h2>
+        <p>Cảm ơn bạn đã ghé thăm thế giới nhỏ của mình. Chúc bạn luôn tìm thấy niềm vui trong những điều giản đơn nhất. ✨</p>
+        <p style="margin-top:20px; text-align: center;">🎵 Nghe cùng: 
+        <a href="https://youtu.be/lMKfZwnHzig" target="_blank" style="color:#ffee93; text-decoration:underline; font-weight: bold;">Đại Lộ Mặt Trời – Chillies</a></p>
+    </div>
+
+    <div class="section" id="lh">
+        <div class="washi-top washi-pink-big"></div>
+        <h2 class="title" style="color: #fff;"> ☎️ Kết nối nhé</h2>
+        <p style="text-align: center;">📧 Email: <b>mp@gmail.com</b></p>
+    </div>
+
+</div>
+
+<script>
+    function createPetal() {
+        const container = document.getElementById('leaf-container');
+        const petal = document.createElement('div');
+        const petals = ['🌸', '💮', '❀']; 
+        
+        petal.className = 'cherry-blossom';
+        petal.innerHTML = petals[Math.floor(Math.random() * petals.length)];
+        
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.fontSize = Math.random() * 10 + 10 + 'px'; 
+        petal.style.opacity = Math.random() * 0.5 + 0.3;
+        
+        const duration = Math.random() * 5 + 8;
+        petal.style.animationDuration = duration + 's';
+        
+        container.appendChild(petal);
+        setTimeout(() => { petal.remove(); }, duration * 1000);
+    }
+
+    setInterval(createPetal, 400);
+</script>
+
+</body>
+</html>

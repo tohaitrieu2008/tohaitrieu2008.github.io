@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio cá nhân</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --primary:#ff0000;
+    --dark:#b30000;
+    --bg:#0f0f0f;
+    --card:#1b1b1b;
+}
+
+body{
+    background:var(--bg);
+    color:white;
+    line-height:1.7;
+}
+
+section{
+    padding:90px 10%;
+}
+
+.title{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:40px;
+}
+nav{
+    position:fixed;
+    width:100%;
+    background:linear-gradient(90deg,var(--dark),var(--primary));
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+nav a:hover{
+    color:yellow;
+}
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#1a0000,#660000,#b30000);
+}
+
+.hero img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    border:5px solid white;
+    margin-bottom:20px;
+}
+
+.btn{
+    padding:10px 22px;
+    background:var(--primary);
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    display:inline-block;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+}
+.card{
+    background:var(--card);
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(255,0,0,.3);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+#toggleVideo{ display:none; }
+
+.video-box{
+    max-height:0;
+    overflow:hidden;
+    transition:.6s;
+    margin-top:15px;
+}
+
+#toggleVideo:checked ~ .video-box{
+    max-height:500px;
+}
+
+.video-box iframe{
+    width:100%;
+    height:250px;
+    border:none;
+    border-radius:12px;
+}
+.timeline{
+    border-left:3px solid var(--primary);
+    padding-left:20px;
+}
+
+.timeline div{
+    margin-bottom:12px;
+}
+.gallery img{
+    width:100%;
+    border-radius:12px;
+}
+.quote{
+    text-align:center;
+    font-style:italic;
+    font-size:20px;
+    opacity:.85;
+}
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111;
+    color:#aaa;
+}
+</style>
+</head>
+
+<body>
+<nav>
+    <div>Ai đọc dòng này đều đẹp trai và xinh gái</div>
+    <div>
+        <a href="#about">Giới thiệu</a>
+        <a href="#goals">Mục tiêu</a>
+        <a href="#media">Mạng xã hội</a>
+        <a href="#contact">Liên hệ</a>
+    </div>
+</nav>
+<section class="hero">
+    <img src="z7505467681311_da3419603f781ef5273c689ffebdd407.jpg" alt="">
+    <h1>NGUYỄN TRƯỜNG THỊNH</h1>
+    <p>Học sinh | Yêu bóng đá | Không biết lập trình Web</p>
+</section>
+<section id="about">
+    <h2 class="title">Giới thiệu</h2>
+    <div class="card">
+        Em là Nguyền Trường Thịnh, học sinh lớp 12a1. Sinh ngày: 15/01/2008. Học tại trường THPT số 2 Phù Cát.
+        Tuy không học xuất sắc như các bạn nhưng may mắn được làm lớp trưởng và sở hữu cái làn da đen quý tộc và tính cách hài hước.
+        
+    </div>
+</section>
+<section id="goals">
+    <h2 class="title">Mục tiêu & Định hướng</h2>
+    <div class="grid">
+        <div class="card"> Đậu vào trường mình muốn </div>
+        <div class="card"> Học được ngành mình thích </div>
+        <div class="card"> Kiếm thật nhiều tiền </div>
+    </div>
+</section>
+<section>
+    <h2 class="title">Sở thích</h2>
+    <div class="grid">
+        <div class="card"> Chơi đá bóng </div>
+        <div class="card"> Nghe nhạc </div>
+        <div class="card"> Du lịch </div>
+        <div class="card"> Nấu ăn </div>
+    </div>
+</section>
+<section id="media">
+    <h2 class="title">Video giới thiệu</h2>
+
+    <div class="card" style="text-align:center">
+
+        <input type="checkbox" id="toggleVideo">
+        <label for="toggleVideo" class="btn"> Bài hát yêu thích </label>
+
+        <div class="video-box">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wKIt5vBSW-4?si=NyVBCqhBF_rLhexd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="card" style="text-align:center">
+            <a href="https://www.facebook.com/thinhdadenbenem" target="_blank" class="btn">Trang cá nhân</a>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="quote">
+        "Học mỗi ngày – Tiến bộ mỗi ngày – Thành công trong tương lai."
+    </div>
+</section>
+<section id="contact">
+    <h2 class="title">Liên hệ</h2>
+    <div class="card">
+        Email: nguyentruongthinh1501@gmail.com <br>
+        Phone: 0344094924 <br>
+        Địa chỉ: Đề Gi , Gia Lai
+    </div>
+</section>
+
+<footer>
+Cảm ơn mọi người đã xem tới đây
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Skills | Brief Version</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: "Segoe UI", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .skills-page {
+        width: 600px;
+        max-width: 90%;
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { 
+        margin: 0; font-size: 28px; letter-spacing: 1px;
+        background: linear-gradient(90deg, #0984e3, #6c5ce7);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .skill-list { display: flex; flex-direction: column; gap: 15px; }
+
+    .skill-item {
+        padding: 15px 20px;
+        border-radius: 12px;
+        background: #f8f9fa;
+        border-left: 4px solid #6c5ce7;
+        transition: 0.3s;
+    }
+
+    .skill-item:hover {
+        transform: translateX(8px);
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .skill-head { font-weight: 800; font-size: 15px; margin-bottom: 5px; color: #1a1a1a; }
+    .skill-text { font-size: 14px; color: #636e72; margin-bottom: 10px; }
+
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag {
+        font-size: 11px; font-weight: 700; padding: 4px 10px;
+        border-radius: 4px; background: #e9ecef; color: #495057;
+    }
+
+    .back-btn {
+        display: block; width: fit-content; margin: 30px auto 0;
+        text-decoration: none; font-size: 12px; font-weight: 700;
+        color: #764ba2; border: 1.5px solid #764ba2;
+        padding: 10px 30px; border-radius: 50px; transition: 0.3s;
+    }
+
+    .back-btn:hover { background: #764ba2; color: #fff; }
+
+    @media (max-width: 480px) { .skills-page { padding: 25px; } }
+</style>
+</head>
+<body>
+
+<div class="skills-page">
+    <div class="header">
+        <h1>CORE SKILLS</h1>
+    </div>
+
+    <div class="skill-list">
+        <div class="skill-item">
+            <div class="skill-head">💬 GIAO TIẾP</div>
+            <div class="skill-text">Lắng nghe chủ động và truyền đạt rõ ràng.</div>
+            <div class="tags">
+                <span class="tag">Thuyết phục</span>
+                <span class="tag">Ứng xử</span>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-head">🤝 LÀM VIỆC NHÓM</div>
+            <div class="skill-text">Hợp tác hiệu quả, trách nhiệm cao.</div>
+            <div class="tags">
+                <span class="tag">Kết nối</span>
+                <span class="tag">Hỗ trợ</span>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-head">⌛ QUẢN LÝ THỜI GIAN</div>
+            <div class="skill-text">Ưu tiên công việc, tối ưu hiệu suất.</div>
+            <div class="tags">
+                <span class="tag">Lập kế hoạch</span>
+                <span class="tag">Kỷ luật</span>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-head">🧠 TƯ DUY LOGIC</div>
+            <div class="skill-text">Phân tích sắc bén và giải quyết vấn đề.</div>
+            <div class="tags">
+                <span class="tag">Suy luận</span>
+                <span class="tag">Giải pháp</span>
+            </div>
+        </div>
+    </div>
+    <div class="back">
+             <a href="pht.html">Quay lại</a>
+          </div>
+
+
+</div>
+
+</body>
+</html>

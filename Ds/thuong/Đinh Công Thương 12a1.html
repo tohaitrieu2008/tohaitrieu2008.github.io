@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Đinh Công Thương</title>
+    <style>
+        * { box-sizing: border-box; }
+        
+        /* --- TÙY CHỈNH THANH CUỘN CHO TOÀN TRANG --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            background-image: url('https://i.pinimg.com/1200x/eb/07/0e/eb070e32cc1dcfbb84fe54de1d8cde0e.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* --- HIỆU ỨNG PARTICLES NỀN --- */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(52, 152, 219, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        /* --- HEADER VỚI HIỆU ỨNG --- */
+        header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                              url('https://i.pinimg.com/1200x/e4/d4/0d/e4d40db20a6abb1ad042cb71358dd629.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            padding-left: 8%;
+            z-index: 2000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hiệu ứng sóng chạy trên header */
+        header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(52, 152, 219, 0.1), 
+                transparent);
+            animation: wave 8s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+        }
+
+        .header-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 30px; 
+            z-index: 1;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .avatar {
+            width: 160px; 
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            animation: rotate3d 3s ease-in-out infinite;
+            transition: transform 0.3s;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.6);
+        }
+
+        @keyframes rotate3d {
+            0%, 100% { transform: perspective(600px) rotateY(0deg); }
+            50% { transform: perspective(600px) rotateY(10deg); }
+        }
+
+        .header-text h1 { 
+            margin: 0; 
+            font-size: 2.8rem; 
+            letter-spacing: 2px;
+            background: rgba(52, 152, 219, 0.25);
+            backdrop-filter: blur(5px);
+            padding: 5px 20px; 
+            border-radius: 12px;
+            display: inline-block; 
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(52, 152, 219, 0.5); }
+            to { text-shadow: 0 0 20px rgba(52, 152, 219, 0.8), 0 0 30px rgba(52, 152, 219, 0.6); }
+        }
+
+        .header-text p { 
+            margin: 0; 
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 5px 15px; 
+            border-radius: 8px;
+            display: table;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- BRAND LOGO VỚI HIỆU ỨNG --- */
+        .brand-logo {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 15px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            user-select: none;
+            z-index: 2;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand-logo:hover {
+            background: rgba(52, 152, 219, 0.3);
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .brand-logo .b-icon {
+            background: #3498db;
+            color: white;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: sans-serif;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .brand-logo span {
+            color: white;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- LAYOUT CHÍNH --- */
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* THANH NAV DỌC CÁNH TRÁI */
+        nav {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(15px);
+            width: 240px;
+            display: flex;
+            flex-direction: row;
+            z-index: 1000;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        nav ul { 
+            list-style: none; 
+            padding: 20px 0; 
+            margin: 0; 
+            flex: 1; 
+        }
+
+        nav ul li {
+            opacity: 0;
+            animation: fadeInRight 0.5s ease-out forwards;
+        }
+
+        nav ul li:nth-child(1) { animation-delay: 0.1s; }
+        nav ul li:nth-child(2) { animation-delay: 0.2s; }
+        nav ul li:nth-child(3) { animation-delay: 0.3s; }
+        nav ul li:nth-child(4) { animation-delay: 0.4s; }
+        nav ul li:nth-child(5) { animation-delay: 0.5s; }
+        nav ul li:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        nav ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none; 
+            font-weight: 500;
+            padding: 15px 25px; 
+            display: block;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(52, 152, 219, 0.15);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        nav ul li a:hover::before {
+            width: 100%;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background: rgba(52, 152, 219, 0.15);
+            color: #3498db;
+            border-left: 4px solid #3498db;
+            transform: translateX(5px);
+        }
+
+        /* THANH TIẾN TRÌNH DỌC */
+        #progress-container {
+            width: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #progress-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                transparent, 
+                rgba(52, 152, 219, 0.3), 
+                transparent);
+            animation: progressShine 2s linear infinite;
+        }
+
+        @keyframes progressShine {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        #progress-bar {
+            width: 100%;
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            height: 0%;
+            box-shadow: 0 0 15px #3498db;
+            transition: height 0.1s;
+            position: relative;
+        }
+
+        #progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            filter: blur(10px);
+        }
+
+        /* VÙNG NỘI DUNG CUỘN */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+            scroll-behavior: smooth;
+        }
+
+        .main-content::-webkit-scrollbar { width: 8px; }
+        .main-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            border-radius: 10px;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.82); 
+            backdrop-filter: blur(8px);
+            padding: 30px; 
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(52, 152, 219, 0.1), 
+                transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .section-card:hover::before {
+            left: 100%;
+        }
+
+        .section-card:hover {
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(52, 152, 219, 0.3);
+        }
+
+        h2 { 
+            color: #2c3e50; 
+            border-left: 5px solid #3498db; 
+            padding-left: 15px; 
+            margin-top: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.5s ease;
+        }
+
+        .section-card:hover h2::after {
+            width: 100%;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills-container span {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white; 
+            padding: 8px 20px;
+            border-radius: 25px; 
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-container span::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .skills-container span:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .skills-container span:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* --- FOOTER --- */
+        footer { 
+            width: 100%; 
+            background: rgba(0, 0, 0, 0.9);
+            color: white; 
+            text-align: center; 
+            padding: 20px;
+            flex-shrink: 0; 
+            z-index: 2000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3498db, transparent);
+            animation: footerLine 3s linear infinite;
+        }
+
+        @keyframes footerLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .main-wrapper { flex-direction: column; }
+            nav { width: 100%; height: auto; }
+            #progress-container { display: none; }
+            .main-content { padding: 20px; }
+            header { 
+                height: auto; 
+                padding: 40px 20px; 
+                justify-content: center; 
+                text-align: center; 
+            }
+            .header-container { flex-direction: column; }
+            .brand-logo { 
+                top: 10px; 
+                right: 10px; 
+                padding: 5px 10px; 
+            }
+        }
+
+        /* --- HIỆU ỨNG CON TRỎ CHUỘT --- */
+        .cursor-follower {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3498db;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            opacity: 0;
+        }
+
+        .cursor-follower.active {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particles Background -->
+    <div id="particles"></div>
+
+    <!-- Cursor Follower -->
+    <div class="cursor-follower"></div>
+
+    <header>
+        <div class="header-container">
+            <img src="https://i.pinimg.com/736x/25/c0/3a/25c03aece681da3ebb4ae9f84574b7f7.jpg" alt="Avatar" class="avatar">
+            <div class="header-text">
+                <h1>ĐINH CÔNG THƯƠNG</h1>
+                <p>Junior Developer</p>
+            </div>
+        </div>
+        <div class="brand-logo">
+            <div class="b-icon">B</div>
+            <span>bruhbook</span>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav>
+            <ul id="menu">
+                <li><a href="#gioi-thieu" class="active">Giới thiệu</a></li>
+                <li><a href="#tinh-cach-so-thich">Tính cách & Sở thích</a></li>
+                <li><a href="#hoc-van">Học vấn</a></li>
+                <li><a href="#kinh-nghiem">Kinh nghiệm</a></li>
+                <li><a href="#ky-nang">Kỹ năng</a></li>
+                <li><a href="#lien-he">Liên hệ</a></li>
+            </ul>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+        </nav>
+
+        <main class="main-content" id="scroll-area">
+            <section id="gioi-thieu" class="section-card">
+                <h2>Giới thiệu bản thân</h2>
+                <p>Tôi là một người đam mê công nghệ và nghệ thuật, luôn tò mò trước những điều mới mẻ và sẵn sàng học hỏi để phát triển bản thân mỗi ngày.
+                Với vai trò là một lập trình viên web "chân ướt chân ráo" bước vào nghề, tôi hiểu rõ giá trị của nền tảng cơ bản, sự kiên trì và tinh thần tự học.
+                Mục tiêu của tôi là không ngừng hoàn thiện kỹ năng chuyên môn, tham gia vào các dự án thực tế, đóng góp tối đa khả năng của bản thân và từng bước đi xa nhất có thể trên con đường mà chính mình đã lựa chọn.</p>
+            </section>
+
+            <section id="tinh-cach-so-thich" class="section-card">
+                <h2>Tính cách</h2>
+                <p>Tôi là người khá thân thiện, dễ gần và dễ trao đổi trong môi trường làm việc nhóm. Có tinh thần ham học hỏi, chủ động tìm hiểu vấn đề mới và có trách nhiệm với công việc được giao. Tôi thích tự mình hoàn thành một sản phẩm từ đầu đến cuối và dành thời gian nhìn lại, đánh giá để rút kinh nghiệm và cải thiện ở những lần sau.</p>
+                <h2>Sở thích</h2>
+                <p>Lập trình và tối ưu lại các sản phẩm cá nhân<br>Tự suy xét, cải tiến giao diện và trải nghiệm người dùng<br>Đi chơi xa cùng bạn bè, chụp ảnh và lưu giữ kỷ niệm<br>Xem phim, vẽ và sáng tạo trong thời gian rảnh</p>
+            </section>
+
+            <section id="hoc-van" class="section-card">
+                <h2>Học vấn</h2>
+                <p><b>Một trường đại học nào đó</b><br>
+                Chuyên ngành: Công nghệ thông tin / Lập trình web <br>
+                Được trang bị kiến thức nền tảng về lập trình, tư duy logic và giải quyết vấn đề<br>
+                Tự học thêm thông qua tài liệu online, video hướng dẫn và các dự án cá nhân<br>
+                Chủ động thực hành bằng cách xây dựng các website nhỏ để củng cố kiến thức</p>
+            </section>
+
+            <section id="kinh-nghiem" class="section-card">
+                <h2>Kinh nghiệm làm việc</h2>
+                <p>Xây dựng các website tĩnh và bán động bằng HTML, CSS, JavaScript<br>
+                Tự thiết kế giao diện web đơn giản, tập trung vào bố cục và trải nghiệm người dùng<br>
+                Thực hành chia layout, responsive cho nhiều kích thước màn hình<br>
+                Tối ưu và chỉnh sửa code dựa trên phản hồi và quá trình tự đánh giá<br>
+                Làm quen với quy trình phát triển sản phẩm từ ý tưởng → thiết kế → triển khai → hoàn thiện</p>
+            </section>
+
+            <section id="ky-nang" class="section-card">
+                <h2>Kỹ năng</h2>
+                <div class="skills-container">
+                    <span>HTML5</span> 
+                    <span>CSS3</span> 
+                    <span>JavaScript</span>
+                    <span>Photoshop</span>
+                </div>
+            </section>
+
+            <section id="lien-he" class="section-card">
+                <h2>Liên hệ</h2>
+                <p>📍 <strong>Địa chỉ:</strong> Thái Bình - Đề Gi</p>
+                <p>📧 <strong>Email:</strong> <a href="mailto:thuongdinhcong2k8@gmail.com" style="color:#3498db">thuongdinhcong2k8@gmail.com</a></p>
+                <p>🔵 <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100075920630552" target="_blank" style="color:#3498db">Đinh Công Thương</a></p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Designed and Developed by D.C.Thuong</p>
+    </footer>
+
+    <script>
+        const scrollArea = document.getElementById('scroll-area');
+        const progressBar = document.getElementById('progress-bar');
+        const sections = document.querySelectorAll('.section-card');
+        const navLinks = document.querySelectorAll('#menu li a');
+
+        // 1. Thanh tiến trình
+        scrollArea.onscroll = function() {
+            let winScroll = scrollArea.scrollTop;
+            let height = scrollArea.scrollHeight - scrollArea.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            progressBar.style.height = scrolled + "%";
+        };
+
+        // 2. Scroll Spy
+        const observerOptions = {
+            root: scrollArea,
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // 3. Xử lý Click Menu
+        navLinks.forEach(link => {
+            link.onclick = function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                scrollArea.scrollTo({
+                    top: targetSection.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            };
+        });
+
+        // 4. Intersection Observer cho Section Cards
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            root: scrollArea,
+            threshold: 0.2
+        });
+
+        sections.forEach(section => cardObserver.observe(section));
+
+        // 5. Tạo particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 5 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // 6. Cursor Follower
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorFollower.classList.add('active');
+        });
+
+        function animateCursor() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        // 7. Hiệu ứng khi click vào skills
+        const skillSpans = document.querySelectorAll('.skills-container span');
+        skillSpans.forEach(span => {
+            span.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>

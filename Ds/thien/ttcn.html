@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="En">
+<head>
+<meta charset="UTF-8">
+<title>Sơ yếu lý lịch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body{
+        margin:0;
+        background:linear-gradient(180deg,#111827,#1f2933);
+         font-family:'Segoe UI', sans-serif;
+          color:#e5e7eb;}
+          h1{
+            text-align:center;
+              margin:50px 0 20px;
+               letter-spacing:4px;}
+               .timeline{
+                 position:relative;
+                 max-width:900px;
+                 margin:0 auto 80px;
+                  padding:40px 0;}
+                  .timeline::before{
+                    content:"";
+                    position:absolute;
+                    left:50%;
+                    top:0;
+                     bottom:0;
+                      width:4px;
+                      background:#38bdf8;
+                      transform:translateX(-50%);}
+                      .item{
+                        width:50%;
+                        padding:30px 40px;
+                         position:relative;}
+                         .item::before{
+                             content:"";
+                             position:absolute;
+                              top:40px;
+                               width:18px;
+                                 height:18px;
+                                  background:#38bdf8;
+                                  border-radius:50%;
+                                  box-shadow:0 0 15px #38bdf8;}
+                                  .left{
+                                    left:-9%;
+                                    text-align:right}
+                                    .left::before{
+                                        right:-9px;}
+                                        .right{
+                                            left:50%;}
+                                            .right::before{
+                                                left:-9px;}
+                                                .box{
+                                                    background:#020617;
+                                                    border-radius:16px;
+                                                    box-shadow:0 15px 40px rgba(0,0,0,0.6);
+                                                     animation: fadeUp 0.8s ease both;}
+                                                     @keyframes fadeUp{
+                                                        from{
+                                                            opacity:0;
+                                                             transform:translateY(30px);}
+                                                             to{
+                                                                opacity:1;
+                                                                transform:translateY(0);}}
+                                                                .box h3{
+                                                                     color:#38bdf8;}
+                                                                     .box p{
+                                                                         line-height:1.8;}
+                                                                         .box b{
+                                                                            color:#facc15;}
+                                                                            .back{
+                                                                                 text-align:center;
+                                                                                 margin-top:40px;}
+                                                                                 .back a{text-decoration:none;
+                                                                                    color:#020617;background:#38bdf8;
+                                                                                    padding:12px 36px;border-radius:30px;
+                                                                                    font-weight:600;}
+                                                                                    @media(max-width:800px){.timeline::before{left:30px;}
+                                                                                    .item{width:100%;
+                                                                                    padding-left:80px;
+                                                                                    padding-right:20px;
+                                                                                    text-align:left;}
+                                                                                    .left, .right{left:0;}
+                 
+.page{animation: pageIn .6s ease forwards;}
+@keyframes pageIn{from{opacity:0;transform: translateY(20px);}to{opacity:1;transform: translateY(0);}}
+
+.fade-out{animation: pageOut .4s ease forwards;}
+
+@keyframes pageOut{
+to{opacity:0;transform: translateY(-20px);}}                                                                  .item::before{left:21px;}}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+    <h1>SƠ YẾU LÝ LỊCH</h1>
+    <div class="timeline">
+        <div class="item left">
+            <div class="box">
+                <h3>Thông tin cá nhân</h3>
+                <p><b>Họ tên:</b> PHAN HỮU THIỆN</p>
+                <p><b>Ngày sinh:</b> 16/05/2008</p>
+                <p><b>Giới tính:</b> Nam</p>
+            </div>
+        </div>
+         <div class="item right">
+            <div class="box">
+                <h3>Học tập</h3>
+                <p><b>Lớp:</b> 12A1</p>
+                <p><b>Trường:</b> THPT số 2 Phù Cát</p>
+            </div>
+         </div>
+         <div class="item left">
+            <div class="box">
+                <h3>Đặc điểm cá nhân</h3>
+                <p><b>Sở thích:</b>bóng đá,bóng chuyền,chơi game</p>
+                <p><b>Tính cách:</b> Hòa đồng,thẳng thắn,ham học hỏi</p>
+            </div>
+        </div>
+        <div class="item right">
+           <div class="box">
+              <h3>Mục tiêu học tập</h3>
+              <p>Tôi sẽ không ngừng cố gắng học tập và trao dồi kiến thức mới,duy trì ý thức học tập để có một hành trang thật vững vàng cho con dường học học tập hướng tới tương lai.</p>
+          </div>
+        
+          <div class="back">
+             <a href="pht.html"  onclick="goBack(event)">Quay lại</a>
+          </div>
+          </div>
+          </div>
+          <script>
+function goBack(e){
+    e.preventDefault();
+    document.querySelector('.page').classList.add('fade-out');
+    setTimeout(()=>{
+        window.location.href = "pht.html";
+    },400);
+}
+</script>
+
+
+</body>
+</html>
