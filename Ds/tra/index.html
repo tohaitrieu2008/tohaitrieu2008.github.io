@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nguyễn Phương Trà </title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5468db3c8c.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.gif" type="image/gif" />
+    <link rel="stylesheet" href="mystyle.css" />
+    <style>
+        
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 10px 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .audio-player button {
+            background: #149cb4;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .audio-player button:hover {
+            background: #0d7a8c;
+        }
+        
+        .audio-info {
+            font-size: 12px;
+            color: #333;
+            max-width: 150px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .social-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #149cb4;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-button.phone:hover { background-color: #4CAF50; color: white; }
+        .social-button.email:hover { background-color: #EA4335; color: white; }
+        .social-button.facebook:hover { background-color: #1877F2; color: white; }
+        .social-button.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #aeefff;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    
+    
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            
+            <div class="info-box">
+                <img class="avata" src="images/avata.png" width="100" alt="Avatar">
+                <h2>Nguyễn Phương Trà</h2>
+                <p><i class="fas fa-graduation-cap"></i> 12A1-PC2</p>
+                <p><i class="fas fa-birthday-cake"></i> 14-11-2008</p>
+                <p><i class="fas fa-star"></i> Zodiac sign: ♏ Scorpio</p>
+                <p><i class="fas fa-heart"></i> Music lover & Guitarist</p>
+                <p class="quote">
+                    "Good things happen when we least expect them"
+                </p>
+            </div>
+            
+           
+            <section class="hobbies-section">
+                <div class="section-title">
+                    <h1>My Hobbies</h1>
+                    <span class="music-note music-note-1">♪</span>
+                    <span class="music-note music-note-2">♫</span>
+                    <span class="music-note music-note-3">♬</span>
+                </div>
+                
+                <div class="cards">
+                  
+                    <div class="card">
+                        <img src="images/music.png" alt="Music icon">
+                        <h3>Listening to Music</h3>
+                        <p>
+                            Music is my daily companion, helping me unwind and find inspiration. 
+                            I enjoy various genres from classical to modern pop.
+                        </p>
+                    </div>
+                    
+                   
+                    <div class="card">
+                        <img src="images/guitar.png" alt="Guitar icon">
+                        <h3>Playing the Guitar</h3>
+                        <p>
+                            Strumming chords on my guitar allows me to express emotions and relieve stress. 
+                            I enjoy both acoustic and electric styles.
+                        </p>
+                    </div>
+
+                    
+                    <div class="card">
+                        <img src="images/read.png" alt="Book icon">
+                        <h3>Reading Books</h3>
+                        <p>
+                            Books open new worlds and perspectives. I enjoy fiction, poetry, 
+                            and self-improvement books that expand my mind.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="favorite-song-section">
+    <div class="section-title">
+        <h2>Bài hát yêu thích của mình</h2>
+        <h3>Highly recommend for you</h3>
+    </div>
+    
+    <div class="audio-container">
+        <div class="audio-card">
+            <div class="audio-player-box">
+                <audio src="BestPart.mp3" controls></audio>
+                <div class="song-info">
+                    <p class="song-title">Best Part - H.E.R.
+, 
+Daniel Caesar</p>
+                    <p class="song-description">~Dạo vài dòng hợp âm và thư giãn cùng mình~
+                    </p>
+                    <p>Cùng nhâm nhi một chút matcha latte nhé</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+            
+            <div class="social-buttons">
+                <button class="social-button phone" onclick="location.href = 'tel:0866124xxx'">
+                    <i class="fas fa-phone-alt"></i>
+                </button>
+                <button class="social-button email" onclick="location.href = 'mailto:trangnphuong1213@gmail.com'">
+                    <i class="fas fa-envelope"></i>
+                </button>
+                <button class="social-button facebook" onclick="location.href = 'https://www.facebook.com/usernaocavang'">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+                <button class="social-button instagram" onclick="location.href = 'https://www.instagram.com/usernaocavang'">
+                    <i class="fab fa-instagram"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

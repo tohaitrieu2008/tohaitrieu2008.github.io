@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Toàn - 2026</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('Việt Nam.jpg') no-repeat center center fixed;
+            background-size: 100% 100%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3); z-index: 1;
+        }
+
+        .container {
+            position: relative; z-index: 2;
+            max-width: 600px; width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(7px);
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Header */
+        .header { text-align: center; margin-bottom: 30px; }
+        .avatar {
+            width: 130px; height: 130px;
+            border-radius: 50%;
+            border: 4px solid #505355;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        h1 { margin: 0; font-size: 2rem; color: #00d2ff; }
+        .tagline { font-style: italic; opacity: 0.8; margin-top: 5px; }
+
+        /* Section Style */
+        .section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        h2 { font-size: 1.2rem; border-left: 4px solid #00d2ff; padding-left: 10px; margin-top: 0; }
+
+        /* Stats/Info */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .info-item { font-size: 0.9rem; margin-bottom: 5px; }
+        .info-item b { color: #00d2ff; }
+
+        /* Social Buttons */
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn {
+            flex: 1; text-align: center; text-decoration: none; color: white;
+            padding: 12px; border-radius: 10px; background: #00d2ff;
+            font-weight: bold; transition: 0.3s;
+        }
+        .btn-mail { background: #ff4757; }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <div class="header">
+        <img src="Đại hội Đảng XIV.png" alt="Minh Toàn" class="avatar">
+        <h1>Minh Toàn</h1>
+        <p class="tagline">"Sống, chiến đấu, lao động và học tập theo gương Bác Hồ vĩ đại"</p>
+    </div>
+
+    <div class="section">
+        <h2> Thông tin cá nhân:</h2>
+        <div class="info-grid">
+            <div class="info-item"> <b>Ngày sinh:</b> 08/09/2008 </div>
+            <div class="info-item"> <b>Học tại trường:</b> THPT Số 2 Phù Cát</div>
+            <div class="info-item"> <b>Quê quán:</b> Thôn Chánh Danh, xã Đề Gi, tỉnh Gia Lai</div>
+            <div class="info-item"> <b>Dân tộc:</b> Kinh </div>
+        </div>
+    </div>
+    
+      <div class="section">
+        <h2> Giới thiệu</h2>
+        <div class="box">
+          <p>
+        Tôi là Minh Toàn, hiện đang là học sinh lớp 12A1. Đây là năm học quan trọng đánh dấu bước ngoặt lớn trong cuộc đời học sinh.
+        Tôi sẽ luôn cố gắng học tập nghiêm túc, rèn luyện kỷ luật và phát triển bản thân để chuẩn bị cho chặng đường phía trước.
+          </p>
+        </div>
+      </div>
+      <div class="section">
+        <h2>Sở thích và ưu điểm</h2>
+        <div class="skills">
+            <div class="skill">- Tìm hiểu khoa học.</div>
+            <div class="skill">- Nghe nhạc, đọc truyện, chơi cờ.</div>
+            <div class="skill">- Mong muốn được giao lưu văn hoá, xã hội.</div>
+            <div class="skill">- Tinh thần tự học (được 10 phút).</div>
+        </div>
+      </div>
+        
+    
+
+    <div class="section">
+        <h2> Mục tiêu năm 2026</h2>
+        <p>- Vượt qua kỳ thi tốt nghiệp THPT với điểm số cao nhất có thể.</p>
+        <p>- Đậu vào trường Đại học mơ ước.</p>
+        <p>- Học thêm kỹ năng mới để phát triển bản thân hơn trong tương lai.</p>
+    </div>
+
+    <div class="section">
+        <h2> Mọi người có thể kết nối tại:</h2>
+        <div class="btn-group">
+            <a href="https://www.facebook.com/profile.php?id=100087552144376" target="_blank" class="btn">Facebook</a>
+            <a href="mailto:minhtoanmadarauchia@gmail.com" class="btn btn-mail"> Email</a>
+        </div>
+    </div>
+    
+    <p style="text-align: center; font-size: 0.8rem; opacity: 0.5;"> 2026 Minh Toàn.</p>
+</div>
+
+</body>
+</html>

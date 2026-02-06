@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo trang Web cá nhân</title>
+    <style>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { margin: 0; 
+            font-family: 'Segoe UI', sans-serif; 
+            color: #333; 
+            background-color: #f0f2f5;
+            line-height: 1.7;}
+
+         #thong-tin { padding: 100px 0; }
+        .thongtin1 { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        .thongtin2 { 
+            background: white; padding: 40px; 
+            margin-bottom: 30px; border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+        h2 { color: #2c3e50; border-bottom: 2px solid #2ecc71; padding-bottom: 10px; display: inline-block; }
+        
+       
+        .grid-info { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .info-item b { color: #2ecc71; display: block; font-size: 0.8rem; text-transform: uppercase; }
+
+        
+        .timeline { border-left: 2px solid #e9ecef; padding-left: 20px; margin-top: 20px; }
+        .time-box { margin-bottom: 20px; position: relative; }
+        .time-box::before { 
+            content: ''; width: 12px; height: 12px; background: #2ecc71; 
+            position: absolute; left: -27px; top: 5px; border-radius: 50%; 
+        }
+
+        .skills span { 
+            background: #e8f5e9; color: #2e7d32; padding: 5px 15px; 
+            border-radius: 5px; display: inline-block; margin: 5px; font-weight: 500;
+        }
+
+        footer { text-align: center; color: #999; padding-bottom: 40px; }
+
+    
+        .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;color:blue;}
+
+.social-item {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f2f2f7;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.social-item:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-3px);
+}
+    </style>
+</head>
+<body>
+
+    
+
+    <div id="thong-tin">
+        <div class="thongtin1">
+            
+            <div class="thongtin2">
+                <h2>📌 Thông tin cơ bản</h2>
+                <div class="grid-info">
+                    <div class="info-item"><b>Họ và tên</b>Võ Thanh Thùy</div>
+                    <div class="info-item"><b>Ngày sinh</b> 02/10/2008</div>
+                    <div class="info-item"><b>Lớp</b> 12A1 </div>
+                    <div class="info-item"><b>Email</b> thuyvo.021008@gmail.com</div>
+                    <div class="info-item"><b>Số điện thoại</b> 0342208260</div>
+                </div>
+            </div>
+
+            <div class="thongtin2">
+                <h2>🎓 Quá trình học tập</h2>
+                <div class="timeline">
+                    <div class="time-box">
+                        <small>2023 - Nay</small>
+                        <div style="font-weight: bold;">Trường THPT số 2 Phù Cát</div>
+                    </div>
+                    <div class="time-box">
+                        <small>2019 - 2023</small>
+                        <div style="font-weight: bold;">Trường THCS Cát Tài</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="thongtin2">
+                <h2>🛠 Kỹ năng & Sở thích</h2>
+                <p><b>Kỹ năng chuyên môn:</b></p>
+                <div class="skills">
+                    <span>Word (Cơ bản)</span> <span>HTML/CSS</span> <span>Excel</span> 
+                </div>
+                <p style="margin-top: 20px;"><b>Sở thích cá nhân:</b></p>
+                <div class="skills">
+                    <span>Nghe nhạc</span> <span>Nấu ăn</span> <span>Du lịch</span>
+                
+            </div>
+
+            <div class="thongtin2">
+                <h2>🚀 Châm ngôn</h2>
+                <p><b> "Hữu xạ tự nhiên hương"</b>
+                   
+                </p>
+                <p><b>"Sự tử tế là ngôn ngữ mà người điếc có thể nghe và người mù có thể thấy"- Mark Twain</b></p>
+            </div>
+
+
+            <div class="social-links">
+        <a href="https://www.facebook.com/share/1DkbXw4k4y/" target="_blank" class="social-item">
+            <span>FB</span> Facebook
+        </a>
+        <a href="_thaq.thie_" target="_blank" class="social-item">
+            <span>INS</span> Instagram
+        </a>
+           </div
+            
+        </div>
+    </div>
+  <p><i>Mình mong rằng bản thân sẽ chinh phục được nhiều thứ hơn nữa</i></p>
+</body>
+</html>

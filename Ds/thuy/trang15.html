@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,, initial-scale=1.0">
+    <title>Trang mở đầu</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background-color: #ffffff; 
+            color: #1d1d1f; }
+
+        nav { 
+            position: fixed; top: 0; width: 100%; padding: 25px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px); border-bottom: 1px solid #f0f0f0; }
+        .logo { font-weight: 800; font-size: 1.1rem; color: #000; letter-spacing: 1px; }
+        nav a { color: #666; text-decoration: none; font-size: 0.9rem; margin-left: 30px; font-weight: 500; }
+
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            text-align: center;
+            justify-content: space-between; 
+            padding: 0 10%;
+            gap: 50px;}
+
+       .hero-text-container { flex: 1.2;text-align: left;margin-top: 100px; }
+        .badge {
+            display: inline-block;
+            background: #f2f2f7;
+            color:black;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;}
+        h1 { 
+            font-size: 5rem; 
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color:rgba(12, 60, 184, 0.741)}
+        .accent { color: #3584b9; }
+        .intro-text {
+            font-size: 1.5rem;
+            color: #636366;
+            max-width: 500px;
+            margin-bottom: 40px;
+            line-height: 1.6;}
+
+       .hinhanh {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; }
+        .my-photo {
+            width: 100%;
+            max-width: 400px; 
+            aspect-ratio: 4/5; 
+            background: #f5f5f7;
+            border-radius: 30px; 
+            object-fit: cover;
+            box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+            border: 8px solid white;}
+
+        .nutbam {
+            display: inline-block;
+            padding: 16px 35px;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s ease;}
+        .nutbam:hover { background: #3498db; transform: translateY(-5px); }
+
+        
+       
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PORTFOLIO</div>
+        <div class="nav-links">
+            <a href="#trang-chu">Trang chủ</a>
+            <a href="trang13.html">Thông tin</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="trang-chu">
+        <div class="hero-text-container">
+            <div class="badge">CHÀO BẠN MÌNH LÀ</div>
+            <h1>THANH THÙY</h1>
+            <p class="intro-text">
+              <b> Một học sinh cuối cấp -Trường THPT số 2 Phù Cát</b>
+            </p>
+            <a href="trang13.html" class="nutbam">Khám phá về mình</a>
+        </div>
+
+        <div class="hinhanh">
+            <img src="hình ảnh.jpg" alt="Ảnh của tôi" class="my-photo" >
+        </div>
+    </section>
+
+</body>
+</html>
