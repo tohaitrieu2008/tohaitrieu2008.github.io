@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minigame</title>
+    <link rel="stylesheet" href="giaitri.css">
+</head>
+<body>
+<video autoplay muted loop playsinline preload="auto">
+    <source src="Nen/Nenmanhinh.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+<div class="wrap">
+    <section class="game">
+        <div class="header">
+            <div>
+                <div class="title">🎲 Cờ Bạc Là Bác Thằng Bần</div>
+                <div class="subtitle">Dự đoán tổng số viên đỏ (🔴) khi tung 4 viên — Tiền ảo</div>
+            </div>
+            <div class="balance" id="balance">50,000,000 VND</div>
+        </div>
+        <div class="controls">
+            <input type="number" id="bet" value="10000" min="1000" step="1000">
+            <div class="pick">
+                <button id="pick-even" class="btn">CHẴN</button>
+                <button id="pick-odd" class="btn">LẺ</button>
+            </div>
+            <button id="spin" class="btn btn-blue">TUNG</button>
+            <button id="reset" class="btn btn-red">RESET</button>
+        </div>
+        <div class="board">
+            <div class="coin hidden">⚪</div>
+            <div class="coin hidden">⚪</div>
+            <div class="coin hidden">⚪</div>
+            <div class="coin hidden">⚪</div>
+        </div>
+        <div class="resultline">
+            <div class="kq" id="kqText">Chưa tung</div>
+            <div class="message" id="msg">Chọn cược & dự đoán</div>
+        </div>
+        <div id="warn" class="warn" style="display:none">
+            ⚠️ Tổng thắng vượt 15% vốn — hệ thống kích hoạt chế độ thua.
+        </div>
+    </section>
+
+    <aside class="panel">
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>Lượt</th>
+                    <th>Cược</th>
+                    <th>Dự đoán</th>
+                    <th>Kết quả</th>
+                    <th>Số dư</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </aside>
+</div>
+<section class="warning-section">
+    <h3>⚠️ Cảnh báo</h3>
+    <p>
+        Đây là trang web được tạo nên bởi thuật toán Python của chủ web và được lập trình thành web với sự hỗ trợ một phần của AI, 
+        nhằm mục đích vui chơi giải trí lành mạnh. Cờ bạc là hành vi bị pháp luật nghiêm cấm. Người chơi cần tự ý thức, 
+        chơi có trách nhiệm và không tham gia cờ bạc hay cá cược bằng tiền thật dưới mọi hình thức.
+    </p>
+</section>
+<script src="giaitri.js"></script>
+
+</body>
+</html>

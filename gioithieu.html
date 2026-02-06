@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu thành viên</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #2d3748;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+
+        .info-table {
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(0);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-table:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .info-table th,
+        .info-table td {
+            padding: 18px 24px;
+            text-align: left;
+        }
+
+        .info-table th {
+            width: 35%;
+            background: #f8fafc;
+            color: #667eea;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .info-table td {
+            border-bottom: 1px solid #edf2f7;
+            font-weight: 500;
+        }
+
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        b {
+            color: #e53e3e;
+            font-weight: 700;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            opacity: 0.95;
+        }
+
+        .main-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: #f8fafc;
+            transform: scale(1.01);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        td {
+            padding: 16px;
+            text-align: center;
+        }
+
+        td:first-child {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 15px;
+        }
+
+        td:nth-child(3) {
+            font-weight: 600;
+            color: #718096;
+            font-size: 13px;
+        }
+
+        a {
+            color: #2d3748;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        a:hover {
+            color: #667eea;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-table, .main-table {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>GIỚI THIỆU LỚP HỌC</h1>
+    
+    <table class="info-table">
+        <tr><th>Tên lớp</th><td><b>12A1</b></td></tr>
+        <tr><th>Sĩ số</th><td>43 học sinh</td></tr>
+        <tr><th>Giáo viên chủ nhiệm</th><td><b>Trần Thiên Trạch</b></td></tr>
+        <tr><th>Năm học</th><td>2025 - 2026</td></tr>
+    </table>
+
+    <h2>DANH SÁCH THÀNH VIÊN</h2>
+    
+    <table class="main-table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Giới tính</th>
+                <th>Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><a href="Ds/anh/vananh.html" target="_blank">Nguyễn Thị Vân Anh</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>2</td><td><a href="DS/chau/html.html" target="_blank">Huỳnh Thị Hoàng Châu</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>3</td><td><a href="Ds/ngocha/taoweb.html" target="_blank">Trương Ngọc Hà</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>4</td><td><a href="Ds/phuongha/web cn.html" target="_blank">Võ Phương Hà</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>5</td><td><a href="Ds/hang/tthhang.html" target="_blank">Lê Thị Thúy Hằng</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>6</td><td><a href="#" target="_blank">Phan Hoàng Hiếu</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>7</td><td><a href="Ds/khang/index.html" target="_blank">Huỳnh Bảo Khang</a></td><td>Nam</td><td>Lớp phó Lao động</td></tr>
+            <tr><td>8</td><td><a href="#" target="_blank">Đỗ Đăng Khoa</a></td><td>Nam</td><td>Tổ trưởng tổ 4</td></tr>
+            <tr><td>9</td><td><a href="#" target="_blank">Hồ Trương Khôi</a></td><td>Nam</td><td>Tổ trưởng tổ 3</td></tr>
+            <tr><td>10</td><td><a href="Ds/khue/index.html" target="_blank">Trần Thị Bích Khuê</a></td><td>Nam</td><td>Tổ trưởng tổ 2</td></tr>
+            <tr><td>11</td><td><a href="#" target="_blank">Hồ Ngọc Khương</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>12</td><td><a href="DS/kien/Hồ Văn Kiên 12A1.html" target="_blank">Hồ Văn Kiên</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>13</td><td><a href="#" target="_blank">Đinh Trương Hồng Lộc</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>14</td><td><a href="Ds/minh/hoangminh.html" target="_blank">Nguyễn Nữ Hoàng Minh</a></td><td>Nữ</td><td>Bí thư</td></tr>
+            <tr><td>15</td><td><a href="Ds/ngan/Phạm Hoàng Ngân 1.html" target="_blank">Phạm Hoàng Ngân</a></td><td>Nữ</td><td>Lớp phó Văn Thể Mỹ</td></tr>
+            <tr><td>16</td><td><a href="Ds/nha/CDF.html" target="_blank">Võ Thị Thanh Nhã</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>17</td><td><a href="Ds/nhat/nhat.HTML" target="_blank">Lưu Thị Thanh Nhật</a></td><td>Nữ</td><td>Tổ trưởng tổ 1</td></tr>
+            <tr><td>18</td><td><a href="#" target="_blank">Đinh Thị Yến Nhi</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>19</td><td><a href="Ds/Giang Nhị/index.html" target="_blank">Nguyễn Hà Giang Nhị</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>20</td><td><a href="Ds/minhphuong/website.html" target="_blank">Nguyễn Minh Phương</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>21</td><td><a href="#" target="_blank">Phan Mai Phương</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>22</td><td><a href="https://xq52.github.io/" target="_blank">Lê Xuân Quí</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>23</td><td><a href="#" target="_blank">Nguyễn Thị Tuyết Sương</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>24</td><td><a href="#" target="_blank">Nguyễn Thị Thanh Thảo</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>25</td><td><a href="#" target="_blank">Trần Quyết Thắng</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>26</td><td><a href="#" target="_blank">Phạm Đỗ Minh Thi</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>27</td><td><a href="Ds/thien/pht.html" target="_blank">Phan Hữu Thiện</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>28</td><td><a href="Ds/thinh/Nguyễn Trường Thịnh.html" target="_blank">Nguyễn Trường Thịnh</a></td><td>Nam</td><td>Lớp trưởng</td></tr>
+            <tr><td>29</td><td><a href="Ds/thuy/trang15.html" target="_blank">Võ Thanh Thùy</a></td><td>Nữ</td><td>Lớp phó Học tập</td></tr>
+            <tr><td>30</td><td><a href="Ds/thuong/Đinh Công Thương 12a1.html" target="_blank">Đinh Công Thương</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>31</td><td><a href="Ds/toan/MToan.html" target="_blank">Nguyễn Minh Toàn</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>32</td><td><a href="Ds/tra/index.html" target="_blank">Nguyễn Phương Trà</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>33</td><td><a href="Ds/tram/index.html" target="_blank">Lê Hoài Bảo Trâm</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>34</td><td><a href="#" target="_blank">Dương Minh Trí</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>35</td><td><a href="Ds/trieu/haitrieu.html" target="_blank">Tô Hải Triều</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>36</td><td><a href="#" target="_blank">Nguyễn Thị Ánh Tuyết</a></td><td>Nữ</td><td>Thành viên</ td></tr>
+            <tr><td>37</td><td><a href="#" target="_blank">Phạm Thị Ngọc Tường</a></td><td>Nữ</td><td>Cờ đỏ</td></tr>
+            <tr><td>38</td><td><a href="Ds/uyen/index.html" target="_blank">Lê Phương Uyên</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>39</td><td><a href="#" target="_blank">Huỳnh Cẩm Vân</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>40</td><td><a href="#" target="_blank">Võ Xuân Vận</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>41</td><td><a href="Ds/vinh/utvinh12a1.html" target="_blank">Nguyễn Trần Út Vĩnh</a></td><td>Nữ</td><td>Thành viên</td></tr>
+            <tr><td>42</td><td><a href="#" target="_blank">Nguyễn Anh Vũ</a></td><td>Nam</td><td>Thành viên</td></tr>
+            <tr><td>43</td><td><a href="Ds/xuan/weebb.html" target="_blank">Trần Thị Thanh Xuân</a></td><td>Nữ</td><td>Thành viên</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

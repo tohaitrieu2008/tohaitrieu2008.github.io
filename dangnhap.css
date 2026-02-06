@@ -1,0 +1,129 @@
+*{ box-sizing: border-box; }
+
+html,body{
+    height:100%;
+    margin:0;
+}
+
+body{
+    font-family:'Poppins',system-ui,sans-serif;
+    color:#fff;
+}
+
+.bg{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        180deg,
+        rgba(20,10,40,0.45),
+        rgba(80,30,90,0.45)
+    );
+}
+
+.card{
+    position:relative;
+    width:420px;
+    max-width:92%;
+    padding:44px 36px;
+    border-radius:22px;
+    background:rgba(255,255,255,0.12);
+    border:2px solid rgba(255,255,255,0.25);
+    backdrop-filter:blur(8px);
+    z-index:1;
+}
+
+h1{
+    margin:0 0 28px;
+    text-align:center;
+    font-size:34px;
+    font-weight:800;
+    letter-spacing:0.5px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+}
+
+input{
+    width:100%;
+    padding:12px 6px;
+    margin-bottom:22px;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid rgba(255,255,255,0.35);
+    color:#fff;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus{
+    border-bottom-color:#fff;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    margin-bottom:24px;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+    white-space:nowrap;
+    line-height:1;
+}
+
+.remember input{
+    margin:0;
+    transform: scale(0.9);
+    cursor:pointer;
+}
+
+.row a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:28px;
+    font-size:16px;
+    font-weight:700;
+    background:#fff;
+    color:#111;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+.signup{
+    margin-top:16px;
+    text-align:center;
+    font-size:13px;
+    opacity:0.9;
+}
+
+.signup a{
+    color:#fff;
+    font-weight:700;
+    text-decoration:none;
+}

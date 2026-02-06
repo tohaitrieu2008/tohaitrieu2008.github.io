@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Hai Trieu</title>
+    <link rel="stylesheet" href="dangnhap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <video autoplay muted loop playsinline 
+        style="position:fixed; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity: 0.65;">
+        <source src="Nen/Nendangnhap.mp4" type="video/mp4">
+    </video>
+    <div class="bg">
+    <div class="card">
+        <h1>Login</h1>
+        <form onsubmit="login(event)">
+            <label>Email</label>
+            <input type="email" placeholder="you@gmail.com" required>
+
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required>
+
+            <div class="row">
+                <label class="remember"> <input type="checkbox"> Remember Me</label>
+                <a href="#">Forget Password</a>
+            </div>
+
+            <button type="submit" >Log in</button>
+
+            <div class="signup">
+                Don't have an account?<a href="dangky.html">Sign Up</a>
+            </div> <br>
+        <p style="font-size: 10px; text-align: center;">Phần Login này làm cho vui thôi chứ không có ý nghĩa gì ^^</p>
+        </form>
+        </div>
+    </div>
+    <script>
+        function login(event) {
+            event.preventDefault();
+            sessionStorage.setItem("isLoggedIn", "true");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

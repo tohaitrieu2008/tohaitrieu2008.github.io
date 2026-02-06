@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Hai Trieu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+    <!-- Video nền -->
+    <video autoplay muted loop playsinline 
+    style="position:fixed; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity: 0.93;">
+    <source src="Nen/Hinhnen.mp4" type="video/mp4">
+    </video>
+    <!-- Nhạc nền -->
+    <div id="player">
+        <img id="cover" src="Me/anhnhac.jpg" />
+        <div style="display:flex; flex-direction:column; flex:1;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <span id="title">Nắng dưới chân mây</span>
+                <span id="track-num" style="font-size:11px; color:#64c8ff; opacity:0.8;">1 / 6</span>
+            </div>
+            <div style="display:flex; gap:6px; align-items:center;">
+                <button id="prev" class="nav-btn">◀◀</button>
+                <button id="play">▶</button>
+                <button id="next" class="nav-btn">▶▶</button>
+                <div id="progress"><div id="bar"></div></div>
+                <div id="time">0:00</div>
+                <div id="volume-box">
+                    <button id="vol-icon"><img src="Me/Loa2-removebg-preview.png" style="width:18px;height:18px;border-radius:60px;position:relative;z-index:10;border:0.5px"></button>
+                    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+                </div>
+            </div>
+            <button id="toggle-playlist" style="background:none;border:none;color:#64c8ff;font-size:11px;cursor:pointer;margin-top:4px;opacity:0.8;">
+                Danh sách phát ▼
+            </button>
+        </div>
+        <div id="playlist" style="display:none; position:absolute; bottom:100%; right:0; margin-bottom:10px; background:linear-gradient(135deg, rgba(30,30,50,0.98), rgba(60,40,90,0.98)); border-radius:12px; padding:10px; min-width:200px; border:1px solid rgba(100,200,255,0.3); backdrop-filter:blur(10px); box-shadow:0 10px 30px rgba(0,0,0,0.5); max-height:200px; overflow-y:auto;">
+        </div>
+    </div>
+    <audio id="audio" src="Me/Nhacnen.mp3" loop></audio>
+    <!-- Trợ năng -->
+    <header>
+        <nav class="menu" role="navigation">
+            <div class="banner-box">
+                <img src="Me/Tieude.jpg" class="banner-logo">
+                <div class="banner-text">
+                    <div class="banner-title">To Hai Trieu</div>
+                </div>
+            </div>
+        <a href="index.html" class="link" aria-label="Dashboard">
+            <img src="Me/Trangchu-removebg-preview.png" class="icon">
+            <span class="link-title">Trang chủ</span>
+        </a>
+        <a href="https://google.com " class="link" target="_blank">
+            <img src="Me/Timkiem-removebg-preview.png" class="icon">
+            <span class="link-title">Tìm kiếm</span>
+        </a>
+        <a href="https://zalo.me/0399384245 " class="link" target="_blank">
+            <img src="Me/Tinnhann-removebg-preview.png" class="icon">
+            <span class="link-title">Tin nhắn</span>
+        </a>
+        <a href="giaitri.html" class="link" target="_blank">
+            <img src="Me/game.png" class="icon">
+            <span class="link-title">Trò chơi</span>
+        </a>
+    <!-- Chưa đăng nhập -->
+        <a href="dangnhap.html" class="link" id="login-link">
+            <img src="Me/Dangnhap-removebg-preview.png" class="icon">
+            <span class="link-title">Đăng nhập</span> 
+        </a>
+        <a href="dangky.html" class="link" id="register-link">
+            <img src="Me/Dangky-removebg-preview.png" class="icon">
+            <span class="link-title">Đăng ký</span>
+        </a> 
+    <!-- Đã đăng nhập -->
+        <a href="#" class="link" id="user-link" style="display:none;">
+            <img src="Me/Dn.jpg" style="border-radius:80%; width: 25px; height: 25px;">
+            <span class="link-title">Tài khoản</span>
+        </a>
+        </nav>
+    </header>
+    <!-- Màn hình chính -->
+    <section class="intro-section">
+        <div class="intro-text">
+        <div class="subtitle">Giới thiệu</div>
+            <h1 class="name">Hải Triều</h1>
+            <p class="description">
+                Tôi là Hải Triều hiện đang là một học sinh lớp 12A1 trường THPT số 2 Phù Cát
+                với tính cách đơn giản, hòa đồng và luôn mong muốn học hỏi thêm nhiều điều mới.
+            </p>
+        </div>
+        <div class="intro-avatar">
+            <img src="Me/Avt.jpg" class="avatar">
+        </div>
+    </section>
+    <!-- Ảnh -->
+    <div class="artwork-container">
+    <!-- Section 1 -->
+    <section class="artwork-section">
+        <h2>Lớp 12A1</h2>
+        <div class="artwork-list">
+            <!-- Card 1 -->
+            <a href="gioithieu.html" class="art-card" target="_blank">
+                <div>
+                    <img src="Me/Danhsach.jpg" alt="1">
+                    <p class="author">Danh sách lớp</p>
+                </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="kiniem.html" class="art-card" target="_blank">
+                <div>
+                    <img src="Me/Kiniem.jpg" alt="2">
+                    <p class="author">Kỉ niệm lớp</p>
+                </div>
+            </a>    
+        </div>
+    </section>
+    <!-- Section 2 -->
+    <section class="artwork-section2">
+        <h2>Thông tin thêm về trang WEB</h2>
+        <div class="info-content">
+            <p class="info-main"> Trang web này được tạo ra trong những ngày tôi còn ngồi trên ghế nhà trường, với mục đích chia sẻ thông tin cá nhân và kết nối với bạn bè.
+                Tôi đã dành nhiều thời gian để thiết kế và phát triển trang web này, nhằm mang lại trải nghiệm tốt nhất cho người dùng. Hy vọng trang web sẽ giúp tôi kết nối với nhiều người hơn và chia sẻ những khoảnh khắc đáng nhớ trong cuộc sống học đường.</p>
+            <p class="info-note">Cảm ơn bạn đã ghé thăm trang web của tôi!</p>
+        </div>
+    </section>
+    </div>
+    <div class="carousel">
+        <div class="track">
+            <!-- 6 ảnh gốc -->
+            <img src="Me/1.jpg">
+            <img src="Me/2.jpg">
+            <img src="Me/3.jpg">
+            <img src="Me/4.jpg">
+            <img src="Me/5.jpg">
+            <img src="Me/6.jpg">
+            <!-- 6 ảnh lặp lại -->
+            <img src="Me/1.jpg">
+            <img src="Me/2.jpg">
+            <img src="Me/3.jpg">
+            <img src="Me/4.jpg">
+            <img src="Me/5.jpg">
+            <img src="Me/6.jpg">
+        </div>
+    </div>
+</div>
+    <footer class="footer">
+        <span>© 2026 To Hai Trieu · All rights reserved</span>
+    </footer>
+<script src="jscript.js"></script>
+</body>
+</html>
