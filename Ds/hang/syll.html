@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>HẰNG LÊ | ONE-PAGE MOTION</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@300;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        background: #080808;
+        color: #fff;
+        font-family: 'Outfit', sans-serif;
+        height: 100vh; /* Cố định chiều cao màn hình */
+        width: 100vw;
+        overflow: hidden; /* Chặn cuộn chuột tuyệt đối */
+        display: flex;
+    }
+
+    /* Lớp màn chuyển trang (Giữ nguyên hiệu ứng quét) */
+    .page-transition {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #00f2fe;
+        z-index: 9999;
+        transform: translateX(-100%);
+        pointer-events: none;
+    }
+
+    .animate-in { animation: wipeIn 1s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+    .animate-out { animation: wipeOut 1s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+    @keyframes wipeIn { 0% { transform: translateX(0); } 100% { transform: translateX(100%); } }
+    @keyframes wipeOut { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+
+    /* Bố cục Side Header (Dọc bên trái) */
+    .vertical-name {
+        width: 20vw;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #222;
+        position: relative;
+    }
+
+    .vertical-name h1 {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-family: 'Syncopate', sans-serif;
+        font-size: clamp(30px, 4vw, 60px);
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        cursor: default;
+    }
+
+    /* Hiệu ứng tương tác chữ (Interactive Typography) */
+    .char {
+        display: inline-block;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .char:hover {
+        color: #00f2fe;
+        -webkit-text-stroke: 1px #00f2fe;
+        transform: scale(1.3) translateX(10px);
+        text-shadow: 0 0 20px #00f2fe;
+    }
+
+    /* Vùng nội dung chính (Bên phải) */
+    .content-area {
+        width: 80vw;
+        height: 100vh;
+        padding: 5vh 8%;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Chia đôi để vừa 1 trang */
+        gap: 3vh;
+        align-content: center;
+    }
+
+    .floating-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 3vh 30px;
+        backdrop-filter: blur(10px);
+        position: relative;
+        transition: 0.5s;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideUp 0.8s 0.5s forwards;
+    }
+
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+    .floating-card:hover {
+        border-color: #00f2fe;
+        background: rgba(0, 242, 254, 0.05);
+        transform: translateY(-5px);
+    }
+
+    .card-num {
+        position: absolute;
+        top: -10px; right: 15px;
+        font-family: 'Syncopate', sans-serif;
+        font-size: 50px;
+        color: rgba(0, 242, 254, 0.1);
+        pointer-events: none;
+    }
+
+    .card-body { font-size: 18px; font-weight: 300; line-height: 1.6; }
+    .card-body b { color: #00f2fe; }
+
+    /* Nút Quay lại mượt mà */
+    .back-nav {
+        grid-column: span 2;
+        text-align: right;
+        margin-top: 2vh;
+    }
+
+    .back-nav a {
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Syncopate', sans-serif;
+        font-size: 12px;
+        padding: 15px 40px;
+        border: 1px solid #00f2fe;
+        transition: 0.3s;
+        display: inline-block;
+    }
+
+    .back-nav a:hover {
+        background: #00f2fe;
+        color: #000;
+        box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+    }
+
+    /* Mobile Responsive (Vẫn giữ 1 trang) */
+    @media (max-width: 768px) {
+        body { flex-direction: column; }
+        .vertical-name { width: 100%; height: 15vh; border-right: none; border-bottom: 1px solid #222; }
+        .vertical-name h1 { writing-mode: horizontal-tb; transform: rotate(0); font-size: 24px; }
+        .content-area { width: 100%; height: 85vh; grid-template-columns: 1fr; padding: 20px; gap: 10px; }
+        .floating-card { padding: 15px; }
+        .card-body { font-size: 14px; }
+        .card-num { font-size: 30px; }
+    }
+</style>
+</head>
+<body>
+    
+
+    <div class="page-transition animate-in" id="transition-layer"></div>
+
+    <aside class="vertical-name">
+        <h1>
+            <span class="char">H</span><span class="char">A</span><span class="char">N</span><span class="char">G</span> 
+            <span class="char">L</span><span class="char">E</span>
+        </h1>
+    </aside>
+
+    <main class="content-area">
+        <div class="floating-card">
+            <span class="card-num">01</span>
+            <div class="card-body">
+                  Là học sinh lớp <b>12a1</b> 
+                tại Trường <b>THPT số 2 Phù Cát</b>.
+            </div>
+        </div>
+
+        <div class="floating-card">
+            <span class="card-num">02</span>
+            <div class="card-body">
+                Sinh vào ngày <b>12/03/2008.</b>
+                Sống tại <b>Đề Gi - Gia Lai</b>.
+            </div>
+        </div>
+
+        <div class="floating-card">
+            <span class="card-num">03</span>
+            <div class="card-body">
+                Sở Thích: <b>Nghe nhạc</b>, <b>Nuôi thú cưng</b>,<b> Ngủ</b> và <b> Đi chơi cùng bạn bè</b>.
+            </div>
+        </div>
+
+        <div class="floating-card">
+            <span class="card-num">04</span>
+            <div class="card-body">
+                <b>Mục tiêu:</b> Chinh phục tri thức mới. Đạt được những thứ mình mong muốn
+            </div>
+        </div>
+
+        <div class="back-nav">
+            <a href="tthhang.html" onclick="transitionOut(event)">← back</a>
+        </div>
+    </main>
+
+    <script>
+        function transitionOut(e) {
+            e.preventDefault();
+            const href = e.currentTarget.getAttribute('href');
+            const transitionLayer = document.getElementById('transition-layer');
+            transitionLayer.classList.remove('animate-in');
+            void transitionLayer.offsetWidth;
+            transitionLayer.classList.add('animate-out');
+            setTimeout(() => { window.location.href = href; }, 1000);
+        }
+    </script>
+</body>
+</html>

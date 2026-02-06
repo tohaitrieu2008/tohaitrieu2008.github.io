@@ -1,0 +1,106 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thank You | Lê Thị Thúy Hằng</title>
+<style>
+body {animation: fadeInPage 1.5s ease;}
+@keyframes fadeInPage {from{opacity: 0;}to{opacity: 1;}}
+    * { box-sizing: border-box; }
+    body {margin: 0;
+        height: 100vh;
+        background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Georgia', serif;
+        overflow: hidden;
+        color: #fff;}
+    #canvas {position: absolute;
+        inset: 0;
+        z-index: 0;}
+    .content {text-align: center;
+        z-index: 1;
+        padding: 20px;}
+    h1 {font-size: 70px;
+        letter-spacing: 15px;
+        margin: 0;
+        background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 4s linear infinite, glow 2s ease-in-out infinite alternate;}
+    @keyframes shine { to { background-position: 200%; } }
+    @keyframes glow {from { text-shadow: 0 0 10px rgba(255,154,158,0.5); }to { text-shadow: 0 0 30px rgba(255,154,158,1), 0 0 10px #6a5acd; }}
+    .message {margin-top: 25px;
+        font-size: 18px;
+        letter-spacing: 3px;
+        color: #cfd1ff;
+        min-height: 1.5em;}
+    .back-home {margin-top: 60px;
+        display: inline-block;
+        padding: 12px 35px;
+        border-radius: 50px;
+        border: 1px solid rgba(255,255,255,0.2);
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 13px;
+        letter-spacing: 2px;
+        transition: 0.4s;
+        backdrop-filter: blur(5px);}
+    .back-home:hover {background: rgba(255,255,255,0.1);
+        color: #fff;
+        border-color: #ff9a9e;
+        box-shadow: 0 0 20px rgba(255,154,158,0.3);
+        transform: translateY(-3px);}
+</style>
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="content">
+        <h1 id="title">THANK YOU</h1>
+        <div class="message" id="typewriter"></div>
+        <a href="tthhang.html" class="back-home">TRỞ VỀ TRANG CHỦ</a>
+    </div>
+    <script>
+        const text = "Cảm ơn mọi người đã dành thời gian xem Profile của mình!";
+        let i = 0;
+        function typeWriter() {if (i < text.length) {document.getElementById("typewriter").innerHTML += text.charAt(i);i++;setTimeout(typeWriter, 100);}}setTimeout(typeWriter, 1000);
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particlesArray = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;}
+            update() {this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.005;}
+            draw() {ctx.fillStyle = 'rgba(255,255,255,0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();}}
+        function init() {for (let i = 0; i < 150; i++) {particlesArray.push(new Particle());}}
+        function animate() {ctx.clearRect(0, 0, canvas.width, canvas.height);for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].size <= 0.2) {particlesArray.splice(i, 1);i--;particlesArray.push(new Particle());}}
+            requestAnimationFrame(animate);}
+        init();
+        animate();
+        window.addEventListener('mousemove', (e) => {for(let i=0; i<2; i++) {let p = new Particle();
+                p.x = e.x;
+                p.y = e.y;
+                p.size = Math.random() * 3 + 1;
+                particlesArray.push(p);}});
+document.querySelector(".back-home").onclick = e => {sessionStorage.setItem("backToProfile", "true");};
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KỸ NĂNG | LÊ THỊ THÚY HẰNG</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .page-cover { position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #0ba34a, #4a1fb8);
+        z-index: 9999;
+        transform: translateX(-100%);
+        pointer-events: none;}
+    .animate-in { animation: wipeIn 1s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+    .animate-out { animation: wipeOut 1s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+    @keyframes wipeIn { 0% { transform: translateX(0); } 100% { transform: translateX(100%); } }
+    @keyframes wipeOut { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+    body {background: #eef2f3;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;}
+
+    .cv-card { width: 90vw;
+        max-width: 900px;
+        height: 80vh;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        border-radius: 24px;
+        box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+        overflow: hidden;
+        animation: cardFade 1s ease;}
+
+    @keyframes cardFade { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .sidebar {background: #111;
+        color: #fff;
+        padding: 50px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;}
+    .sidebar h1 { font-size: 42px; font-weight: 800; line-height: 1.1; }
+    .sidebar h1 span { color: #0ba34a; }
+    .sidebar p { font-size: 13px; color: #666; font-style: italic; border-left: 2px solid #0ba34a; padding-left: 15px; }
+    .main-content {padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;}
+        .skill-wrapper { margin-bottom: 25px; }
+    .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;}
+    .skill-name { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+    .skill-percent { font-size: 16px; font-weight: 800; color: #0ba34a; }
+    .bar-bg {width: 100%;
+        height: 10px;
+        background: #f0f0f0;
+        border-radius: 20px;
+        overflow: hidden;}
+
+    .bar-fill {height: 100%;
+        background: linear-gradient(90deg, #0ba34a, #00f2fe);
+        width: 0; /* Chạy từ 0 */
+        border-radius: 20px;
+        transition: width 2s cubic-bezier(0.22, 1, 0.36, 1);}
+    .skill-desc { font-size: 12px; color: #888; margin-top: 6px; display: block; }
+    .back-nav { margin-top: 30px; text-align: right; }
+    .back-nav a {text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        color: #1a1a1a;
+        padding: 12px 30px;
+        border: 1px solid #ddd;
+        border-radius: 50px;
+        transition: 0.3s;}
+    .back-nav a:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    @media (max-width: 768px) {
+        .cv-card { grid-template-columns: 1fr; height: 95vh; }
+        .sidebar { padding: 30px; height: 30%; }
+        .main-content { padding: 30px; height: 70%; }
+        .sidebar h1 { font-size: 30px; }}
+</style>
+</head>
+<body>
+
+    <div class="page-cover animate-in" id="transition-layer"></div>
+
+    <div class="cv-card">
+        <aside class="sidebar">
+            <h1>MY<br>SKILLS</h1>
+            <p>"Sự kiên trì là chìa khóa của mọi thành công."</p>
+        </aside>
+
+        <main class="main-content">
+            
+            <div class="skill-wrapper">
+                <div class="skill-info">
+                    <span class="skill-name">Giao tiếp & Ứng xử</span>
+                    <span class="skill-percent" data-target="95">0%</span>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill" data-width="95%"></div>
+                </div>
+                <span class="skill-desc">Hòa đồng, lễ phép và biết lắng nghe.</span>
+            </div>
+
+            <div class="skill-wrapper">
+                <div class="skill-info">
+                    <span class="skill-name">Làm việc nhóm</span>
+                    <span class="skill-percent" data-target="90">0%</span>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill" data-width="90%"></div>
+                </div>
+                <span class="skill-desc">Phối hợp tốt và có tinh thần trách nhiệm.</span>
+            </div>
+
+            <div class="skill-wrapper">
+                <div class="skill-info">
+                    <span class="skill-name">Quản lý thời gian</span>
+                    <span class="skill-percent" data-target="85">0%</span>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill" data-width="85%"></div>
+                </div>
+                <span class="skill-desc">Sắp xếp lịch trình học tập khoa học.</span>
+            </div>
+
+            <div class="skill-wrapper">
+                <div class="skill-info">
+                    <span class="skill-name">Tư duy logic</span>
+                    <span class="skill-percent" data-target="80">0%</span>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill" data-width="80%"></div>
+                </div>
+                <span class="skill-desc">Giải quyết vấn đề nhanh và hiệu quả.</span>
+            </div>
+
+            <div class="back-nav">
+                <a href="tthhang.html" onclick="handleExit(event)">← BACK</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        window.onload = () => {const fills = document.querySelectorAll('.bar-fill');
+            fills.forEach(fill => {fill.style.width = fill.getAttribute('data-width');});
+            const counters = document.querySelectorAll('.skill-percent');
+            counters.forEach(counter => {const target = +counter.getAttribute('data-target');
+                const increment = target / 100;
+                let count = 0;
+                const updateCount = () => {if (count < target) {count += increment;counter.innerText = Math.ceil(count) + "%";setTimeout(updateCount, 20);} else {counter.innerText = target + "%";}};
+                updateCount();});};
+        function handleExit(e) {
+            e.preventDefault();
+            const link = e.currentTarget.href;
+            const layer = document.getElementById('transition-layer');
+            layer.classList.remove('animate-in');
+            void layer.offsetWidth; 
+            layer.classList.add('animate-out');
+            setTimeout(() => { window.location.href = link; }, 1000);}
+    </script>
+    
+</body>
+</html>
