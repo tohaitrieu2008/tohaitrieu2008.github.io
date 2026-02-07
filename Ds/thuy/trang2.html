@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Thanh Thùy | Digital Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --glass: rgba(255, 255, 255, 0.7);
+            --text: #1f2937;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #e0e7ff, #f3e8ff, #fae8ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite; 
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+       
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+        }
+
+        nav { 
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1000px; padding: 15px 30px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 120px 20px 60px; }
+
+       
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .hero-img img {
+            width: 100%;
+            border-radius: 30px;
+            transform: rotate(3deg);
+            transition: 0.5s;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+        }
+        
+        .hero-img img:hover { transform: rotate(0deg) scale(1.05); }
+
+       
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        
+        .card { padding: 30px; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.9); }
+
+        h2 { margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; color: var(--primary); }
+
+        .info-item { margin-bottom: 12px; border-bottom: 1px dashed #ddd; padding-bottom: 5px; }
+        .info-item b { font-size: 0.75rem; text-transform: uppercase; color: #6b7280; display: block; }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: white;
+            border-radius: 10px;
+            margin: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .quote-section {
+            margin-top: 60px;
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+        }
+
+        .social-btns {
+            display: flex; gap: 15px; justify-content: center; margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            background: var(--primary);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-alt { background: white; color: var(--primary); }
+        .btn:hover { opacity: 0.8; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-content h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="glass-panel">
+        <div style="font-weight: 800; color: var(--primary);">THUYY.PORTFOLIO</div>
+        
+        <a href="https://www.facebook.com/share/1DkbXw4k4y/ " class="btn" style="padding: 8px 20px; font-size: 0.8rem;">Liên hệ</a>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <p style="font-weight: 700; letter-spacing: 2px; color: var(--secondary);">XIN CHÀO MÌNH LÀ</p>
+                <h1>Thanh Thùy</h1>
+                <p style="font-size: 1.2rem; margin: 20px 0; color: #4b5563;">
+                    Học sinh lớp <b>12A1</b> - THPT số 2 Phù Cát. <br>
+                </p>
+                <div style="display: flex; gap: 10px;">
+                    <a href="#explore" class="btn">Khám phá ngay</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="hình ảnh.jpg" alt="Thanh Thùy">
+            </div>
+        </section>
+
+        <div class="grid" id="explore">
+            <div class="card glass-panel">
+                <h2>👤 Thông tin cá nhân</h2>
+                <div class="info-item"><b>Họ và tên</b> Võ Thanh Thùy</div>
+                <div class="info-item"><b>Ngày sinh</b> 02/10/2008</div>
+                <div class="info-item"><b>Email</b> thuyvo.021008@gmail.com</div>
+                <div class="info-item"><b>Số điện thoại</b> 0342208260</div>
+            </div>
+
+            <div class="card glass-panel">
+                <h2>🎓 Quá trình học tập</h2>
+                <div style="border-left: 2px solid var(--primary); padding-left: 15px;">
+                    <p style="font-weight: 700;">2023 - Hiện tại</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">THPT số 2 Phù Cát</p>
+                    
+                    <p style="font-weight: 700;">2019 - 2023</p>
+                    <p style="font-size: 0.9rem;">THCS Cát Tài</p>
+                </div>
+            </div>
+
+            <div class="card glass-panel">
+                <h2>✨ Kỹ năng & Sở thích</h2>
+                <p style="font-size: 0.7rem; font-weight: 800; margin-bottom: 5px;">MÁY TÍNH</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="tag">Word</span><span class="tag">HTML/CSS</span><span class="tag">Excel</span>
+                </div>
+                <p style="font-size: 0.7rem; font-weight: 800; margin-bottom: 5px;">CÁ NHÂN</p>
+                <div>
+                    <span class="tag">Nghe nhạc</span><span class="tag">Nấu ăn</span><span class="tag">Du lịch</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="quote-section glass-panel" style="margin-top: 30px;">
+            <p style="font-size: 1.4rem; color: var(--primary); margin-bottom: 10px;">"Hữu xạ tự nhiên hương"</p>
+            <p style="font-size: 1rem; color: #6b7280;">
+                "Sự tử tế là ngôn ngữ mà người điếc có thể nghe và người mù có thể thấy" <br>
+                <b>— Mark Twain</b>
+            </p>
+        </section>
+
+        <div class="social-btns">
+            <a href="https://www.facebook.com/share/1DkbXw4k4y/" target="_blank" class="btn btn-alt glass-panel">Facebook</a>
+            <a href="#" class="btn btn-alt glass-panel">Instagram: _thaq.thie_</a>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; color: #9ca3af; font-size: 0.8rem;">
+            <i>"Mình mong rằng bản thân sẽ chinh phục được nhiều thứ hơn nữa"</i>
+        </p>
+    </div>
+
+</body>
+</html>

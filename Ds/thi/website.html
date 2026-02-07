@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Cá Nhân - Phạm Đỗ Minh Thi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .section {
+            background: #ffffff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        img {
+            max-width: 200px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        iframe {
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #764ba2;
+            transition: width 0.3s ease;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        a:hover {
+            color: #764ba2;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9ff;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-info:hover {
+            background: #e8ebff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9ff;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            iframe {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        .emoji {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Welcome to me</h1>
+        </header>
+<div class="content">
+           
+
+            <!-- About me -->
+            <div class="section">
+                <h2>About me</h2>
+                <ul>
+                    <li><strong>Họ và tên: </strong>Phạm Đỗ Minh Thi</li>
+                    <li><strong>Năm sinh:</strong> 2005</li>
+                    <li><strong>Trường:</strong> Trường THPT số 2 Phù Cát</li>
+                    <li><strong>Lớp:</strong> 12a1</li>
+                </ul>
+            </div>
+
+            <!-- Sở thích -->
+            <div class="section">
+                <h2>Sở thích</h2>
+
+                <h3><span class="emoji">📚</span> Đọc sách</h3>
+                <p>Tôi thích đọc sách với đa dạng thể loại. Nhờ đó, tôi được tiếp xúc với nhiều văn phong của các tác giả khác nhau, được trải nghiệm nhiều cuộc đời khác nhau được phản ánh dưới những ngòi bút tài hoa của các văn nghệ sĩ trên khắp mọi nơi.</p><br>
+                <p>Một trong số đó có thể kể đến như cuốn Trường ca Achillies của Madeline Miller- một câu chuyện về sự đồng điệu của hai tâm hồn đầy nhiệt huyết sẵn sàng vì nhau mà ngã xuống.</p><img src="achillies.png" alt="Trường ca Achillies - Madeline Miller">
+                
+
+                <h3><span class="emoji">🎬</span> Xem phim</h3>
+                <p>Nếu có thời gian, tôi sẽ xem một số bộ phim được đề cử để giải trí.</p><br>
+                <p>Ví dụ như bộ phim ThamePo: Heart That Skips a Beat với cốt truyện nhẹ nhàng, mang tính chữa lành cực cao.</p>
+                <a href="https://www.youtube.com/watch?v=QQ1gcgbP3cA&list=PLYYyUhZKiEj7t7x79PsBGVREUckLhigO1" target="_blank">ThamePo: Heart That Skips a Beat </a><br>
+
+                <h3><span class="emoji">🎤</span>Nghe nhạc</h3>
+                <p>
+                    Cũng giống như việc đọc sách, tôi không kén bất kì thể loại nào nhưng cũng có thiên hướng nghe nhạc pop nhiều hơn cả.
+                </p>
+                <a href="https://www.youtube.com/watch?v=N2Rh3gNWFRI&list=RDN2Rh3gNWFRI&start_radio=1" target="_blank">FIRST SIGHT - LYKN </a><br>
+            </div>
+
+
+            <!-- Liên hệ -->
+            <div class="section">
+                <h2>Liên hệ</h2>
+                <div class="contact-info">
+                    <p>
+                         Email: <a href="mailto:theastronaut0905@gmail.com">theastronaut0905@gmail.com</a>
+                    </p>
+                </div>
+                <div class="contact-info">
+                    <p>
+                         Facebook: 
+                        <a href="https://www.facebook.com/pham.thi.989382/grid" target="_blank">
+                            Trang cá nhân của tôi
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Phạm Đỗ Minh Thi. Made with 💜</p>
+        </footer>
+    </div>
+
+</body>
+</html>

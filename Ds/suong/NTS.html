@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ cá nhân của Nguyễn Thị Tuyết Sương</title>
+
+    <style>
+        /* 1. THIẾT LẬP CHUNG & NỀN */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: linear-gradi(135deg, #ff9a9e 0%, #fecfef 100%); /* Nền gradient hồng */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+        }
+
+        /* 2. TRANG MỞ ĐẦU (Welcome Screen) */
+        #welcome-screen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Màu nền hồng pastel vừa phải */
+            background: linear-gradient(135deg, #f78da7 0%, #ffbad2 100%); 
+            color: white; 
+            position: fixed; 
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1000;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        #welcome-screen h1 {
+            color: white; 
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            /* Đã bỏ hiệu ứng nhấp nháy chữ tại đây */
+        }
+
+        #welcome-screen p {
+             color: white; 
+             text-shadow: none;
+        }
+
+        /* 3. HIỆU ỨNG CHO NÚT "VÀO TRANG" */
+        .enter-btn {
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: white; 
+            color: #d81b60; 
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
+            transition: 0.3s;
+            /* Thêm hiệu ứng rung nhẹ khi load trang */
+            animation: pulseButton 1.5s infinite;
+        }
+
+        /* Keyframes cho hiệu ứng rung của nút */
+        @keyframes pulseButton {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .enter-btn:hover { 
+            background: #f8bbd0; 
+            transform: scale(1.05); 
+            animation: none; /* Dừng hiệu ứng pulse khi rê chuột vào */
+        }
+
+        /* 4. MENU ĐIỀU HƯỚNG CỐ ĐỊNH */
+        nav {
+            background: rgba(255, 240, 245, 0.9); /* Màu pastel nhạt */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #d81b60; /* Màu chữ hồng/đỏ */
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { background: #ff69b4; color: white; }
+
+        /* 5. CẤU TRÚC CÁC TRANG (SECTION) */
+        .page {
+            display: none; 
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fffaf0; /* Màu trắng kem nhạt */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.6s ease; 
+        }
+
+        .page:target { display: block; }
+
+        /* 6. HIỆU ỨNG CHỮ VÀ NỘI DUNG */
+        h2 {
+            color: #d81b60; /* Màu chữ hồng/đỏ */
+            border-left: 5px solid #ff69b4;
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
+        
+        .avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ff69b4;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        /* 7. LINKS MẠNG XÃ HỘI (CHỮ) */
+        .social-links a { 
+            display: block; 
+            margin: 10px 0; 
+            color: #d81b60; 
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .social-links a:hover { color: #ff69b4; text-decoration: underline; }
+
+        /* 8. FORM LIÊN HỆ */
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px 0; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; 
+        }
+        
+        label {
+            display: block; 
+            font-weight: bold;
+            margin-bottom: 5px; 
+            color: #555;
+        }
+
+        button {
+            background: #d81b60;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover { background: #ec407a; }
+
+        /* 9. HIỆU ỨNG CHUYỂN ĐỘNG */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            color: white;
+            background: #ff69b4; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nhạc nền -->
+    <audio id="background_music" autoplay loop muted>
+        <source src="nhacnen.mp3" type="audio/mpeg"> 
+        Trình duyệt không hỗ trợ audio.
+    </audio>
+    <!-- TRANG MỞ ĐẦU -->
+    <div id="welcome-screen">
+        <h1>🌸 Chào mừng bạn đến với trang web của mình 🌸</h1>
+    <p>Nhấn nút bên dưới để khám phá nhé!</p>
+        <a href="#gioithieu" class="enter-btn" onclick="enterSite()">Vào trang &rarr;</a>
+    </div>
+
+    <!-- MENU -->
+    <nav>
+        <a href="#gioithieu">🏠 Giới thiệu</a>
+        <a href="#diemmanh">⭐ Điểm mạnh</a>
+        <a href="#sothich">🎨 Sở thích</a>
+        <a href="#uocmo">🚀 Ước mơ</a>
+        <a href="#banthan">💖 Bạn thân</a>
+        <a href="#lytuong">💡 Lý tưởng sống</a>
+        <a href="#lienhe">📞 Liên hệ</a>
+    </nav>
+
+    <!-- TRANG 1: GIỚI THIỆU -->
+    <section id="gioithieu" class="page">
+        <div class="avatar">
+            <img src="avt.jpg" alt="avatar1.jpg">
+        </div>
+        <h2>👤 Giới thiệu</h2>
+        <p>Xin chào! Mình tên là Nguyễn Thị Tuyết Sương.</p>
+        <p> •Hiện đang là học sinh lớp 12A1</p> •Trường THPT số 2 Phù Cát.</p>
+        •Mình tự hào là người Việt Nam, là cháu Bác Hồ &lt;3</p>
+        
+        <!-- LINKS MẠNG XÃ HỘI -->
+         <a href="#">📘<href="#">💬</a>
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/1MBk6qvrRF/" target="_blank">Facebook cá nhân: Tuyết Sương  </a>
+            <a href="mailto:nguyentuyetsuong218.com">Email liên hệ: nguyentuyetsuong218@gmail.com  </a>
+
+        </div>
+    </section>
+
+    <!-- TRANG 2: ĐIỂM MẠNH -->
+    <section id="diemmanh" class="page">
+        <h2>⭐ Điểm mạnh</h2>
+        <ul>
+            <li>Chăm chỉ</li>
+            <li>Tích cực</li>
+            <li>Làm việc nhóm tốt</li>
+             <li> Hoà đồng, yêu đời, yêu mọi người </li>
+        </ul>
+    </section>
+
+    <!-- TRANG 3: SỞ THÍCH -->
+    <section id="sothich" class="page">
+        <h2>🎨 Sở thích cá nhân</h2>
+        <ul>
+            <li>🎵 Nghe nhạc</li>
+            <li>📖 Đọc sách</li>
+            <li>🌍 Khám phá</li>
+            <li>🌲Trồng cây </li>
+        </ul>
+    </section>
+    
+    <!-- TRANG 4: ƯỚC MƠ -->
+    <section id="uocmo" class="page">
+        <h2>🚀 Ước mơ</h2>
+        <p>Trở thành người có ích cho xã hội, góp phần phát triển đất nước, đem lại hạnh phúc cho mọi người.</p>
+    </section>
+        <!-- TRANG 5: BAN THAN -->
+    <section id="banthan" class="page">
+        <h2>💖 Bạn thân</h2>
+        <p>Đây là người bạn nhỏ luôn đồng hành cùng mình trong cuộc sống ^•^</p>
+                <div class="banthan">
+            <img src="banthann.jpg" alt="banthann.jpg">
+    </section>
+
+    <!-- TRANG 6: LÝ TƯỞNG SỐNG -->
+    <section id="lytuong" class="page">
+        <h2>💡 Lý tưởng sống</h2>
+        <p>• Sống là để cống hiến và yêu thương!</p>
+          
+        <p>•Người tích cực giống như mặt trời vậy, dù ở đâu cũng sẽ tỏa sáng.</p>
+        <p>•Học tập tốt, lao động tốt, yêu tổ quốc, yêu đồng bào.</p>
+    </section>
+
+    <!-- TRANG 7: LIÊN HỆ -->
+    <section id="lienhe" class="page">
+        <h2>📞 Thông tin liên hệ</h2>
+        <p>Nếu bạn muốn trao đổi học tập, hãy để lại tin nhắn nhé!</p>
+        <form>
+            <label for="name">Họ và tên:</label>
+            <input type="text" id="name" placeholder="Nhập tên của bạn...">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email liên hệ...">
+            
+            <label for="message">Nội dung:</label>
+            <textarea id="message" rows="4" placeholder="Nhập tin nhắn..."></textarea>
+            
+            <button type="button" onclick="alert('Cảm ơn bạn đã nhắn tin!')">Gửi tin nhắn</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 - Website Tin học 12 NTS</p>
+    </footer>
+
+<!-- JAVASCRIPT ĐỂ XỬ LÝ NHẠC NỀN VÀ ẨN MÀN HÌNH CHÀO MỪNG -->
+<!-- 1. Khai báo trình phát nhạc -->
+<audio id="bg-music" loop>
+    <source src="nhacnen.mp3" type="audio/mpeg">
+</audio>
+<script>
+    document.addEventListener('click', function() {
+        var audio = document.getElementById("bg-music");
+        audio.play().catch(function(error) {
+            console.log("Trình duyệt chặn tự phát: ", error);
+        });
+    }, { once: true });
+</script>
+
+<script>
+    function enterSite() {
+        var music = document.getElementById('background_music');
+        music.muted = false;
+        document.getElementById('welcome-screen').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

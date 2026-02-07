@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Nguyễn Văn A</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a4af0;
+            --primary-light: #6c6cff;
+            --primary-dark: #2a2ab0;
+            --secondary-color: #ff6584;
+            --secondary-light: #ff8e9e;
+            --accent-color: #00c9a7;
+            --accent-light: #00ffcc;
+            --warning-color: #ffb347;
+            --warning-light: #ffcc33;
+            --info-color: #5d8aa8;
+            --info-light: #89cff0;
+            --success-color: #4caf50;
+            --success-light: #8bc34a;
+            
+            /* Dark Mode Colors */
+            --dark-bg-1: #1a1a3a;
+            --dark-bg-2: #0f0f2a;
+            --dark-bg-3: #151530;
+            --dark-bg-4: #0a0a20;
+            --dark-card: #2a2a5a;
+            --dark-border: #3a3a6a;
+            
+            /* Light Mode Colors */
+            --light-bg-1: #f0f2ff;
+            --light-bg-2: #e6e9ff;
+            --light-bg-3: #f8f9ff;
+            --light-bg-4: #f0f2ff;
+            --light-card: #ffffff;
+            --light-border: rgba(74, 74, 240, 0.1);
+            
+            /* Text Colors */
+            --text-dark: #222233;
+            --text-light: #666677;
+            --text-white: #f0f0ff;
+            
+            /* Scrollbar Colors */
+            --scrollbar-thumb: #4a4af0;
+            --scrollbar-track: #eef0f8;
+            
+            /* Common */
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-primary: linear-gradient(135deg, #4a4af0 0%, #6c6cff 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6584 0%, #ff8e9e 100%);
+            --gradient-accent: linear-gradient(135deg, #00c9a7 0%, #00ffcc 100%);
+            --gradient-warning: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
+            --gradient-info: linear-gradient(135deg, #5d8aa8 0%, #89cff0 100%);
+            --gradient-success: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+            --section-separator: #3a3a5a;
+        }
+
+        .dark-mode {
+            /* Background Colors */
+            --light-bg-1: var(--dark-bg-1);
+            --light-bg-2: var(--dark-bg-2);
+            --light-bg-3: var(--dark-bg-3);
+            --light-bg-4: var(--dark-bg-4);
+            --light-card: var(--dark-card);
+            --light-border: var(--dark-border);
+            
+            /* Text Colors */
+            --text-dark: #f0f0ff;
+            --text-light: #aaaaee;
+            --text-white: #ffffff;
+            
+            /* Scrollbar Colors */
+            --scrollbar-thumb: #6c6cff;
+            --scrollbar-track: #1a1a2e;
+            
+            /* Common */
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --gradient-primary: linear-gradient(135deg, #6c6cff 0%, #4a4af0 100%);
+            --section-separator: #2a2a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 10px;
+            border: 2px solid var(--scrollbar-track);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg-1);
+            transition: var(--transition);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Light Streaks (Light Mode) */
+        .light-streaks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.7;
+        }
+
+        .light-streak {
+            position: absolute;
+            width: 2px;
+            height: 150px;
+            background: linear-gradient(to bottom, 
+                transparent, 
+                rgba(255, 255, 255, 0.9), 
+                rgba(255, 255, 255, 0.7),
+                transparent);
+            opacity: 0;
+            filter: blur(1px);
+            animation: lightStreakFlash 8s infinite;
+        }
+
+        .light-streak::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                transparent, 
+                rgba(255, 255, 255, 0.6), 
+                transparent);
+            filter: blur(3px);
+        }
+
+        /* Moonlight Streaks (Dark Mode) */
+        .moonlight-streaks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.6;
+        }
+
+        .moonlight-streak {
+            position: absolute;
+            width: 1px;
+            height: 200px;
+            background: linear-gradient(to bottom, 
+                transparent, 
+                rgba(173, 216, 230, 0.8), 
+                rgba(176, 224, 230, 0.5),
+                transparent);
+            opacity: 0;
+            filter: blur(1px);
+            animation: moonlightStreakFlow 12s infinite;
+        }
+
+        .moonlight-streak::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                transparent, 
+                rgba(135, 206, 235, 0.4), 
+                transparent);
+            filter: blur(4px);
+        }
+
+        /* Animations */
+        @keyframes lightStreakFlash {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(15deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(15deg);
+            }
+        }
+
+        @keyframes moonlightStreakFlow {
+            0% {
+                opacity: 0;
+                transform: translateY(-150px) rotate(5deg);
+            }
+            15% {
+                opacity: 0.7;
+            }
+            25% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(5deg);
+            }
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(135deg, 
+                rgba(245, 243, 255, 0.95),
+                rgba(240, 238, 255, 0.95));
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-bottom: 2px solid #8b5cf6;
+        }
+
+        .dark-mode header {
+            background: linear-gradient(135deg, 
+                rgba(16, 32, 27, 0.95), 
+                rgba(9, 8, 16, 0.95)); 
+            border-bottom: 2px solid hsl(214, 69%, 55%); 
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        /* Logo Portfolio */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, hsl(234, 83%, 61%) 0%, #5134d3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--gradient-primary);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(74, 74, 240, 0.3);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(74, 74, 240, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: var(--gradient-primary);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* Page Content */
+        .page {
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            position: relative;
+        }
+
+        /* Separator between sections */
+        .section-separator {
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 90%;
+            height: 1px;
+            background: var(--section-separator);
+            opacity: 0.3;
+        }
+
+        /* Different background colors for each section */
+        #home {
+            background: linear-gradient(135deg, var(--light-bg-1) 0%, var(--light-bg-2) 100%);
+            border-bottom: 2px solid var(--light-border);
+        }
+
+        .dark-mode #home {
+            background: linear-gradient(135deg, var(--dark-bg-1) 0%, var(--dark-bg-2) 100%) !important;
+            border-bottom: 2px solid var(--dark-border);
+        }
+
+        #about {
+            background: linear-gradient(135deg, var(--light-bg-3) 0%, var(--light-bg-4) 100%);
+            border-bottom: 2px solid var(--light-border);
+        }
+
+        .dark-mode #about {
+            background: linear-gradient(135deg, var(--dark-bg-3) 0%, var(--dark-bg-4) 100%) !important;
+            border-bottom: 2px solid var(--dark-border);
+        }
+
+        #hobbies {
+            background: linear-gradient(135deg, var(--light-bg-1) 0%, var(--light-bg-2) 100%);
+            border-bottom: 2px solid var(--light-border);
+        }
+
+        .dark-mode #hobbies {
+            background: linear-gradient(135deg, var(--dark-bg-1) 0%, var(--dark-bg-2) 100%) !important;
+            border-bottom: 2px solid var(--dark-border);
+        }
+
+        #dreams {
+            background: linear-gradient(135deg, var(--light-bg-3) 0%, var(--light-bg-4) 100%);
+            border-bottom: 2px solid var(--light-border);
+        }
+
+        .dark-mode #dreams {
+            background: linear-gradient(135deg, var(--dark-bg-3) 0%, var(--dark-bg-4) 100%) !important;
+            border-bottom: 2px solid var(--dark-border);
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .page-title h1 {
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 20px auto 0;
+            line-height: 1.8;
+        }
+
+        /* Trang Chủ */
+        #home {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+        }
+
+        .home-text {
+            flex: 1;
+        }
+
+        .home-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .home-text h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .home-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: var(--text-light);
+        }
+
+        .home-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Professional Avatar */
+        .avatar-container {
+            position: relative;
+            width: 420px;
+            height: 420px;
+            margin: 0 auto;
+        }
+
+        .avatar-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, 
+                #4a4af0 0%, 
+                #6c6cff 25%, 
+                #8b5cf6 50%, 
+                #a78bfa 75%,
+                #4a4af0 100%);
+            padding: 8px;
+            box-shadow: 
+                0 0 40px rgba(74, 74, 240, 0.4),
+                0 10px 60px rgba(74, 74, 240, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .dark-mode .avatar-frame {
+            background: linear-gradient(135deg, 
+                #6c6cff 0%, 
+                #8b5cf6 25%, 
+                #34d399 50%, 
+                #00c9a7 75%,
+                #6c6cff 100%);
+            box-shadow: 
+                0 0 50px rgba(108, 108, 255, 0.5),
+                0 15px 80px rgba(108, 108, 255, 0.3),
+                inset 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .avatar-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 0 60px rgba(74, 74, 240, 0.6),
+                0 20px 80px rgba(74, 74, 240, 0.4),
+                inset 0 0 40px rgba(255, 255, 255, 0.4);
+        }
+
+        .dark-mode .avatar-frame:hover {
+            box-shadow: 
+                0 0 70px rgba(108, 108, 255, 0.7),
+                0 25px 100px rgba(108, 108, 255, 0.5),
+                inset 0 0 50px rgba(255, 255, 255, 0.3);
+        }
+
+        .avatar-frame-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95),
+                rgba(245, 245, 255, 0.98));
+            overflow: hidden;
+            position: relative;
+            box-shadow: 
+                inset 0 0 20px rgba(0, 0, 0, 0.1),
+                inset 0 0 40px rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-mode .avatar-frame-inner {
+            background: linear-gradient(135deg, 
+                rgba(40, 40, 80, 0.95),
+                rgba(30, 30, 70, 0.98));
+            box-shadow: 
+                inset 0 0 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(255, 255, 255, 0.1);
+        }
+
+        .avatar-img {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(74, 74, 240, 0.05),
+                rgba(108, 108, 255, 0.02));
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .dark-mode .avatar-img {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .avatar-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Bỏ hiệu ứng phóng to */
+            transition: none;
+        }
+
+        /* Hiệu ứng tia lóa sáng cho cả nền sáng và tối */
+        .avatar-flare {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            animation: flarePulse 4s infinite alternate;
+            z-index: -1;
+        }
+
+        /* Nền sáng: ánh sáng đen xanh */
+        .avatar-flare {
+            background: radial-gradient(
+                circle at center,
+                rgba(10, 10, 40, 0.3) 0%,
+                rgba(20, 20, 60, 0.2) 30%,
+                transparent 70%
+            );
+        }
+
+        .dark-mode .avatar-flare {
+            background: radial-gradient(
+                circle at center,
+                rgba(108, 108, 255, 0.2) 0%,
+                rgba(108, 108, 255, 0.1) 30%,
+                transparent 70%
+            );
+        }
+
+        .avatar-sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: sparkleMove 3s infinite linear;
+        }
+
+        /* Nền sáng: chấm sáng đen xanh */
+        .avatar-sparkle {
+            background: rgba(20, 20, 60, 0.8);
+            box-shadow: 
+                0 0 10px rgba(20, 20, 60, 0.6),
+                0 0 20px rgba(20, 20, 60, 0.4);
+        }
+
+        .dark-mode .avatar-sparkle {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Tia lóa sáng chạy xung quanh avatar */
+        .avatar-light-ray {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            filter: blur(1px);
+            animation: lightRayRotate 8s infinite linear;
+            transform-origin: 0 210px;
+        }
+
+        /* Nền sáng: tia sáng đen xanh */
+        .avatar-light-ray {
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(20, 20, 60, 0.7),
+                rgba(74, 74, 240, 0.5),
+                transparent
+            );
+        }
+
+        .dark-mode .avatar-light-ray {
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(255, 255, 255, 0.8),
+                rgba(108, 108, 255, 0.6),
+                transparent
+            );
+        }
+
+        /* Bản Thân Section */
+        .personal-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: var(--light-card);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 2px solid;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Different border colors for info cards */
+        .info-card:nth-child(1) {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, 
+                var(--light-card) 0%,
+                rgba(74, 74, 240, 0.05) 100%);
+        }
+
+        .info-card:nth-child(2) {
+            border-color: var(--accent-color);
+            background: linear-gradient(135deg, 
+                var(--light-card) 0%,
+                rgba(0, 201, 167, 0.05) 100%);
+        }
+
+        .info-card:nth-child(3) {
+            border-color: var(--warning-color);
+            background: linear-gradient(135deg, 
+                var(--light-card) 0%,
+                rgba(255, 179, 71, 0.05) 100%);
+        }
+
+        .dark-mode .info-card:nth-child(1) {
+            background: linear-gradient(135deg, 
+                var(--light-card) 0%,
+                rgba(74, 74, 240, 0.15) 100%);
+        }
+
+        .dark-mode .info-card:nth-child(2) {
+            background: linear-gradient(135deg, 
+                var(--light-card) 0%,
+                rgba(0, 201, 167, 0.15) 100%);
+        }
+
+        .dark-mode .info-card:nth-child(3) {
+            background: linear-gradient(135deg, 
+                var(--light-card) 0%,
+                rgba(255, 179, 71, 0.15) 100%);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 74, 240, 0.2);
+        }
+
+        .info-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        /* Different icon colors */
+        .info-card:nth-child(1) .info-icon {
+            background: var(--gradient-primary);
+        }
+
+        .info-card:nth-child(2) .info-icon {
+            background: var(--gradient-accent);
+        }
+
+        .info-card:nth-child(3) .info-icon {
+            background: var(--gradient-warning);
+        }
+
+        .info-card:hover .info-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Value tags with different colors */
+        .value-tag {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .value-tag:nth-child(1) {
+            background: var(--gradient-primary);
+        }
+
+        .value-tag:nth-child(2) {
+            background: var(--gradient-secondary);
+        }
+
+        .value-tag:nth-child(3) {
+            background: var(--gradient-accent);
+        }
+
+        .value-tag:nth-child(4) {
+            background: var(--gradient-warning);
+        }
+
+        /* Sở Thích Section */
+        .hobbies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .hobby-card {
+            background: var(--light-card);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Different border colors for hobby cards */
+        .hobby-card:nth-child(1) {
+            border-color: var(--primary-color);
+        }
+
+        .hobby-card:nth-child(2) {
+            border-color: var(--secondary-color);
+        }
+
+        .hobby-card:nth-child(3) {
+            border-color: var(--info-color);
+        }
+
+        .hobby-card:nth-child(4) {
+            border-color: var(--success-color);
+        }
+
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        /* Different top border colors */
+        .hobby-card:nth-child(1)::before {
+            background: var(--gradient-primary);
+        }
+
+        .hobby-card:nth-child(2)::before {
+            background: var(--gradient-secondary);
+        }
+
+        .hobby-card:nth-child(3)::before {
+            background: var(--gradient-info);
+        }
+
+        .hobby-card:nth-child(4)::before {
+            background: var(--gradient-success);
+        }
+
+        .hobby-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hobby-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        /* Different icon colors */
+        .hobby-card:nth-child(1) .hobby-icon {
+            background: var(--gradient-primary);
+        }
+
+        .hobby-card:nth-child(2) .hobby-icon {
+            background: var(--gradient-secondary);
+        }
+
+        .hobby-card:nth-child(3) .hobby-icon {
+            background: var(--gradient-info);
+        }
+
+        .hobby-card:nth-child(4) .hobby-icon {
+            background: var(--gradient-success);
+        }
+
+        .hobby-card:hover .hobby-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .hobby-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .hobby-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .skill-level {
+            height: 8px;
+            background: var(--light-border);
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 4px;
+            animation: fillBar 1.5s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Different skill bar colors */
+        .hobby-card:nth-child(1) .skill-fill {
+            background: var(--gradient-primary);
+        }
+
+        .hobby-card:nth-child(2) .skill-fill {
+            background: var(--gradient-secondary);
+        }
+
+        .hobby-card:nth-child(3) .skill-fill {
+            background: var(--gradient-info);
+        }
+
+        .hobby-card:nth-child(4) .skill-fill {
+            background: var(--gradient-success);
+        }
+
+        .skill-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        /* Ước Muốn Section */
+        .dreams-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .dream-card {
+            background: var(--light-card);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 2px solid;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Different border colors for dream cards */
+        .dream-card:nth-child(1) {
+            border-color: var(--primary-color);
+        }
+
+        .dream-card:nth-child(2) {
+            border-color: var(--accent-color);
+        }
+
+        .dream-card:nth-child(3) {
+            border-color: var(--warning-color);
+        }
+
+        .dream-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gradient-primary);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        /* Different side border colors */
+        .dream-card:nth-child(1)::before {
+            background: var(--gradient-primary);
+        }
+
+        .dream-card:nth-child(2)::before {
+            background: var(--gradient-accent);
+        }
+
+        .dream-card:nth-child(3)::before {
+            background: var(--gradient-warning);
+        }
+
+        .dream-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .dream-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .dream-number {
+            font-size: 3rem;
+            font-weight: 800;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        /* Different number colors */
+        .dream-card:nth-child(1) .dream-number {
+            background: var(--gradient-primary);
+        }
+
+        .dream-card:nth-child(2) .dream-number {
+            background: var(--gradient-accent);
+        }
+
+        .dream-card:nth-child(3) .dream-number {
+            background: var(--gradient-warning);
+        }
+
+        .dream-card:hover .dream-number {
+            transform: scale(1.1);
+        }
+
+        .dream-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .dream-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .dream-timeline {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(74, 74, 240, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(74, 74, 240, 0.1);
+        }
+
+        .dark-mode .dream-timeline {
+            background: rgba(74, 74, 240, 0.1);
+            border: 1px solid rgba(74, 74, 240, 0.2);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Different dot colors */
+        .dream-card:nth-child(1) .timeline-dot {
+            background: var(--primary-color);
+        }
+
+        .dream-card:nth-child(2) .timeline-dot {
+            background: var(--accent-color);
+        }
+
+        .dream-card:nth-child(3) .timeline-dot {
+            background: var(--warning-color);
+        }
+
+        .timeline-text {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #6c6cff 0%, #4a4af0 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(74, 74, 240, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 100%);
+            color: var(--text-white);
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 100px;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Animations mới cho avatar */
+        @keyframes flarePulse {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        @keyframes sparkleMove {
+            0% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { 
+                opacity: 1;
+            }
+            90% { 
+                opacity: 1;
+            }
+            100% { 
+                transform: translate(200px, 200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes lightRayRotate {
+            0% { transform: rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: rotate(360deg); opacity: 0; }
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .avatar-container {
+                width: 380px;
+                height: 380px;
+            }
+            
+            .home-text h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .home-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .personal-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .avatar-container {
+                width: 340px;
+                height: 340px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: rgba(245, 243, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .dark-mode .nav-links {
+                background: rgba(16, 32, 27, 0.98);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .page-title h1 {
+                font-size: 2.8rem;
+            }
+            
+            .avatar-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .personal-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .avatar-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .hobby-card,
+            .dream-card {
+                padding: 30px 20px;
+            }
+            
+            .info-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Light Streaks (Light Mode) -->
+    <div class="light-streaks" id="lightStreaks"></div>
+    
+    <!-- Moonlight Streaks (Dark Mode) -->
+    <div class="moonlight-streaks" id="moonlightStreaks"></div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Portfolio</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Trang Chủ</a></li>
+                <li><a href="#about">Bản Thân</a></li>
+                <li><a href="#hobbies">Sở Thích</a></li>
+                <li><a href="#dreams">Mục Tiêu</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Trang Chủ -->
+    <section id="home" class="page">
+        <div class="container">
+            <div class="home-content">
+                <div class="home-text fade-in">
+                    <h1>Xin chào, tôi là <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Võ Xuân vận</span></h1>
+                    <h2>Học sinh THPT & Đam mê khoa học</h2>
+                    <p>Chào mừng bạn đến với thế giới của tôi! Tôi là một học sinh trung học với niềm đam mê khám phá và học hỏi. Mỗi ngày là một cơ hội mới để phát triển bản thân và theo đuổi những ước mơ.</p>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 40px;">
+                        <a href="#about" class="btn">Khám Phá <i class="fas fa-arrow-down"></i></a>
+                    </div>
+                </div>
+                <div class="home-image">
+                    <div class="avatar-container fade-in">
+                        <div class="avatar-frame">
+                            <div class="avatar-frame-inner">
+                                <div class="avatar-img">
+                                    <img src="h1.jpg" 
+                                         alt="Võ Xuân Vận">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="avatar-flare"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-separator"></div>
+    </section>
+
+    <!-- Bản Thân -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="page-title">
+                <h1 class="slide-in-left">Bản Thân</h1>
+                <p>Khám phá hành trình và những gì định hình nên con người tôi ngày hôm nay</p>
+            </div>
+            <div class="personal-content">
+                <div class="slide-in-left">
+                    <h2 style="margin-bottom: 20px;">Câu Chuyện Của Tôi</h2>
+                    <p style="margin-bottom: 20px;">Trong quá trình học tập, mình nhận ra rằng công nghệ không chỉ là một lĩnh vực thú vị mà còn là công cụ hỗ trợ rất mạnh mẽ cho việc ôn thi, hệ thống kiến thức và rèn luyện tư duy.</p>
+                    <p style="margin-bottom: 20px;">Hiện tại, mình đang tập trung ôn thi và xây dựng cho mình một phương pháp học khoa học, cân bằng giữa việc tiếp thu kiến thức, luyện tập thường xuyên và nghỉ ngơi hợp lý.</p>
+                    <p style="margin-bottom: 40px;">Mình tin rằng việc kết hợp giữa sự nỗ lực cá nhân và công nghệ hiện đại sẽ giúp mình tiến bộ từng ngày.</p>
+                    
+                    <div class="personal-info">
+                        <div class="info-card fade-in">
+                            <div class="info-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Học Vấn</h3>
+                            <p>Trường THPT<br>số 2 Phù Cát</p>
+                        </div>
+                        
+                        <div class="info-card fade-in">
+                            <div class="info-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Kinh Nghiệm</h3>
+                            <p>Vài tháng<br>khi học </p>
+                        </div>
+                        
+                        <div class="info-card fade-in">
+                            <div class="info-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Thành Tích</h3>
+                            <p>0 giải thưởng</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 50px;">
+                        <h3 style="margin-bottom: 15px;">Giá Trị Cốt Lõi</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                            <span class="value-tag">
+                                <i class="fas fa-lightbulb"></i> Sáng tạo
+                            </span>
+                            <span class="value-tag">
+                                <i class="fas fa-handshake"></i> Trung thực
+                            </span>
+                            <span class="value-tag">
+                                <i class="fas fa-rocket"></i> Đổi mới
+                            </span>
+                            <span class="value-tag">
+                                <i class="fas fa-users"></i> Hợp tác
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-separator"></div>
+    </section>
+
+    <!-- Sở Thích -->
+    <section id="hobbies" class="page">
+        <div class="container">
+            <div class="page-title">
+                <h1 class="slide-in-left">Sở Thích</h1>
+                <p>Những điều tôi yêu thích ngoài công việc - Nguồn cảm hứng sáng tạo</p>
+            </div>
+            <div class="hobbies-content">
+                <div class="hobby-card fade-in">
+                    <div class="hobby-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Coding Side Projects</h3>
+                    <p>Khám phá công nghệ mới qua các dự án cá nhân, thử nghiệm ý tưởng sáng tạo.</p>
+                    <div class="skill-level"><div class="skill-fill" style="width: 95%"></div></div>
+                </div>
+                
+                <div class="hobby-card fade-in">
+                    <div class="hobby-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Chơi Game</h3>
+                    <p>Yêu thích các game chiến thuật và RPG, nơi tôi có thể rèn luyện tư duy logic.</p>
+                    <div class="skill-level"><div class="skill-fill" style="width: 80%"></div></div>
+                </div>
+                
+                <div class="hobby-card fade-in">
+                    <div class="hobby-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Đọc Sách</h3>
+                    <p>Đam mê sách công nghệ và tiểu thuyết khoa học viễn tưởng.</p>
+                    <div class="skill-level"><div class="skill-fill" style="width: 85%"></div></div>
+                </div>
+                
+                <div class="hobby-card fade-in">
+                    <div class="hobby-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Âm Nhạc</h3>
+                    <p>Nghe nhạc khi học, yêu thích các thể loại Lofi, không lời và Electronic.</p>
+                    <div class="skill-level"><div class="skill-fill" style="width: 90%"></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="section-separator"></div>
+    </section>
+
+    <!-- Ước Muốn -->
+    <section id="dreams" class="page">
+        <div class="container">
+            <div class="page-title">
+                <h1 class="slide-in-left">Miệu tiêu tương lai</h1>
+                <p>Những mục tiêu và ước mơ tôi đang hướng tới trong tương lai</p>
+            </div>
+            <div class="dreams-content">
+                <div class="dream-card fade-in">
+                    <div class="dream-number">01</div>
+                    <h3>Vào trường Đại học mơ ước</h3>
+                    <p>Định hướng phát triển lâu dài trong lĩnh vực CNTT, không ngừng học hỏi, rèn luyện kỹ năng và chuẩn bị hành trang cho các bậc học cao hơn</p>
+                    <div class="dream-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">HCMUTE</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dream-card fade-in">
+                    <div class="dream-number">03</div>
+                    <h3>Du Lịch & Trải Nghiệm</h3>
+                    <p>Du lịch và khám phá các tỉnh thành.<br><br><br></p>
+                    <div class="dream-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">Đà Lạt </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">Nha Trang</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">Huế</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-separator"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" title="Zalo"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="text-align: center; margin: 30px 0; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(255, 255, 255, 0.9);">
+                "Thành công không phải là đích đến, mà là hành trình nỗ lực không ngừng"
+            </p>
+            <p class="copyright">--------------------------</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const lightStreaks = document.getElementById('lightStreaks');
+        const moonlightStreaks = document.getElementById('moonlightStreaks');
+        const avatarContainer = document.querySelector('.avatar-container');
+
+        // Create Light Streaks (Light Mode)
+        function createLightStreaks() {
+            // Clear existing streaks
+            lightStreaks.innerHTML = '';
+            
+            // Create 15 light streaks
+            for (let i = 0; i < 15; i++) {
+                const streak = document.createElement('div');
+                streak.classList.add('light-streak');
+                
+                // Random position and delay
+                const left = Math.random() * 100;
+                const delay = Math.random() * 8;
+                const duration = 8 + Math.random() * 4;
+                
+                // Set styles
+                streak.style.left = `${left}%`;
+                streak.style.animationDelay = `${delay}s`;
+                streak.style.animationDuration = `${duration}s`;
+                
+                // Random rotation
+                const rotation = -5 + Math.random() * 10;
+                streak.style.transform = `rotate(${rotation}deg)`;
+                
+                // Add to container
+                lightStreaks.appendChild(streak);
+            }
+        }
+
+        // Create Moonlight Streaks (Dark Mode)
+        function createMoonlightStreaks() {
+            // Clear existing streaks
+            moonlightStreaks.innerHTML = '';
+            
+            // Create 10 moonlight streaks (less intense)
+            for (let i = 0; i < 10; i++) {
+                const streak = document.createElement('div');
+                streak.classList.add('moonlight-streak');
+                
+                // Random position and delay
+                const left = Math.random() * 100;
+                const delay = Math.random() * 12;
+                const duration = 12 + Math.random() * 6;
+                
+                // Set styles
+                streak.style.left = `${left}%`;
+                streak.style.animationDelay = `${delay}s`;
+                streak.style.animationDuration = `${duration}s`;
+                
+                // Random rotation
+                const rotation = -3 + Math.random() * 6;
+                streak.style.transform = `rotate(${rotation}deg)`;
+                
+                // Add to container
+                moonlightStreaks.appendChild(streak);
+            }
+        }
+
+        // Tạo hiệu ứng tia lóa sáng cho cả nền sáng và tối
+        function createSparkles() {
+            const avatarFlare = document.querySelector('.avatar-flare');
+            if (!avatarFlare) return;
+            
+            // Clear existing sparkles
+            const existingSparkles = document.querySelectorAll('.avatar-sparkle, .avatar-light-ray');
+            existingSparkles.forEach(sparkle => sparkle.remove());
+            
+            // Create light rays - cho cả nền sáng và tối
+            for (let i = 0; i < 8; i++) {
+                const ray = document.createElement('div');
+                ray.classList.add('avatar-light-ray');
+                ray.style.animationDelay = `${i * 1}s`;
+                avatarContainer.appendChild(ray);
+            }
+            
+            // Create sparkles - cho cả nền sáng và tối
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('avatar-sparkle');
+                
+                // Random position
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 180 + Math.random() * 40;
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+                
+                sparkle.style.left = `calc(50% + ${x}px)`;
+                sparkle.style.top = `calc(50% + ${y}px)`;
+                sparkle.style.animationDelay = `${Math.random() * 3}s`;
+                
+                avatarContainer.appendChild(sparkle);
+            }
+        }
+
+        // Toggle streaks based on theme
+        function toggleStreaks() {
+            if (document.body.classList.contains('dark-mode')) {
+                lightStreaks.style.display = 'none';
+                moonlightStreaks.style.display = 'block';
+                createSparkles();
+            } else {
+                lightStreaks.style.display = 'block';
+                moonlightStreaks.style.display = 'none';
+                createSparkles(); // Vẫn tạo sparkles cho nền sáng
+            }
+        }
+
+        // Dark Mode Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+            toggleStreaks();
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.querySelector('i').classList.remove('fa-moon');
+            themeToggle.querySelector('i').classList.add('fa-sun');
+        }
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Scroll Animation
+        const checkFade = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
+            
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            }
+            
+            checkFade();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initialize everything
+        window.addEventListener('load', () => {
+            createLightStreaks();
+            createMoonlightStreaks();
+            toggleStreaks();
+            checkFade();
+            
+            // Refresh streaks every 30 seconds to keep them random
+            setInterval(() => {
+                createLightStreaks();
+                createMoonlightStreaks();
+                toggleStreaks();
+            }, 30000);
+            
+            // Refresh sparkles every 10 seconds
+            setInterval(() => {
+                createSparkles();
+            }, 10000);
+        });
+
+        // Add typing effect to hero text
+        const heroTitle = document.querySelector('.home-text h1 span');
+        if (heroTitle) {
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            setTimeout(typeWriter, 500);
+        }
+
+        // Animate skill bars when in view
+        const skillBars = document.querySelectorAll('.skill-fill');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fillBar 1.5s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            observer.observe(bar);
+        });
+    </script>
+</body>
+</html>

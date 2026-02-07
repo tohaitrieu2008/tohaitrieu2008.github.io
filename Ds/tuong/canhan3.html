@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NgocTuongMint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS STYLE --- */
+        :root {
+            --mint-primary: #aaf0d1; /* Màu Mint chủ đạo */
+            --mint-dark: #7bc7a7;
+            --mint-light: #e0f9ef;
+            --text-dark: #2d4038;
+            --white: #ffffff;
+            --gray-light: #f9fbf9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--gray-light);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--mint-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li { margin-left: 25px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--mint-dark); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, var(--mint-light) 0%, var(--gray-light) 100%);
+            padding: 0 20px;
+        }
+
+        .avatar-container img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid var(--white);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero h1 span { color: var(--mint-dark); }
+        .slogan { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.8; }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary { background: var(--mint-dark); color: white; }
+        .btn-primary:hover { background: var(--mint-primary); transform: translateY(-3px); }
+
+        /* About & Cards */
+        section { padding: 100px 10%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; position: relative; }
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--mint-dark);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid var(--mint-light);
+        }
+
+        .about-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(123, 199, 167, 0.2); }
+        .about-card i { font-size: 2.5rem; color: var(--mint-dark); margin-bottom: 15px; }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* Contact */
+        .contact-wrapper {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+
+        #contact-form input, #contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid var(--mint-light);
+            border-radius: 12px;
+            background: var(--gray-light);
+            font-family: inherit;
+        }
+
+        /* Footer */
+        footer { text-align: center; padding: 50px; background: var(--mint-light); margin-top: 50px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">☘️ NTuongg</div>
+        <ul class="nav-links">
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#gallery">Kỉ niệm</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="avatar-container">
+            <img src="3.jpg" alt="Avatar">
+        </div>
+        <h1>Hi, mình là <span>Ngọc Tường</span> 🌿</h1>
+        <p class="slogan">Học sinh lớp 12A1 - Thích sáng tạo và yêu màu xanh mint!</p>
+        <div>
+            <a href="#contact" class="btn btn-primary">Kết nối với mình !</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Khám phá về mình</h2>
+        <div class="about-container">
+            <div class="about-card">
+                <i class="fas fa-book-open"></i>
+                <h3>Học tập</h3>
+                <p>Có niềm vui với môn Tiếng Anh nhưng mà không giỏi 😇</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Sở thích</h3>
+                <p> Thích nghe nhạc, thích chơi các môn thể thao, đặc biệt là bóng chuyền.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-star"></i>
+                <h3>Ước mơ</h3>
+                <p>Đam mê về ngành du lịch, khám phá và phiêu du đây đó ở những địa điểm đẹp !</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="background-color: #fff;">
+        <h2 class="section-title">Khoảnh khắc của mình</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="1.jpg" alt="Ảnh 1"></div>
+            <div class="gallery-item"><img src="2.jpg" alt="Ảnh 2"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Ảnh 3"></div>
+            <div class="gallery-item"><img src="4.jpg" alt="Ảnh 4"></div>
+            <div class="gallery-item"><img src="7.jpg" alt="Ảnh 5"></div>
+            <div class="gallery-item"><img src="6.jpg" alt="Ảnh 6"></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Gửi lời chào nhé !</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Thông tin liên hệ</h3>
+                <br>
+                <p><i class="fas fa-map-marker-alt"></i> Chánh Danh, Đề Gi, Gia Lai</p>
+                <p><i class="fas fa-envelope"></i> pntuong0110@gmail.com</p>
+                <br>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/phamngoctuongg" style="color: var(--mint-dark); font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ntuoq_28?igsh=MXRqYWlmaTNyM3lrZQ==" style="color: var(--mint-dark); font-size: 1.5rem; margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@pngtuoq?_r=1&_t=ZS-93hJiVOFbFo" style="color: var(--mint-dark); font-size: 1.5rem;"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <form id="contact-form">
+                <input type="text" placeholder="Tên của bạn" required>
+                <input type="email" placeholder="Email của bạn" required>
+                <textarea placeholder="Bạn muốn nói gì với mình không?" rows="4" required></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Gửi ngay 🕊️</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 <b>NTuongg</b> ✨</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Tin nhắn của bạn đã được gửi đi cực nhanh! Cảm ơn bạn nhé! 🌿');
+            this.reset();
+        });
+
+        // Hiệu ứng cuộn mượt cho Navbar
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.style.padding = '10px 10%';
+            } else {
+                nav.style.padding = '15px 10%';
+            }
+        });
+    </script>
+</body>
+</html>
