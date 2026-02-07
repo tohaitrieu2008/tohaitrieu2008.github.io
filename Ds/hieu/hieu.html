@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phan Hoàng Hiếu - Học sinh THPT số 2 Phù Cát</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--primary:#667eea;--secondary:#764ba2;--accent:#f093fb;--real-blue:#0c2340;--real-gold:#febe10;--dark:#1a1a2e;--light:#ffffff}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Poppins',sans-serif;overflow-x:hidden;background:#0f0c29;line-height:1.6}
+        .animated-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:linear-gradient(135deg,#0c2340 0%,#667eea 50%,#764ba2 100%);background-size:400% 400%;animation:gradientShift 15s ease infinite}
+        @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .shape{position:absolute;border-radius:50%;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);animation:float 20s infinite ease-in-out}
+        .shape:nth-child(1){width:350px;height:350px;top:5%;left:10%;animation-delay:0s}
+        .shape:nth-child(2){width:250px;height:250px;top:50%;right:10%;animation-delay:2s}
+        .shape:nth-child(3){width:180px;height:180px;bottom:15%;left:15%;animation-delay:4s}
+        .shape:nth-child(4){width:280px;height:280px;top:25%;right:25%;animation-delay:1s}
+        .shape:nth-child(5){width:200px;height:200px;bottom:30%;right:40%;animation-delay:3s}
+        @keyframes float{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(40px,-40px) rotate(90deg)}50%{transform:translate(-30px,30px) rotate(180deg)}75%{transform:translate(30px,40px) rotate(270deg)}}
+        .container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem;position:relative}
+        .profile-card{background:rgba(255,255,255,0.12);backdrop-filter:blur(25px);border-radius:30px;padding:2.5rem;max-width:1100px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.25);animation:fadeInUp 1s ease-out}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+        .profile-header{text-align:center;margin-bottom:2.5rem}
+        .avatar-container{position:relative;width:180px;height:180px;margin:0 auto 1.5rem}
+        .avatar-ring{position:absolute;top:-10px;left:-10px;right:-10px;bottom:-10px;border-radius:50%;background:linear-gradient(45deg,#0c2340,#febe10,#667eea,#764ba2);background-size:300% 300%;animation:gradientRotate 3s linear infinite;z-index:-1}
+        @keyframes gradientRotate{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        .avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.3);box-shadow:0 10px 30px rgba(0,0,0,0.3);animation:float-avatar 3s ease-in-out infinite}
+        @keyframes float-avatar{0%,100%{transform:translateY(0px)}50%{transform:translateY(-15px)}}
+        .profile-name{font-size:clamp(2rem,5vw,2.8rem);font-weight:800;color:white;margin-bottom:0.5rem;text-shadow:2px 2px 4px rgba(0,0,0,0.3);line-height:1.2}
+        .profile-title{font-size:clamp(1.1rem,3vw,1.3rem);color:rgba(255,255,255,0.95);font-weight:500;margin-bottom:0.5rem}
+        .profile-school{font-size:clamp(1rem,2.5vw,1.15rem);color:#febe10;font-weight:600;margin-bottom:1rem;text-shadow:1px 1px 2px rgba(0,0,0,0.3)}
+        .profile-subtitle{font-size:clamp(0.9rem,2vw,1rem);color:rgba(255,255,255,0.85);font-style:italic;line-height:1.7;max-width:700px;margin:0 auto;padding:0 1rem}
+        .profile-content{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-bottom:2rem}
+        .profile-section{background:rgba(255,255,255,0.12);padding:1.8rem;border-radius:20px;backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.25);transition:transform 0.3s ease,box-shadow 0.3s ease}
+        .profile-section:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,0.3)}
+        .section-title{font-size:clamp(1.3rem,3vw,1.5rem);color:white;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem;line-height:1.3}
+        .section-title i{color:#febe10;font-size:clamp(1.5rem,3vw,1.7rem);flex-shrink:0}
+        .section-with-image{display:grid;grid-template-columns:1fr 200px;gap:1.5rem;align-items:start}
+        .section-image{width:100%;height:200px;border-radius:15px;object-fit:cover;box-shadow:0 5px 15px rgba(0,0,0,0.3);border:3px solid rgba(254,190,16,0.3);transition:transform 0.3s ease}
+        .section-image:hover{transform:scale(1.05)}
+        .section-content{flex:1}
+        .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+        .info-item{display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.95);font-size:clamp(0.9rem,2vw,0.95rem);transition:transform 0.3s ease;padding:0.5rem;border-radius:10px;background:rgba(255,255,255,0.05)}
+        .info-item:hover{transform:translateX(10px);background:rgba(255,255,255,0.1)}
+        .info-item i{width:35px;height:35px;background:rgba(254,190,16,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#febe10;font-size:1rem;flex-shrink:0}
+        .about-text{color:rgba(255,255,255,0.95);line-height:1.8;font-size:clamp(0.9rem,2vw,0.98rem);text-align:justify}
+        .real-badge{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#0c2340,#febe10);padding:0.7rem 1.2rem;border-radius:25px;color:white;font-weight:600;margin-top:1rem;animation:pulse 2s infinite;font-size:clamp(0.85rem,2vw,0.95rem)}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        .hobbies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+        .hobby-item{position:relative;background:rgba(255,255,255,0.1);padding:0;border-radius:15px;overflow:hidden;transition:all 0.3s ease;border:2px solid rgba(255,255,255,0.15);height:280px}
+        .hobby-item:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(254,190,16,0.4);border-color:#febe10}
+        .hobby-image{width:100%;height:180px;object-fit:cover;transition:transform 0.3s ease}
+        .hobby-item:hover .hobby-image{transform:scale(1.1)}
+        .hobby-content{padding:1.2rem;background:rgba(12,35,64,0.8);backdrop-filter:blur(10px);display:flex;align-items:center;gap:1rem;position:relative;z-index:1}
+        .hobby-content i{font-size:2rem;color:#febe10;flex-shrink:0}
+        .hobby-content span{color:white;font-weight:600;font-size:clamp(1rem,2vw,1.1rem)}
+        .hobby-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(12,35,64,0.7),rgba(254,190,16,0.7));opacity:0;transition:opacity 0.3s ease;display:flex;align-items:center;justify-content:center;z-index:2}
+        .hobby-item:hover .hobby-overlay{opacity:1}
+        .hobby-overlay-text{color:white;font-size:1.5rem;font-weight:700;text-shadow:2px 2px 4px rgba(0,0,0,0.5);text-align:center;padding:1rem}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2rem}
+        .gallery-item{position:relative;border-radius:15px;overflow:hidden;height:200px;cursor:pointer;transition:transform 0.3s ease;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
+        .gallery-item:hover{transform:scale(1.05)}
+        .gallery-item img{width:100%;height:100%;object-fit:cover}
+        .gallery-item::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(12,35,64,0.4),rgba(254,190,16,0.4));opacity:0;transition:opacity 0.3s ease}
+        .gallery-item:hover::after{opacity:1}
+        .gallery-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.8);color:white;padding:0.8rem;font-size:clamp(0.85rem,2vw,0.95rem);font-weight:600;text-align:center;transform:translateY(100%);transition:transform 0.3s ease}
+        .gallery-item:hover .gallery-label{transform:translateY(0)}
+        .social-links{display:flex;justify-content:center;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+        .social-link{width:55px;height:55px;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.4rem;transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.3)}
+        .social-link:hover{background:#febe10;color:#0c2340;transform:translateY(-5px) rotate(360deg);box-shadow:0 10px 20px rgba(254,190,16,0.4)}
+        .footer{text-align:center;color:rgba(255,255,255,0.8);font-size:clamp(0.85rem,2vw,0.9rem);margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.15)}
+        .footer i{color:#ff6b6b;animation:heartbeat 1.5s infinite}
+        @keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+        @media(max-width:768px){.container{padding:2rem 1rem}.profile-card{padding:2rem 1.5rem}.avatar-container{width:150px;height:150px}.avatar{width:150px;height:150px}.hobbies-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.gallery{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}.section-with-image{grid-template-columns:1fr;gap:1rem}.section-image{height:180px;order:2}}
+        @media(max-width:480px){.container{padding:1.5rem 0.8rem}.profile-card{padding:1.5rem 1rem;border-radius:20px}.hobbies-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr;gap:1rem}.gallery-item{height:180px}.social-link{width:50px;height:50px;font-size:1.2rem}.hobby-item{height:250px}.hobby-image{height:150px}}
+        @media print{.animated-bg,.shape{display:none}.profile-card{box-shadow:none;border:1px solid #ccc}}
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar-container">
+                    <div class="avatar-ring"></div>
+                    <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/bwaa4RxfrACN3aOl.png?Expires=1771587204&Signature=CbnJwO2vMOKGzomPyY2a7~MlmzYPcjgpSBvaoYFzUhHiiPddLbdMCvGgX5CvAh~AznD4t~qQzR6bYTond0tSB7t6PQu~4wvacvv4NOtRlrvWtPwpIlLJNRYTQZiXfCp~o3Fydh6SAONY4iq2lFZ9pNiKOoEvG0~hICZyuU7lZPzEGWiWyjqy9zaRRn1mCbS1WMuogeVR8-lcvk4vUrl2u5ktPsFAilk~0MiXSx2QhKwFre7UbeasNXtCNLgsvcnLP88tow~Lg~PFr8QNK3EYOR9D7AmrAoueFt1AHsCwvKIPDgMsoB7QsvNcjOaDgpcZvSYpodRiZcZJMGim-XP2tw__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Phan Hoàng Hiếu" class="avatar">
+                </div>
+                <h1 class="profile-name">Phan Hoàng Hiếu</h1>
+                <p class="profile-title">Học sinh lớp 12A1</p>
+                <p class="profile-school">🏫 THPT số 2 Phù Cát - Bình Định</p>
+                <p class="profile-subtitle">Tôi rất tự hào khi được học tại một ngôi trường ở huyện nhưng đã từng là ngôi nhà của Thủ khoa toàn quốc. Đây không chỉ là nơi học tập mà còn là nơi nuôi dưỡng ước mơ và khát vọng của tôi.</p>
+            </div>
+            <div class="profile-content">
+                <!-- Về Tôi - KHÔNG CÓ ẢNH -->
+                <div class="profile-section">
+                    <h2 class="section-title"><i class="fas fa-user-circle"></i><span>Về Tôi</span></h2>
+                    <p class="about-text">Xin chào mọi người! Tôi là Phan Hoàng Hiếu, hiện đang là học sinh lớp 12A1 tại trường THPT số 2 Phù Cát. Tôi đến từ Trung Chánh, Đề Gi, Gia Lai - một vùng đất yên bình và giàu truyền thống. Được học tập tại một ngôi trường danh tiếng với truyền thống học tập xuất sắc, tôi luôn cố gắng phấn đấu để không ngừng hoàn thiện bản thân.</p>
+                </div>
+
+                <!-- Thông Tin - CÓ ẢNH ĐI NGỦ -->
+                <div class="profile-section">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i><span>Thông Tin Cá Nhân</span></h2>
+                    <div class="section-with-image">
+                        <div class="section-content">
+                            <div class="info-grid">
+                                <div class="info-item"><i class="fas fa-graduation-cap"></i><span><strong>Lớp:</strong> 12A1</span></div>
+                                <div class="info-item"><i class="fas fa-school"></i><span><strong>Trường:</strong> THPT số 2 Phù Cát</span></div>
+                                <div class="info-item"><i class="fas fa-map-marker-alt"></i><span><strong>Quê quán:</strong> Trung Chánh, Đề Gi, Gia Lai</span></div>
+                                <div class="info-item"><i class="fas fa-envelope"></i><span><strong>Email:</strong> hieuabced@gmail.com</span></div>
+                            </div>
+                       
+                <div class="profile-section">
+                    <h2 class="section-title"><i class="fas fa-heart"></i><span>Sở Thích Của Tôi</span></h2>
+                    <div class="hobbies-grid">
+                        <!-- Chơi Game -->
+                        <div class="hobby-item">
+                            <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/6hv5YPtmgZU6iGcq.jpg?Expires=1771584826&Signature=U~-Z116cT~-LJMlT7UXk8BlGBD1zF10or13fopxY3kiGry7JrnExmt2grk6hTQYJMG1enbrfHmqqLkE-ry32nX1sIk~SWR8EHh8OUUTGMMbuW-XiX1hQClHQUwJOdvg~bsxaHSxOvt6HHxlO6NlTlLnUFx3G8gYVv2UU-YRMyCRg8Q0DZxCmiOwNzxf7O1Y-tWdhFshumRCCEZqfDkHLq0GZSGE18IQT~HU-~1RUq2YcXR62-rsuVrwDFUs24qtH6b7bDj9sqXZjxtrgMliLhAymEv24QUnAdZcaS57XxIxctadP36A0rvdCG0xyvaXHuKYmL34n3rqhiu3lw7FXbw__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Gaming" class="hobby-image">
+                            <div class="hobby-content">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Chơi Game</span>
+                            </div>
+                            <div class="hobby-overlay">
+                                <div class="hobby-overlay-text">🎮 Gaming Setup<br>Đam mê game</div>
+                            </div>
+                        </div>
+
+                        <!-- Nghe Nhạc -->
+                        <div class="hobby-item">
+                            <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/rE9GoEmjQYLrajQ3.jpg?Expires=1771584826&Signature=CkPe3hXxMcLEE6zqAW1~wuirkGKjIVgroSwIsRh30D3~2IYbzPPMN4o-t-0yjYMrFjZxEDHjBbyPi0J3SQqpa4XfIn6uSICz0SzBcH0vmzS6bDc0GJP1AbT3ldcOUx0DsfGI8wm2rIMwZ6hJO~tQsvWJddQmmezGrck5WGkxcR4L7j1c04elvNHrdm5ttqyPWysmphDhOywkERQ12kZWFVAFwMcYkMfBA8XttLt3ENR~Q8REMASo6CxvKKUCMay8RJV7LxkUyVwmWyZeQO8l5Cf1Yp9rLK4KB7Tx0Kq~Z~ZkeDisiaESwGIcVFXLhRuPgn69nmeFPS9uk4WiyNG28g__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Music" class="hobby-image">
+                            <div class="hobby-content">
+                                <i class="fas fa-music"></i>
+                                <span>Nghe Nhạc</span>
+                            </div>
+                            <div class="hobby-overlay">
+                                <div class="hobby-overlay-text">🎵 Âm nhạc<br>Thư giãn mỗi ngày</div>
+                            </div>
+                        </div>
+
+                        <!-- Xem Bóng Đá -->
+                        <div class="hobby-item">
+                            <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/dUuG5pM0kImJYmCR.jpg?Expires=1771584826&Signature=LXjVkJDRmTZzAzgKEEAmNqW7u9I~ZawCHoHskDd63cfHQsNiNc2yrub54PL7F1-tw0WRgZfKsU0GXjgKi4TCUUugDCbWPGdvZjHWpu~RugPv1Exsl7-dC0IWW~4bRc8yibUOpsGXkxLKmhJv1ljwim0TAiKusGSvx9SdjpfVbS2j0QTn2VIO97U-pgHKxMsZOZXBw47JNGtu8D2yeNelAPgX~O-RLTp2Rnr1Lxz4Y4FZWv~QzLCxPRtZPbZ8cNhNRYeuhHYZOBKtG0JO-PzgmKWwuaZoFqW1k7eJQ5LzD15Xqr~XO~d7bX3V7mZFPGQpCpIJJway8FQQPjiYq8gp-A__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Football" class="hobby-image">
+                            <div class="hobby-content">
+                                <i class="fas fa-futbol"></i>
+                                <span>Xem Bóng Đá</span>
+                            </div>
+                            <div class="hobby-overlay">
+                                <div class="hobby-overlay-text">⚽ Real Madrid<br>Hala Madrid!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="real-badge"><i class="fas fa-crown"></i><span>Fan cuồng Real Madrid - Hala Madrid!</span><i class="fas fa-trophy"></i></div>
+                </div>
+
+                <!-- Niềm Tự Hào - KHÔNG CÓ ẢNH -->
+                <div class="profile-section">
+                    <h2 class="section-title"><i class="fas fa-trophy"></i><span>Niềm Tự Hào Của Tôi</span></h2>
+                    <p class="about-text"><strong>🏆 THPT số 2 Phù Cát</strong> - Ngôi trường mang trong mình một truyền thống vẻ vang. Dù chỉ là một ngôi trường ở huyện, nhưng đây đã từng là nơi đào tạo ra Thủ khoa toàn quốc. Điều đó chứng minh rằng: <em>"Không phải vị trí địa lý quyết định thành công, mà chính là ý chí, nỗ lực và sự quyết tâm của mỗi người."</em></p>
+                    <p class="about-text" style="margin-top:1rem">Tôi tự hào khi được là một phần của ngôi trường này, nơi đã và đang nuôi dưỡng những ước mơ và khát vọng của biết bao thế hệ học sinh. Tôi tin rằng, với sự cố gắng không ngừng, tôi cũng sẽ góp phần làm rạng danh cho ngôi trường thân yêu này!</p>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/rE9GoEmjQYLrajQ3.jpg?Expires=1771584826&Signature=CkPe3hXxMcLEE6zqAW1~wuirkGKjIVgroSwIsRh30D3~2IYbzPPMN4o-t-0yjYMrFjZxEDHjBbyPi0J3SQqpa4XfIn6uSICz0SzBcH0vmzS6bDc0GJP1AbT3ldcOUx0DsfGI8wm2rIMwZ6hJO~tQsvWJddQmmezGrck5WGkxcR4L7j1c04elvNHrdm5ttqyPWysmphDhOywkERQ12kZWFVAFwMcYkMfBA8XttLt3ENR~Q8REMASo6CxvKKUCMay8RJV7LxkUyVwmWyZeQO8l5Cf1Yp9rLK4KB7Tx0Kq~Z~ZkeDisiaESwGIcVFXLhRuPgn69nmeFPS9uk4WiyNG28g__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Nghe nhạc">
+                    <div class="gallery-label">🎵 Nghe Nhạc Thư Giãn</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/6hv5YPtmgZU6iGcq.jpg?Expires=1771584826&Signature=U~-Z116cT~-LJMlT7UXk8BlGBD1zF10or13fopxY3kiGry7JrnExmt2grk6hTQYJMG1enbrfHmqqLkE-ry32nX1sIk~SWR8EHh8OUUTGMMbuW-XiX1hQClHQUwJOdvg~bsxaHSxOvt6HHxlO6NlTlLnUFx3G8gYVv2UU-YRMyCRg8Q0DZxCmiOwNzxf7O1Y-tWdhFshumRCCEZqfDkHLq0GZSGE18IQT~HU-~1RUq2YcXR62-rsuVrwDFUs24qtH6b7bDj9sqXZjxtrgMliLhAymEv24QUnAdZcaS57XxIxctadP36A0rvdCG0xyvaXHuKYmL34n3rqhiu3lw7FXbw__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Chơi game">
+                    <div class="gallery-label">🎮 Gaming Setup</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/dUuG5pM0kImJYmCR.jpg?Expires=1771584826&Signature=LXjVkJDRmTZzAzgKEEAmNqW7u9I~ZawCHoHskDd63cfHQsNiNc2yrub54PL7F1-tw0WRgZfKsU0GXjgKi4TCUUugDCbWPGdvZjHWpu~RugPv1Exsl7-dC0IWW~4bRc8yibUOpsGXkxLKmhJv1ljwim0TAiKusGSvx9SdjpfVbS2j0QTn2VIO97U-pgHKxMsZOZXBw47JNGtu8D2yeNelAPgX~O-RLTp2Rnr1Lxz4Y4FZWv~QzLCxPRtZPbZ8cNhNRYeuhHYZOBKtG0JO-PzgmKWwuaZoFqW1k7eJQ5LzD15Xqr~XO~d7bX3V7mZFPGQpCpIJJway8FQQPjiYq8gp-A__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Real Madrid">
+                    <div class="gallery-label">⚽ Real Madrid - CR7</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/82047708/bwaa4RxfrACN3aOl.png?Expires=1771587204&Signature=CbnJwO2vMOKGzomPyY2a7~MlmzYPcjgpSBvaoYFzUhHiiPddLbdMCvGgX5CvAh~AznD4t~qQzR6bYTond0tSB7t6PQu~4wvacvv4NOtRlrvWtPwpIlLJNRYTQZiXfCp~o3Fydh6SAONY4iq2lFZ9pNiKOoEvG0~hICZyuU7lZPzEGWiWyjqy9zaRRn1mCbS1WMuogeVR8-lcvk4vUrl2u5ktPsFAilk~0MiXSx2QhKwFre7UbeasNXtCNLgsvcnLP88tow~Lg~PFr8QNK3EYOR9D7AmrAoueFt1AHsCwvKIPDgMsoB7QsvNcjOaDgpcZvSYpodRiZcZJMGim-XP2tw__&Key-Pair-Id=K3USGZIKWMDCSX" alt="Gia đình">
+                    <div class="gallery-label">👨‍👩‍👧‍👦 Gia Đình Hạnh Phúc</div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="footer">
+                <p>Made with <i class="fas fa-heart"></i> by Phan Hoàng Hiếu</p>
+                <p style="margin-top:0.5rem;font-size:0.85rem">© 2026 - THPT số 2 Phù Cát, Bình Định</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Đinh Trương Hồng Lộc</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+
+:root{
+    --main:#38515c;
+    --soft:#fff1ec;
+    --text:#2d2d2d;
+    --gray:#6b7280;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(120deg,#fff6f2,#ffe4dc);
+}
+
+/* HEADER */
+
+header{
+    background:white;
+    padding:25px 8%;
+    box-shadow:0 6px 20px rgba(0,0,0,0.05);
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    color:var(--main);
+}
+
+.tag{
+    color:var(--gray);
+}
+
+nav{
+    margin-top:15px;
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:500;
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    width:0%;
+    height:3px;
+    background:var(--main);
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* GRID */
+
+.container{
+    width:88%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:2.2fr 1fr;
+    gap:30px;
+}
+
+/* HERO POST */
+
+.hero{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.hero img{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+}
+
+.hero-content{
+    padding:30px;
+}
+
+.badge{
+    background:var(--soft);
+    color:var(--main);
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.hero h2{
+    margin:15px 0;
+    color:var(--text);
+}
+
+.meta{
+    color:var(--gray);
+    font-size:14px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:18px;
+    padding:12px 26px;
+    border-radius:30px;
+    background:linear-gradient(120deg,#ff7a5c,#ffb199);
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* SMALL POSTS */
+
+.posts{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.post{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+    transition:.3s;
+}
+
+.post:hover{
+    transform:translateY(-6px);
+}
+
+.post img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+.post-content{
+    padding:18px;
+}
+
+.post h4{
+    color:var(--text);
+    margin-bottom:6px;
+}
+
+.post p{
+    color:var(--gray);
+    font-size:14px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:22px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* ABOUT */
+
+.about{
+    text-align:center;
+}
+
+.about img{
+    width:95px;
+    height:95px;
+    border-radius:50%;
+    border:4px solid var(--soft);
+}
+
+.about h3{
+    margin-top:10px;
+}
+
+.social{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:12px;
+}
+
+.social div{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--main);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.social div:hover{
+    transform:scale(1.15);
+}
+
+/* SKILLS */
+
+.skill{
+    margin-top:12px;
+}
+
+.bar{
+    height:8px;
+    background:#eee;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:linear-gradient(120deg,#ff7a5c,#ffb199);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+    background:white;
+    padding:25px;
+    text-align:center;
+    color:gray;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .posts{
+        grid-template-columns:1fr;
+    }
+}
+html{scroll-behavior: smooth;}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="top">
+        <div>
+            <div class="logo">MY WEBSITE</div>
+            <div class="tag">Website cá nhân</div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Trang chủ</a>
+        <a href="#about">Giới thiệu</a>
+        <a href="#contact">Liên hệ</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div>
+
+        <div class="hero" id="home">
+            <img src="https://i.pinimg.com/736x/70/4a/fd/704afd4dd5a3f14f128b4bfbe7c46a41.jpg">
+
+            <div class="hero-content">
+                <h2>Xin chào, mình là Hồng Lộc</h2>
+                <p>Hôm nay mình rất vui được giới thiệu một chút về bản thân.</p>
+
+                
+            </div>
+        </div>
+
+        <div class="posts">
+
+            <div class="post" id="about">
+                <div class="post-content">
+                    <ul style="padding-left:30px">
+                        <li>Mình sinh ngày 02 tháng 07 năm 2008.</li>
+                        <li>Mình là học sinh lớp 12a1 trường THPT số 2 Phù Cát.</li>
+                        <li>Mình thích nghe nhạc vào những lúc rảnh rỗi. Mình rất thích các kì nghỉ như nghỉ tết hay nghỉ hè.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="post" id="contact">
+                <h4 style="color:black; padding-left:25px; margin-top:17px">Thông tin liên hệ:</h4>
+                <ul style="padding-left:45px">
+                    <li style="padding: top 10px;">Gmail: locdinh020708@gmail.com</li>
+                    <li>Điện thoại: 0349179458</li>
+                    <li><a href="https://www.facebook.com/loc.5889011/?locale=vi_VN" target="_blank" class="btn-contact"><i class="fab fa-facebook"></i> Facebook</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="card about">
+            <img src="https://i.pinimg.com/736x/fa/0d/ae/fa0daefd5687d93357e9c574b42121a1.jpg">
+            <h3>Đinh Trương Hồng Lộc</h3>
+            <p>Học sinh trường THPT số 2 Phù Cát.</p>
+
+            <div class="social">
+                <div>Đ</div>
+                <div>T</div>
+                <div>H</div>
+                <div>L</div>
+            </div>
+        </div>
+
+       
+
+    </div>
+
+</div>
+
+<footer>
+© 2026 - Website cá nhân
+</footer>
+
+</body>
+</html>

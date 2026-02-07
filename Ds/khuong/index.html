@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khương Hồ Ngọc</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#000;
+  color:white;
+  scroll-behavior:smooth;
+}
+
+/* ===== COVER (GIỮ NGUYÊN) ===== */
+.cover{
+  position:relative;
+  height:100vh;
+  background:url("cover.jpg") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.75));
+}
+.container{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:40px;
+  z-index:2;
+}
+.avatar{
+  width:200px;height:200px;border-radius:50%;
+  border:4px solid white;object-fit:cover;
+  box-shadow:0 0 25px rgba(255,255,255,0.4);
+}
+.music-btn{display:block;margin-top:18px;color:white;font-size:18px;text-decoration:none}
+.info h1{font-size:52px}
+.info h2{margin:10px 0;color:#dcdcdc}
+.info p{font-size:18px;opacity:0.9}
+.buttons button{
+  margin:15px 10px 0 0;padding:12px 22px;border:none;border-radius:25px;
+  background:white;color:black;font-weight:bold;cursor:pointer;
+}
+
+/* ===== SECTION ẢNH NỀN + GLASS ===== */
+.section{
+  position:relative;
+  min-height:100vh;
+  padding:100px 8%;
+  background:url("bg-section.jpg") center/cover fixed no-repeat;
+  display:flex;
+  align-items:center;
+}
+
+.section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(40,30,70,0.55);
+  backdrop-filter: blur(4px);
+}
+
+/* ===== GLASS CARD ===== */
+.card{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+  padding:50px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter: blur(18px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.4);
+  color:white;
+}
+
+.card-title{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 26px;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:22px;
+  margin-bottom:25px;
+  background:rgba(255,255,255,0.25);
+}
+
+.card p{
+  font-size:20px;
+  line-height:1.8;
+  opacity:0.95;
+}
+
+/* ===== LIÊN HỆ ===== */
+.contact-item{
+  margin:18px 0;
+  font-size:20px;
+}
+.contact-item a{
+  color:#90caf9;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* ===== KỶ NIỆM ===== */
+.memory-box{
+  margin-top:30px;
+}
+.memory-box a{
+  display:inline-block;
+  padding:15px 30px;
+  background:linear-gradient(135deg,#1877f2,#42a5f5);
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  border-radius:35px;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== COVER ===== -->
+<section class="cover">
+  <div class="overlay"></div>
+  <div class="container">
+    <div>
+      <img src="avatar.jpg" class="avatar">
+      <a class="music-btn" href="https://youtu.be/lfY2l8uDBC4" target="_blank">
+        🎵 Bấm vào đây để thư giãn!
+      </a>
+    </div>
+    <div class="info">
+      <h1>Hồ Ngọc Khương</h1>
+      <h2>Học sinh • Cuối cấp</h2>
+      <p>Đang học tại trường THPT số 2 Phù Cát.</p>
+      <div class="buttons">
+        <button onclick="gioithieu.scrollIntoView()">Giới thiệu</button>
+        <button onclick="sothich.scrollIntoView()">Sở thích</button>
+        <button onclick="muctieu.scrollIntoView()">Mục tiêu</button>
+        <button onclick="kyniem.scrollIntoView()">Kỷ niệm</button>
+        <button onclick="lienhe.scrollIntoView()">Liên hệ</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GIỚI THIỆU ===== -->
+<section id="gioithieu" class="section">
+  <div class="card">
+    <div class="card-title">👤 Giới thiệu</div>
+    <p>
+      Xin chào! Mình là Hồ Ngọc Khương – một học sinh luôn cố gắng hoàn thiện bản thân mỗi ngày.
+      Mình yêu thích học hỏi, trải nghiệm và trân trọng từng khoảnh khắc trong tuổi học trò.
+    </p>
+  </div>
+</section>
+
+<!-- ===== SỞ THÍCH ===== -->
+<section id="sothich" class="section">
+  <div class="card">
+    <div class="card-title">🎮 Sở thích</div>
+    <p>
+      Nghe nhạc, khám phá điều mới, tham gia hoạt động tập thể
+      và rèn luyện những kỹ năng cần thiết cho tương lai.
+    </p>
+  </div>
+</section>
+
+<!-- ===== MỤC TIÊU ===== -->
+<section id="muctieu" class="section">
+  <div class="card">
+    <div class="card-title">🎯 Mục tiêu học tập</div>
+    <p>
+      Học tập nghiêm túc, thi đỗ vào ngôi trường đại học phù hợp,
+      không ngừng phát triển tư duy, kỹ năng và bản lĩnh cá nhân.
+    </p>
+  </div>
+</section>
+
+<!-- ===== KỶ NIỆM ===== -->
+<section id="kyniem" class="section">
+  <div class="card">
+    <div class="card-title">📸 Kỷ niệm</div>
+    <p>
+      Những khoảnh khắc đáng nhớ trong hành trình trưởng thành của mình.
+    </p>
+    <div class="memory-box">
+      <a href="https://www.facebook.com/share/1HCTKTmdtW/?mibextid=wwXIfr" target="_blank">
+        📘 Xem kỷ niệm trên Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIÊN HỆ ===== -->
+<section id="lienhe" class="section">
+  <div class="card">
+    <div class="card-title">📞 Liên hệ</div>
+    <div class="contact-item">
+      📧 Gmail: <a href="mailto:Ngockhuong2k8@gmail.com">Ngockhuong2k8@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      🌐 Facebook: <a href="https://www.facebook.com/share/1DVW18Ehvt/?mibextid=wwXIfr" target="_blank">
+        Hồ Ngọc Khương
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
